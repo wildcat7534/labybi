@@ -14,18 +14,23 @@
 			<h2>Options</h2>
 			<ul>
 				<li id="formePlateau"><button>Changer de monde !</button></li>
-				<li id="shufflePlateau"><button>Shuffle les niveaux !</button><span></span></li>
-				<li id="optionLibre"><span>Facile : </span> Libre ! <span>(Vrais fin non disponible)</span></li>
+				<li id="shufflePlateau"><button>Shuffle les niveaux !</button></li>
+				<li id="optionLibre"><span>Facile : </span> Libre ! </li>
 				<li id="optionChrono"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
 				<li id="optionVSmontre"><span>Difficle : </span>Compte à rebours.</li>
 				<li id="optionRetourMenuJeux"><a href="menu.html"><< Retour Menu</a></li>
 			</ul>
+			<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 		</section>
 		
 		<button id="retourMenu">Menu</button>
-		<h1>META VERS ! : </h1>
-		<span id="chrono" ></span>
-		<span id="level" >Level 1</span>
+		<div id="titre">
+			<h1>META VERS !</h1>
+			<span id="level" >Level 1</span>
+			<div>
+				<span id="chrono" ></span>	
+			</div>
+		</div>
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer1">
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer2">
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer3">
@@ -34,7 +39,7 @@
 			<section id="game">
 				
 				<input type="checkbox" name="check" id="check">
-				<div class="plateau" id="plateau1"  style="background-image: url(images/fond/fondSpace7.jpg);">
+				<div class="plateau plateauNormal" id="plateau1"  style="background-image: url(images/fond/fondSpace7.jpg);">
 					<div id="chemin1" class="chemin chemin1 originPath"></div>
 				<div id="fin" class="divFin"></div>
 					<div id="chemin_fin"></div>
@@ -47,7 +52,7 @@
 				</div>
 				
 				<input type="checkbox" name="check" id="check2">
-				<div class="plateau" style="background-image: url(images/fond/fondSpace8.jpeg);">
+				<div class="plateau plateauNormal" style="background-image: url(images/fond/fondSpace8.jpeg);">
 				<div id="chemin2" class="chemin chemin2 originPath"></div>
 					<div id="chemin2d" class="chemin chemin2 originPath"></div>
 					<div id="chemin2a" class="chemin chemin2 originPath"></div>
@@ -63,7 +68,7 @@
 				</div>
 
 				<input type="checkbox" name="check" id="check3">
-				<div class="plateau" style="background-image: url(images/fond/fondSpace2.jpg);" >
+				<div class="plateau plateauNormal" style="background-image: url(images/fond/fondSpace2.jpg);" >
 					<div id="chemin3" class="chemin chemin3 originPath"></div>
 					<div id="chemin3g" class="chemin chemin3 originPath"></div>
 					<div id="chemin3a" class="chemin chemin3 originPath"></div>
@@ -79,7 +84,7 @@
 				</div>
 
 				<input type="checkbox" name="check" id="check4">
-				<div class="plateau" style="background-image: url(images/fond/fondSpace6.jpg);" >
+				<div class="plateau plateauNormal" style="background-image: url(images/fond/fondSpace6.jpg);" >
 					<div id="chemin4" class="chemin chemin4 originPath"></div>
 					<div id="chemin4h" class="chemin chemin4 originPath"></div>
 					<div id="chemin4a" class="chemin chemin4 originPath"></div>
@@ -98,7 +103,7 @@
 				</div>
 
 				<input type="checkbox" name="check" id="check5">
-				<div class="plateau">
+				<div class="plateau plateauNormal">
 					
 					<div id="win">Bravo !</div>
 

@@ -50,17 +50,20 @@ span, h3, p{
 }
 #labyMenu ul{
     margin-top: 7em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 #labyMenu ul li{
     list-style-type: none;
 	color: darkgoldenrod;
-    font-size: 3em;
+    font-size: 2.2em;
     margin: 20px auto;
     cursor: crosshair;
-    display: flex;
+    display: inline;
     justify-content: center;
+    font-family: Karatula;
 }
-
 #labyMenu ul li#optionRetourMenuJeux{
     position: absolute;
     bottom: 5%;
@@ -70,8 +73,8 @@ span, h3, p{
     background-size: 100%;
 }
 #labyMenu li:first-child{
-    margin: 0 300px;
-}
+/*    margin: 0 300px;
+*/}
 #labyMenu li#formePlateau button{
     color: cornsilk;
     width: 100px;
@@ -88,8 +91,12 @@ span, h3, p{
     background: linear-gradient(90deg,#0047ff 0%, #129c12 80%);
     color: gold;
 }
-#optionLibre span:nth-child(2){
-    font-size: 0.6em;
+#pasFin{
+    font-size: 2em;
+    color: goldenrod;
+    position: absolute;
+    color: red;
+    display: none;
 }
 #shufflePlateau button{
     color: goldenrod;
@@ -106,18 +113,22 @@ span, h3, p{
 #retourMenu{
     position: absolute;
     top: 2%;
-    left: 44%;
-    width: 100px;
-    height: 25px;
+    right: 5%;
+    width: 135px;
+    height: 40px;
     z-index: 5;
-    background: cornflowerblue;
+    background: black;
+    font-family: "Codystar";
+    color: gold;
+    font-size: 2.7em;
 }
+
 #optionRetourMenuJeux a{
     text-decoration: none;
     color: aliceblue;
 }
 #optionRetourMenuJeux a:hover{
-    color: goldenrod;
+    color: antiquewhite;
 }
 #saucer1{
     top: 18%;
@@ -142,29 +153,60 @@ span, h3, p{
 
     animation-duration: 2s;
 }
-h1{
+#titre{
     position: absolute;
+    top: 43px;
+    left: 38px;
+    z-index: 10;
+    background: blueviolet;
+    border: 5px ridge aquamarine;
+    width: 200px;
+}
+#titre div{
+    border: 5px ridge cornflowerblue;
+    box-sizing: border-box;
+}
+h1{
+/*  position: absolute;
+*/ 
     color: cyan;
     top: 10%;
     left: 2%;
     z-index: 1;
-    font-size: 2.2em;
+    font-size: 1.7em;
     text-shadow: 9px 0px 3px rgba(47,90,215,0.8);
+    text-align: center;
+}
+#level{
+/*  position: absolute;
+*/  
+    top: 10%;
+    left: 28%;
+    font-size: 1.6em;
+    color: aliceblue;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 #chrono{
-    position: absolute;
+/*    position: absolute;
+*/    
     z-index: 10;
     top: 10%;
     right: 5%;
-    font-size: 2.4em;
-    width: 250px;
-    height: 50px;
+    font-size: 1.8em;
     color: darkgoldenrod;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 0%;
 }
+
 #boite{
-	background-color: cadetblue;
+    background-color: cadetblue;
     background-image: url(outils/laby_space.png);
-	background-image: url(images/fond/fondSpace5.jpg);
+    background-image: url(images/fond/fondSpace5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -181,21 +223,13 @@ h1{
     background-image: url(outils/laby_space.png);
 }
 #game{
-	transform: rotate(45deg);
-	position: relative;
+    transform: rotate(45deg);
+    position: relative;
     z-index: 10;
     opacity: 1;
 
     animation-duration: 2s;
     animation-fill-mode: forwards;
-}
-#level{
-    position: absolute;
-    top: 10%;
-    left: 28%;
-    font-size: 2.3em;
-    color: aliceblue;
-    z-index: 1;
 }
 .plateau{
 	background-color: indianred;
@@ -503,8 +537,43 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 }
 @media screen and (min-width: 1024px){
 	/* CSS poour les ordianteurs */
-	body{
-		
-		}
+
+    h1{
+        font-size: 4em;
+    }
+    #chrono{
+        z-index: 10;
+        top: 10%;
+        right: 5%;
+        font-size: 2.8em;
+        width: 250px;
+        height: 50px;
+        color: darkgoldenrod;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    #labyMenu ul li#optionRetourMenuJeux{
+        position: absolute;
+        bottom: 5%;
+        left: 42%;
+    }
+    #titre{
+        top: 75px;
+        left: 110px;
+        width: 300px;
+    }
+
+    #level{
+        font-size: 3em;
+    }
+    #retourMenu{
+        right: 0;
+        left: 42%;
+        width: 130px;
+        height: 30px;
+    }
 
 }

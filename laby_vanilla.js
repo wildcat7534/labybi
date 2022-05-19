@@ -18,7 +18,8 @@ var bordDroite = document.querySelector('#bordDroite');
 var nextLevels = document.querySelectorAll('.nextLevel');
 var cssRond = document.querySelector('#plateauRond');
 var boite = document.querySelector('#boite');
-
+/*var "👾" = document.querySelector('#titre'); 
+*/
 var label_gagner = document.querySelector("#label_gagner");
 
 var interval;
@@ -26,6 +27,7 @@ var timesUP = 5;
 var temps = 0;
 var win = null;
 var chronoDisplay;
+var mondeRond = false;
 var bouton_menu = document.querySelector('#menu button');
 var ul_menu = document.querySelector('#menu ul');
 var menu_chrono = document.querySelector('#optionChrono');
@@ -48,7 +50,10 @@ for( var choixOpt of choixOptions ){
 			chronos();
 		}else if( this.id == 'shufflePlateau' ){
 			 deleteOldPath();
+			 copyTab()
+			 numPlateau = 0;
 			 randomLevel();
+			 replaceCopytab();
 		}
 
 	});
@@ -63,7 +68,8 @@ function changeWorld(){
 	for(var plateau of plateaux ){
 		if( plateau.classList.contains('plateauRond') ){
 
-			plateau.classList.remove('plateauRond');
+			plateau.classList.replace('plateauRond', 'plateauNormal');
+			mondeRond = false;
 
 			for( var perdu of perdus ){
 				perdu.classList.remove('perduRond');
@@ -80,7 +86,8 @@ function changeWorld(){
 		}else{
 
 			cssRond.setAttribute('href', 'laby_vanilla_rond.css');
-			plateau.classList.add('plateauRond');
+			plateau.classList.replace('plateauNormal', 'plateauRond');
+			mondeRond = true;
 			for( var perdu of perdus){
 				perdu.classList.add('perduRond');
 			}
@@ -100,6 +107,7 @@ function changeWorld(){
 function reloadGame(){
 	clearTimeout(interval);
 	clearInterval(chronoDisplay);
+	numPlateau = 0;
 	win = null;
 	temps = 0;
 	timesUP = 5;
@@ -108,6 +116,7 @@ function reloadGame(){
 	labyMenu.style.display = 'none';
 	gamePlateau.style.animationName = '';
 	chrono.innerHTML = '';
+	chrono.style.color = '';
 
 	for( var check of checks ){
 
@@ -170,7 +179,7 @@ function chronoTimer(){
 		win = false;
 	}
 
-	var rest = ( timesUP - temps );
+	let rest = ( timesUP - temps );
 	
 	chrono.innerHTML = "Time : "
 						+temps
@@ -178,11 +187,11 @@ function chronoTimer(){
 						+timesUP
 						+" secondes !";
 
-	if( rest > 4 ){
+	if( rest > 3 ){
 	
 		chrono.classList.remove('urgent');
 	}
-	else if( rest < 4 && rest > 0 ){
+	else if( rest <= 3 && rest > 0 ){
 
 		chrono.classList.add('urgent');
 
@@ -337,7 +346,8 @@ var numPiks = new Array();
 numPiks = [3, 2, 1, 0];
 
 var test = 0;
-var NumPlateau = 0;
+var numPlateau = 0;
+var copyT = {};
 
 function shuffle(){ //shuffle un numéro dans numPiks puis l'enlève.
 
@@ -355,10 +365,18 @@ function shuffle(){ //shuffle un numéro dans numPiks puis l'enlève.
 	
 	return choixAenvoyer;
 }
-
+function copyTab(){
+	let copyT = balades.slice();
+	return copyT;
+}
+function replaceCopytab(){
+	
+	let balades = copyT.slice();
+	return balades;
+}
 function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au hasard.
 
-	while( test <= 3 ){
+	while( numPlateau <= 4 && mondeRond == false  ){
 
 		var choix = shuffle();
 
@@ -373,12 +391,12 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex[nbDiv].classList.add('chemin');
 			}
 
-			console.log("Labyrinthe 0 crée ! au lvl : ", NumPlateau);
+			console.log("Labyrinthe 0 crée ! au lvl : ", numPlateau);
 
 			ex[0].style.gridArea = balades[0].sentiera[0]+"/"+balades[0].sentiera[1]+"/"
 								  +balades[0].sentiera[2]+"/"+balades[0].sentiera[3];
 				
-			plateaux[NumPlateau].insertBefore(ex[0], divFin[NumPlateau]);
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
 		
 
 		}
@@ -391,7 +409,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex[nbDiv].classList.add('chemin');
 			}
 
-			console.log("Labyrinthe 1 crée ! au lvl : ", NumPlateau);
+			console.log("Labyrinthe 1 crée ! au lvl : ", numPlateau);
 
 			ex[0].style.gridArea = balades[1].sentiera[0]+"/"+balades[1].sentiera[1]+"/"
 								  +balades[1].sentiera[2]+"/"+balades[1].sentiera[3];
@@ -400,9 +418,9 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 			ex[2].style.gridArea = balades[1].sentierc[0]+"/"+balades[1].sentierc[1]+"/"
 								  +balades[1].sentierc[2]+"/"+balades[1].sentierc[3];
 
-			plateaux[NumPlateau].insertBefore(ex[0], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[1], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[2], divFin[NumPlateau]);
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
 							 
 		}
 
@@ -416,7 +434,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex[nbDiv].classList.add('chemin');
 			}
 
-			console.log("Labyrinthe 2 crée ! au lvl : ", NumPlateau);
+			console.log("Labyrinthe 2 crée ! au lvl : ", numPlateau);
 
 			ex[0].style.gridArea = balades[2].sentiera[0]+"/"+balades[2].sentiera[1]+"/"
 							  	  +balades[2].sentiera[2]+"/"+balades[2].sentiera[3];
@@ -425,9 +443,9 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 			ex[2].style.gridArea = balades[2].sentierc[0]+"/"+balades[2].sentierc[1]+"/"
 								  +balades[2].sentierc[2]+"/"+balades[2].sentierc[3];
 
-			plateaux[NumPlateau].insertBefore(ex[0], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[1], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[2], divFin[NumPlateau]);
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
 		}
 
 		else if( choix == 3 ){
@@ -440,7 +458,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex[nbDiv].classList.add('chemin');
 			}
 
-			console.log("Labyrinthe 3 crée ! au lvl : ", NumPlateau);
+			console.log("Labyrinthe 3 crée ! au lvl : ", numPlateau);
 
 			ex[0].style.gridArea  = balades[3].sentiera[0]+"/"+balades[3].sentiera[1]+"/"
 								   +balades[3].sentiera[2]+"/"+balades[3].sentiera[3];
@@ -453,16 +471,122 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 			ex[4].style.gridArea = balades[3].sentiere[0]+"/"+balades[3].sentiere[1]+"/"
 								  +balades[3].sentiere[2]+"/"+balades[3].sentiere[3];
 
-			plateaux[NumPlateau].insertBefore(ex[0], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[1], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[2], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[3], divFin[NumPlateau]);
-			plateaux[NumPlateau].insertBefore(ex[4], divFin[NumPlateau]);
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[3], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[4], divFin[numPlateau]);
 		}
 
-		NumPlateau++;
+		numPlateau++;
+		
+	}
+	while( numPlateau <= 4 && mondeRond == true ){
 
-		test++;
+
+		var choix = shuffle();
+
+		console.log("Numéro choix tiré : ", choix);
+
+		if( choix == 0 ){
+
+			let ex = new Array();
+			for( var nbDiv = 0; nbDiv < Object.keys(baladesRondes[choix]).length; nbDiv++ ){
+				ex.push(document.createElement('div'));
+				ex[nbDiv].style.backgroundColor = 'aliceblue';
+				ex[nbDiv].classList.add('chemin');
+			}
+
+			console.log("Labyrinthe 0 crée ! au lvl : ", numPlateau);
+
+			ex[0].style.gridArea = baladesRondes[0].sentiera[0]+"/"+baladesRondes[0].sentiera[1]+"/"
+								  +baladesRondes[0].sentiera[2]+"/"+baladesRondes[0].sentiera[3];
+				
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+		
+
+		}
+		else if( choix == 1 ){
+
+			let ex = new Array();
+			for( var nbDiv = 0; nbDiv < Object.keys(baladesRondes[choix]).length; nbDiv++ ){
+				ex.push(document.createElement('div'));
+				ex[nbDiv].style.backgroundColor = 'aliceblue';
+				ex[nbDiv].classList.add('chemin');
+			}
+
+			console.log("Labyrinthe 1 crée ! au lvl : ", numPlateau);
+
+			ex[0].style.gridArea = baladesRondes[1].sentiera[0]+"/"+baladesRondes[1].sentiera[1]+"/"
+								  +baladesRondes[1].sentiera[2]+"/"+baladesRondes[1].sentiera[3];
+			ex[1].style.gridArea = baladesRondes[1].sentierb[0]+"/"+baladesRondes[1].sentierb[1]+"/"
+								  +baladesRondes[1].sentierb[2]+"/"+baladesRondes[1].sentierb[3];
+			ex[2].style.gridArea = baladesRondes[1].sentierc[0]+"/"+baladesRondes[1].sentierc[1]+"/"
+								  +baladesRondes[1].sentierc[2]+"/"+baladesRondes[1].sentierc[3];
+
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
+							 
+		}
+
+		else if( choix == 2 ){
+
+			let ex = new Array();
+			for( var nbDiv = 0; nbDiv < Object.keys(baladesRondes[choix]).length; nbDiv++ ){
+
+				ex.push(document.createElement('div'));
+				ex[nbDiv].style.backgroundColor = 'aliceblue';
+				ex[nbDiv].classList.add('chemin');
+			}
+
+			console.log("Labyrinthe 2 crée ! au lvl : ", numPlateau);
+
+			ex[0].style.gridArea = baladesRondes[2].sentiera[0]+"/"+baladesRondes[2].sentiera[1]+"/"
+							  	  +baladesRondes[2].sentiera[2]+"/"+baladesRondes[2].sentiera[3];
+			ex[1].style.gridArea = baladesRondes[2].sentierb[0]+"/"+baladesRondes[2].sentierb[1]+"/"
+								  +baladesRondes[2].sentierb[2]+"/"+baladesRondes[2].sentierb[3];
+			ex[2].style.gridArea = baladesRondes[2].sentierc[0]+"/"+baladesRondes[2].sentierc[1]+"/"
+								  +baladesRondes[2].sentierc[2]+"/"+baladesRondes[2].sentierc[3];
+
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
+		}
+
+		else if( choix == 3 ){
+
+			let ex = new Array();
+			for( var nbDiv = 0; nbDiv < Object.keys(baladesRondes[choix]).length; nbDiv++ ){
+
+				ex.push(document.createElement('div'));
+				ex[nbDiv].style.backgroundColor = 'aliceblue';
+				ex[nbDiv].classList.add('chemin');
+			}
+
+			console.log("Labyrinthe 3 crée ! au lvl : ", numPlateau);
+
+			ex[0].style.gridArea  = baladesRondes[3].sentiera[0]+"/"+baladesRondes[3].sentiera[1]+"/"
+								   +baladesRondes[3].sentiera[2]+"/"+baladesRondes[3].sentiera[3];
+			ex[1].style.gridArea = baladesRondes[3].sentierb[0]+"/"+baladesRondes[3].sentierb[1]+"/"
+								  +baladesRondes[3].sentierb[2]+"/"+baladesRondes[3].sentierb[3];
+			ex[2].style.gridArea = baladesRondes[3].sentierc[0]+"/"+baladesRondes[3].sentierc[1]+"/"
+								  +baladesRondes[3].sentierc[2]+"/"+baladesRondes[3].sentierc[3];
+			ex[3].style.gridArea = baladesRondes[3].sentierd[0]+"/"+baladesRondes[3].sentierd[1]+"/"
+								  +baladesRondes[3].sentierd[2]+"/"+baladesRondes[3].sentierd[3];
+			ex[4].style.gridArea = baladesRondes[3].sentiere[0]+"/"+baladesRondes[3].sentiere[1]+"/"
+								  +baladesRondes[3].sentiere[2]+"/"+baladesRondes[3].sentiere[3];
+
+			plateaux[numPlateau].insertBefore(ex[0], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[1], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[2], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[3], divFin[numPlateau]);
+			plateaux[numPlateau].insertBefore(ex[4], divFin[numPlateau]);
+		}
+
+		numPlateau++;
+		
+
 	}
 };
 
@@ -474,6 +598,55 @@ function deleteOldPath(){
 		path.classList.add('hide');
 	}
 };
+function razNumPlateau(){
+	numPlateau = 0;
+}
+
+//-----------menu contextuel-------------pasFin dispo----------------------------
+var pos;
+var optionLibre = document.querySelector('#optionLibre');
+var pasFin = document.querySelector('#pasFin');
+
+optionLibre.addEventListener('mouseout', function(){
+
+	pasFin.style.display = 'none';
+
+})
+optionLibre.addEventListener('mouseenter', function(){
+	
+		pasFin.style.display = 'inline';
+})
+optionLibre.addEventListener('mousemove', function(e){
+
+	 pos = {"x": e.clientX, "y": e.clientY};
+	 pos.y += 15;
+	 pos.x += 15;
+	 pasFin.style.top = pos.y + "px";
+	 pasFin.style.left = pos.x + "px";
+})
+
+var optionChrono = document.querySelector('#optionChrono');
+
+optionChrono.addEventListener('mouseout', function(){
+
+	pasFin.style.display = 'none';
+
+})
+optionChrono.addEventListener('mouseenter', function(){
+	
+		pasFin.style.display = 'inline';
+})
+optionChrono.addEventListener('mousemove', function(e){
+
+	 pos = {"x": e.clientX, "y": e.clientY};
+	 pos.y += 15;
+	 pos.x += 15;
+	 pasFin.style.top = pos.y + "px";
+	 pasFin.style.left = pos.x + "px";
+})
+
+
+
 
 
 
