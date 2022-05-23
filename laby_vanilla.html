@@ -10,21 +10,25 @@
 	</head>
 
 	<body>
+		<div id="metalTop"><div id="bandeDanger"></div></div>
 		<section id="labyMenu">
+			<div>
 			<h2>Options</h2>
 			<ul>
-				<li id="formePlateau"><button>Changer de monde !</button></li>
-				<li id="shufflePlateau"><button>Shuffle les niveaux !</button></li>
-				<li id="optionLibre"><span>Facile : </span> Libre ! </li>
-				<li id="optionChrono"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
-				<li id="optionVSmontre"><span>Difficle : </span>Compte à rebours.</li>
-				<li id="optionRetourMenuJeux"><a href="menu.html"><< Retour Menu</a></li>
+				<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button>Changer de monde !</button></li>
+				<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
+				<li id="optionLibre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Facile : </span> Libre ! </li>
+				<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
+				<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficle : </span>Compte à rebours.</li>
+				<li id="optionRetourPartie"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
+				<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="menu.html"><<< Changer de cartouche.</a></li>
 			</ul>
 			<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
+			</div>
 		</section>
 		
 		<button id="retourMenu">Menu</button>
-		<div id="titre">
+		<div id="scoreScreen">
 			<h1>META VERS !</h1>
 			<span id="level" >Level 1</span>
 			<div>
@@ -115,7 +119,7 @@
 			</section>
 				
 		</section>
-
+		<div id="metalBottom"><div id="bandeDanger2"></div></div>
 		<script type="text/javascript" src="laby_vanilla.js"></script>
 	</body>
 </html>

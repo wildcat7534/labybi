@@ -42,6 +42,9 @@ span, h3, p{
 
     align-items: center;
 }
+#labyMenu div{
+    text-align: center;
+}
 #labyMenu h2{
     font-family: "raleLight";
     color: darkkhaki;
@@ -51,23 +54,58 @@ span, h3, p{
 #labyMenu ul{
     margin-top: 7em;
     display: flex;
-    flex-wrap: wrap;
+
     flex-direction: column;
 }
 #labyMenu ul li{
     list-style-type: none;
-	color: darkgoldenrod;
+    color: darkgoldenrod;
     font-size: 2.2em;
-    margin: 20px auto;
+    margin: 1em auto;
     cursor: crosshair;
     display: inline;
-    justify-content: center;
+
     font-family: Karatula;
+    position: relative;
 }
-#labyMenu ul li#optionRetourMenuJeux{
+#labyMenu #imgMenu{
+    width: 15px;
+    left: -29px;
+    top: 0;
     position: absolute;
-    bottom: 5%;
-    left: 33%;
+    display: none;
+}
+#labyMenu ul li:hover #imgMenu{
+    display: inline;
+}
+#textDanger{
+    background-image: url(images/textures/ligneDanger.png);
+    width: 160px;
+    height: 31px;
+    padding-left: 10px;
+    padding-right: 8px;
+    padding-top: 3px;
+    margin: 0 auto;
+    background-position-x: -7px;
+    background-position-y: -7px;
+    box-shadow: 0px 1px 53px 17px rgba(230,255,152,0.75);
+}
+#shufflePlateau button{
+    color: goldenrod;
+    width: 150px;
+}
+
+#labyMenu ul li#optionRetourCartoucheDeJeux{
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+}
+#optionRetourCartoucheDeJeux a{
+    text-decoration: none;
+    color: aliceblue;
+}
+#optionRetourCartoucheDeJeux a:hover{
+    color: antiquewhite;
 }
 .plateau{
     background-size: 100%;
@@ -98,17 +136,16 @@ span, h3, p{
     color: red;
     display: none;
 }
-#shufflePlateau button{
-    color: goldenrod;
-    width: 150px;
-}
 #labyMenu ul li:hover{
     color: gold;
 }
-#labyMenu ul li span:first-child{
+#labyMenu ul li span{
     color: darkkhaki;
     font-size: 1.1em;
     width: 125px;
+}
+#labyMenu div ul #optionVSmontre{
+    margin-bottom: 6%;
 }
 #retourMenu{
     position: absolute;
@@ -122,13 +159,52 @@ span, h3, p{
     color: gold;
     font-size: 2.7em;
 }
+#metalTop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0vh;
+    z-index: 1000;
+    background-image: url(images/textures/metal5.jpg);
 
-#optionRetourMenuJeux a{
-    text-decoration: none;
-    color: aliceblue;
+    overflow: hidden;
+
+    animation-duration: 2s;
 }
-#optionRetourMenuJeux a:hover{
-    color: antiquewhite;
+#metalBottom{
+    width: 100%;
+    height: 0vh;
+    background-image: url(images/textures/metal5.jpg);
+
+    position: absolute;
+    bottom: 0;
+    z-index: 1000;
+    overflow: hidden;
+    
+    animation-duration: 2s;
+}
+#bandeDanger{
+    width: 100%;
+    height: 20px;
+    background-image: url(images/textures/ligneDanger.png);
+
+    position: absolute;
+    bottom: 0px;
+    background-size: 110%;
+    background-position-y: -9px;
+    background-position-x: -41px;
+}
+#bandeDanger2{
+    width: 100%;
+    height: 20px;
+    background-image: url(images/textures/ligneDanger.png);
+
+    position: absolute;
+    top: 0px;
+    background-size: 110%;
+    background-position-y: -9px;
+    background-position-x: -41px;
 }
 #saucer1{
     top: 18%;
@@ -153,7 +229,7 @@ span, h3, p{
 
     animation-duration: 2s;
 }
-#titre{
+#scoreScreen{
     position: absolute;
     top: 43px;
     left: 38px;
@@ -162,7 +238,7 @@ span, h3, p{
     border: 5px ridge aquamarine;
     width: 200px;
 }
-#titre div{
+#scoreScreen div{
     border: 5px ridge cornflowerblue;
     box-sizing: border-box;
 }
@@ -192,12 +268,8 @@ h1{
 #chrono{
 /*    position: absolute;
 */    
-    z-index: 10;
-    top: 10%;
-    right: 5%;
     font-size: 1.8em;
     color: darkgoldenrod;
-    display: inline-block;
     width: 100%;
     text-align: center;
     margin-top: 0%;
@@ -221,6 +293,9 @@ h1{
     background-image: none;
     box-sizing: border-box;
     background-image: url(outils/laby_space.png);
+    background-image: url(images/textures/ligneDanger.png);
+    background-size: 100%;
+    background-repeat: repeat;
 }
 #game{
     transform: rotate(45deg);
@@ -309,6 +384,16 @@ h1{
     font-size: 3.2em;
 }
 
+@keyframes topDown{
+    0%{height: 0vh;}
+    50%{height: 50vh;}
+    100%{height: 0vh;}
+}
+@keyframes bottomTop{
+    0%{height: 0vh;}
+    50%{height: 50vh;}
+    100%{height: 0vh;}
+}
 
 @keyframes vite{
 	0%{color: red; opacity: 0;}
@@ -503,8 +588,8 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 }
 #debug{
     display: flex;
-    width: auto;
-    height: auto;
+    flex-wrap: wrap;
+    width: 160px;
     background-color: cadetblue;
     color: darkkhaki;
     font-weight: bolder;
@@ -519,7 +604,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     display: block;
     margin: 4px;
 }
-.originPath.hide{
+.hide{
     display: none;
 }
 
@@ -535,21 +620,31 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 
 	
 }
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1124px){
 	/* CSS poour les ordianteurs */
 
     h1{
         font-size: 4em;
     }
+    #metalTop{
+        background-size: cover;
+    }
+    #metalBottom{
+        background-size: cover;
+    }
+    #bandeDanger{
+        background-size: 110%;
+    }
+    #bandeDanger2{
+        background-size: 110%;
+    }
+
     #chrono{
-        z-index: 10;
-        top: 10%;
-        right: 5%;
         font-size: 2.8em;
         width: 250px;
         height: 50px;
         color: darkgoldenrod;
-        display: inline-block;
+
         width: 100%;
         text-align: center;
         margin-top: 5%;
@@ -560,20 +655,29 @@ input:checked + .plateau + input:not(:checked) + .plateau{
         bottom: 5%;
         left: 42%;
     }
-    #titre{
-        top: 75px;
-        left: 110px;
-        width: 300px;
+    #scoreScreen{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 126px;
+        box-sizing: border-box;
+    }#scoreScreen div{
+        height: 50px;
+        position: absolute;
+        top: 36px;
+        left: 12%;
+        width: auto;
     }
 
     #level{
         font-size: 3em;
     }
     #retourMenu{
-        right: 0;
-        left: 42%;
+        top: 45px;
+        left: 1500px;
         width: 130px;
-        height: 30px;
+        z-index: 17;
+
     }
 
 }

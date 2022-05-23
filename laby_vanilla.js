@@ -1,4 +1,3 @@
-/*"use strict";*/
 var chrono = document.querySelector('#chrono');
 var perdus = document.querySelectorAll(".perdu");
 var level = document.querySelector('#level');
@@ -27,41 +26,98 @@ var timesUP = 5;
 var temps = 0;
 var win = null;
 var chronoDisplay;
+var chronoRunning = false;
+var chronoTimerRunning = false;
 var mondeRond = false;
 var bouton_menu = document.querySelector('#menu button');
 var ul_menu = document.querySelector('#menu ul');
 var menu_chrono = document.querySelector('#optionChrono');
 var menu_timeUP = document.querySelector('#optionVSmontre');
 
+transiMetal();
+
 for( var choixOpt of choixOptions ){
 	choixOpt.addEventListener('click', function(){
-		if( this.id == 'optionVSmontre' ){
-			reloadGame();
-
-			chronoDisplay = setInterval(chronoTimer, 1000);
-			gameEnCour();
-		}else if( this.id == 'formePlateau' ){
+		if( this.id == 'formePlateau' ){
+			deleteNewPath();
 			changeWorld();
-		}else if( this.id == 'optionLibre' ){
-
-			reloadGame();
-		}else if( this.id == 'optionChrono' ){
-			reloadGame();
-			chronos();
 		}else if( this.id == 'shufflePlateau' ){
 			 deleteOldPath();
-			 copyTab()
+			 deleteNewPath();
+			 var copyNumPiks = copyTabNumPiks();
 			 numPlateau = 0;
 			 randomLevel();
-			 replaceCopytab();
+		}else if( this.id == 'optionLibre' ){
+			transiMetal();
+
+			setTimeout(function(){
+
+				reloadGame();
+			
+			}, 1050)
+
+		}else if( this.id == 'optionChrono' ){
+			transiMetal();
+
+			setTimeout(function(){
+
+				reloadGame();
+				chronos();
+		
+			}, 1000)
+		}else if( this.id == 'optionVSmontre' ){
+			transiMetal();
+
+			setTimeout(function(){
+
+				reloadGame();
+
+				gameEnCour();
+				chronoTimer();
+
+			}, 1000)
+		}else if( this.id == 'optionRetourPartie' ){
+
+			labyMenu.style.display = 'none';
+			if( chronoRunning == true ){
+				chronos();
+				
+			}else if( chronoTimerRunning == true ){
+
+				chronoTimer();	
+			}
+
 		}
 
 	});
 };
 retourMenu.addEventListener('click', function(){
-	labyMenu.style.display = 'flex';
+	transiMetal();
+	clearTimeout(interval);
+	clearInterval(chronoDisplay);
+
+	setTimeout(function(){
+
+		labyMenu.style.display = 'flex';
+		
+	}, 1000)
+
 });
 
+
+function transiMetal(){
+
+	var metalTop = document.querySelector('#metalTop')
+	var metalBottom = document.querySelector('#metalBottom')
+	
+	metalTop.style.animationName = "topDown";
+	metalBottom.style.animationName = "bottomTop";
+
+	setTimeout(function(){
+		metalTop.style.animationName = "";
+		metalBottom.style.animationName = "";
+	}, 2500)
+}
 
 function changeWorld(){
 	cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
@@ -105,8 +161,11 @@ function changeWorld(){
 }
 
 function reloadGame(){
+	chronoRunning = false;
+	chronoTimerRunning = false;
 	clearTimeout(interval);
-	clearInterval(chronoDisplay);
+	clearTimeout(gameEnCour);
+	clearTimeout(chronoDisplay);
 	numPlateau = 0;
 	win = null;
 	temps = 0;
@@ -117,6 +176,8 @@ function reloadGame(){
 	gamePlateau.style.animationName = '';
 	chrono.innerHTML = '';
 	chrono.style.color = '';
+	chrono.classList.remove('urgent');
+	var copyNumPiks = copyTabNumPiks();
 
 	for( var check of checks ){
 
@@ -135,6 +196,7 @@ function chronos(){
 	chrono.innerHTML = temps
 						+" secondes écoulées !";
 	temps++;
+	chronoRunning = true;
 }
 
 //pour le VS la montre
@@ -172,6 +234,11 @@ function gameEnCour(){
 
 //l'affichage du Chrono
 function chronoTimer(){
+
+	chronoDisplay = setTimeout(chronoTimer, 1000);
+
+	chronoTimerRunning = true;
+
 	temps++
 
 	if( temps > timesUP ){
@@ -246,26 +313,55 @@ function plateauAnnimeFin(){
 };
 
 
-//------------------------------------------------------//
-// --------------------- Dev MODE -------------------- //
+//-------------------------------------------------------------------------//
+//---------------------------------------------------------------------------//
+// -------------------------------- Dev MODE --------------------------------- //
+//---------------------------------------------------------------------------//
+//--------------------------------------------------------------------------//
+//-------------------------------------------------------------------------//
 var divDebug = document.createElement('div');
+var divDev = document.createElement('div');
 var labelDebug = document.createElement('label');
+var labelClose = document.createElement('label');
 var inputDebug = document.createElement('input');
+var inputClose = document.createElement('input');
 divDebug.id = 'debug';
 labelDebug.setAttribute('for', 'godMod');
 inputDebug.id = 'godMod'
 
+labelClose.setAttribute('for', 'closeDoor');
+inputClose.id = 'closeDoor'
+
+
 inputDebug.setAttribute('type', 'checkbox');
+inputClose.setAttribute('type', 'checkbox');
 
 document.body.appendChild(divDebug);
+
+divDebug.appendChild(divDev);
+divDev.innerHTML = '[DEV mode]';
+divDev.style.margin = '-2px auto 8px';
+
 divDebug.appendChild(labelDebug);
 divDebug.appendChild(inputDebug);
 
-labelDebug.innerHTML = '[Dev mod] GodMod -->';
+divDebug.appendChild(labelClose);
+divDebug.appendChild(inputClose);
+
+labelDebug.style.width = "50%";
+
+
+labelDebug.innerHTML = 'GodMod    -->';
+labelClose.innerHTML = 'closeDoor -->';
 
 inputDebug.addEventListener('click', function(){
 
 	debug();
+
+});
+inputClose.addEventListener('click', function(){
+
+	transiMetal();
 
 });
 
@@ -291,6 +387,8 @@ function debug(){
 }
 //----------------------------- END - Dev Mode -------------------------//
 
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //------------------------------ RANDOM LEVEL ! -----------------------------------//
 
@@ -342,38 +440,34 @@ var baladesRondes = [
 
 var divFin = document.querySelectorAll('.divFin');
 var plateaux = document.querySelectorAll('.plateau');
-var numPiks = new Array();
-numPiks = [3, 2, 1, 0];
 
-var test = 0;
-var numPlateau = 0;
-var copyT = {};
+var numPiks = [3, 2, 1, 0];
+var copyNumPiks = copyTabNumPiks();
 
 function shuffle(){ //shuffle un numéro dans numPiks puis l'enlève.
+	
 
 	console.log("Lancement Shuffle : ");
 
-	var choix = Math.random() * ((numPiks.length) - 0) + 0;
+	var choix = Math.random() * ((copyNumPiks.length) - 0) + 0;
 	choix = Math.floor(choix);
 	console.log("Choix : ", choix);
 
-	var choixAenvoyer = numPiks[choix];
-	console.log("numPiks[choix] : ", choixAenvoyer);
+	var hasardNumber = copyNumPiks[choix];
+	console.log("copyNumPiks[choix] : ", hasardNumber);
 
-	let removed = numPiks.splice(choix, 1);
-	console.log("numPiks.splice(choix) : ", numPiks);
+	let removed = copyNumPiks.splice(choix, 1); // CHOIX ou HASARDNUMBER to avoid repeat lvl
+	console.log("copyNumPiks.splice(choix) : ", copyNumPiks);
 	
-	return choixAenvoyer;
+	return hasardNumber;
 }
-function copyTab(){
-	let copyT = balades.slice();
-	return copyT;
+
+function copyTabNumPiks(){
+	 copyNumPiks = numPiks.slice();
+	 return copyNumPiks;
 }
-function replaceCopytab(){
-	
-	let balades = copyT.slice();
-	return balades;
-}
+
+var numPlateau = 0;
 function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au hasard.
 
 	while( numPlateau <= 4 && mondeRond == false  ){
@@ -389,6 +483,8 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
+
 			}
 
 			console.log("Labyrinthe 0 crée ! au lvl : ", numPlateau);
@@ -407,6 +503,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 1 crée ! au lvl : ", numPlateau);
@@ -432,6 +529,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 2 crée ! au lvl : ", numPlateau);
@@ -456,6 +554,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 3 crée ! au lvl : ", numPlateau);
@@ -495,6 +594,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 0 crée ! au lvl : ", numPlateau);
@@ -513,6 +613,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 1 crée ! au lvl : ", numPlateau);
@@ -538,6 +639,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 2 crée ! au lvl : ", numPlateau);
@@ -562,6 +664,7 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 				ex.push(document.createElement('div'));
 				ex[nbDiv].style.backgroundColor = 'aliceblue';
 				ex[nbDiv].classList.add('chemin');
+				ex[nbDiv].classList.add('newPaths');
 			}
 
 			console.log("Labyrinthe 3 crée ! au lvl : ", numPlateau);
@@ -594,13 +697,19 @@ function deleteOldPath(){
 	originPaths = document.querySelectorAll('.originPath');
 
 	for(var path of originPaths){
-		console.log(path);
+		console.log("Suppression originPath : ", path);
 		path.classList.add('hide');
 	}
 };
-function razNumPlateau(){
-	numPlateau = 0;
-}
+function deleteNewPath(){
+	newPaths = document.querySelectorAll('.newPaths');
+
+	for(var path of newPaths){
+		console.log("Suppression newPath : ", path);
+		path.classList.add('hide');
+	}
+};
+
 
 //-----------menu contextuel-------------pasFin dispo----------------------------
 var pos;
