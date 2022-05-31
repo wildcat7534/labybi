@@ -35,6 +35,7 @@ var menu_chrono = document.querySelector('#optionChrono');
 var menu_timeUP = document.querySelector('#optionVSmontre');
 
 transiMetal();
+displayPlayer()
 
 for( var choixOpt of choixOptions ){
 	choixOpt.addEventListener('click', function(){
@@ -54,8 +55,7 @@ for( var choixOpt of choixOptions ){
 
 				reloadGame();
 			
-			}, 1050)
-
+			}, 1000);
 		}else if( this.id == 'optionChrono' ){
 			transiMetal();
 
@@ -64,7 +64,7 @@ for( var choixOpt of choixOptions ){
 				reloadGame();
 				chronos();
 		
-			}, 1000)
+			}, 1000);
 		}else if( this.id == 'optionVSmontre' ){
 			transiMetal();
 
@@ -75,20 +75,20 @@ for( var choixOpt of choixOptions ){
 				gameEnCour();
 				chronoTimer();
 
-			}, 1000)
+			}, 1000);
 		}else if( this.id == 'optionRetourPartie' ){
 
-			labyMenu.style.display = 'none';
-			if( chronoRunning == true ){
-				chronos();
-				
-			}else if( chronoTimerRunning == true ){
+				labyMenu.style.display = 'none';
+				if( chronoRunning == true ){
+					chronos();
+					
+				}else if( chronoTimerRunning == true ){
 
-				chronoTimer();	
-			}
+					chronoTimer();	
+				}
 
-		}
 
+		};
 	});
 };
 retourMenu.addEventListener('click', function(){
@@ -107,8 +107,8 @@ retourMenu.addEventListener('click', function(){
 
 function transiMetal(){
 
-	var metalTop = document.querySelector('#metalTop')
-	var metalBottom = document.querySelector('#metalBottom')
+	var metalTop = document.querySelector('#metalTop');
+	var metalBottom = document.querySelector('#metalBottom');
 	
 	metalTop.style.animationName = "topDown";
 	metalBottom.style.animationName = "bottomTop";
@@ -117,6 +117,15 @@ function transiMetal(){
 		metalTop.style.animationName = "";
 		metalBottom.style.animationName = "";
 	}, 2500)
+}
+function transiMetalCLOSE(){
+	var metalTop = document.querySelector('#metalTop');
+	var metalBottom = document.querySelector('#metalBottom');
+	
+	metalTop.style.animationName = "topDownCLOSE";
+	metalBottom.style.animationName = "bottomTopCLOSE";
+	metalTop.style.animationFillMode = "forwards";
+	metalBottom.style.animationFillMode = "forwards";
 }
 
 function changeWorld(){
@@ -219,10 +228,11 @@ function gameEnCour(){
 	}else if( win == true ){ // Victory
 
 		chrono.classList.remove('urgent');
-		/*chrono.style.color = 'darkgoldenrod';*/
+
 		chrono.innerHTML = "bravo ! en : "
 							+temps +" secondes !";
 
+		displayScoreScreen(temps);
 		clearInterval(chronoDisplay);
 		saucer();
 
@@ -361,7 +371,7 @@ inputDebug.addEventListener('click', function(){
 });
 inputClose.addEventListener('click', function(){
 
-	transiMetal();
+	transiMetalCLOSE();
 
 });
 
@@ -446,7 +456,6 @@ var copyNumPiks = copyTabNumPiks();
 
 function shuffle(){ //shuffle un numéro dans numPiks puis l'enlève.
 	
-
 	console.log("Lancement Shuffle : ");
 
 	var choix = Math.random() * ((copyNumPiks.length) - 0) + 0;
@@ -755,7 +764,46 @@ optionChrono.addEventListener('mousemove', function(e){
 })
 
 
+function displayScoreScreen(tempsReceived){
 
+	var oldScore = document.querySelector('#oldScore');
+	var oldPlayer = document.querySelector('#oldPlayer');
+	var newScore = "*" +tempsReceived +"secondes*";
+	var newPlayer = "PhéNiX77";
+
+	oldScore.innerHTML =  "*" +15 +"secondes*";
+	oldPlayer.innerHTML = "Duke3D";
+
+	oldScore.innerHTML += "*" +14 +"secondes*";
+	oldPlayer.innerHTML += "MaJoR_34";
+
+	oldScore.innerHTML += newScore;
+	oldPlayer.innerHTML += newPlayer;
+
+
+}
+function displayPlayer(){
+	var playerScreen = document.querySelector('#playerScreen');
+	var newPlayer = "PhéNiX77";
+	playerScreen.innerHTML = newPlayer;
+
+}
+var color = document.querySelector('#infoScreen #score div:nth-child(2)');
+/*var color = document.querySelector('#infoScreen #score div:nth-child(2) span');
+*/marioKartColor();
+var iDeg = 1;
+function marioKartColor(){
+	iDeg += 20;
+
+	setTimeout(marioKartColor, 200);
+	color.style.filter = "hue-rotate(" +iDeg +"deg)";
+}
+
+/*var tabTest = { "Sylvain": 200; };
+tabTest.Sylvain=700;
+tabTest["Sylvain"]=800;
+var test = new Intl.locale();
+*/
 
 
 

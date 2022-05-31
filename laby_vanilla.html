@@ -13,31 +13,53 @@
 		<div id="metalTop"><div id="bandeDanger"></div></div>
 		<section id="labyMenu">
 			<div>
-			<h2>Options</h2>
-			<ul>
-				<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button>Changer de monde !</button></li>
-				<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
-				<li id="optionLibre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Facile : </span> Libre ! </li>
-				<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
-				<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficle : </span>Compte à rebours.</li>
-				<li id="optionRetourPartie"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
-				<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="menu.html"><<< Changer de cartouche.</a></li>
-			</ul>
-			<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
+				<h1>Labybi</h1>
+				<h2>Options</h2>
+				<ul>
+					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button>Changer de monde !</button></li>
+					<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
+					<li id="optionLibre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Facile : </span> Libre ! </li>
+					<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
+					<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficle : </span>Compte à rebours.</li>
+					<li id="optionRetourPartie"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
+					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="menu.html"><<< Changer de cartouche.</a></li>
+				</ul>
+				<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 			</div>
 		</section>
 		
 		<button id="retourMenu">Menu</button>
-		<div id="scoreScreen">
-			<h1>META VERS !</h1>
+		<div id="infoScreen">
+			<h2>META VERS !</h2>
 			<span id="level" >Level 1</span>
-			<div>
-				<span id="chrono" ></span>	
+			<div id="chrono"></div>
+			<div id="score">
+
+				<span>Best score : </span>
+				<div>
+					<span id="oldPlayer">PhéNiX77</span>
+					<span id="oldScore">* 12 secondes*</span>
+				</div>
+				<div>
+					<span class="oldPlayer" id="oldPlayer2">Duke3D</span>
+					<span class="oldScore" id="scoreScreen2">* 15 secondes*</span>
+				</div>
+				<div>
+					<span class="oldPlayer" id="oldPlayer3">MaJoR34</span>
+					<span class="oldScore" id="scoreScreen3">* 13 secondes*</span>
+				</div>
+
+				<div id="player">
+					<span>Player : </span>
+					<div id="playerScreen"></div>
+				</div>
 			</div>
 		</div>
+		<h1>Labybi</h1>
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer1">
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer2">
 		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer3">
+		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer4">
 
 		<section id="boite">
 			<section id="game">

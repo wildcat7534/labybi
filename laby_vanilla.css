@@ -3,12 +3,24 @@
 	padding: 0;
 	}
 @font-face{
-	font-family:"raleLight";
-	src: url('fonts/Raleway-Light.ttf');
+    font-family:"raleLight";
+    src: url('fonts/Raleway-Light.ttf');
+}@font-face{
+    font-family:"raleRegular";
+    src: url('fonts/Raleway-Regular.ttf');
+}@font-face{
+    font-family:"raleExtraLight";
+    src: url('fonts/Raleway-ExtraLight.ttf');
+}@font-face{
+    font-family:"raleBold";
+    src: url('fonts/Raleway-Bold.ttf');
+}@font-face{
+	font-family:"raleExtraBold";
+	src: url('fonts/Raleway-ExtraBold.ttf');
 }
 @font-face{
-	font-family:"";
-	src: url('fonts/');
+	font-family:"3Dumb";
+	src: url('fonts/3Dumb.ttf');
 }
 @font-face{
 	font-family:"";
@@ -20,19 +32,17 @@ html{
 }
 body{
     cursor: url('images/cursor/ufo3cursorMini.png') 15 11, crosshair;
+
 }
 img{
 	max-width: 100%;
-}
-span, h3, p{
-	font-family: "";
 }
 
 
 #labyMenu{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0, 0.8);
+    background-color: rgba(0,0,0, 0.9);
     position: absolute;
     top: 0;
     left: 0;
@@ -45,14 +55,35 @@ span, h3, p{
 #labyMenu div{
     text-align: center;
 }
+#labyMenu h1{
+    font-family: "3Dumb";
+    font-size: 10em;
+    color: powderblue;
+    position: absolute;
+    transform: rotate(-32deg);
+    top: 11%;
+    left: 1%;
+}
+h1{
+    font-family: "3Dumb";
+    font-size: 10em;
+    color: powderblue;
+    position: absolute;
+    transform: rotate(1deg);
+    top: 1%;
+    left: 35%;
+    z-index: 10;
+    font-weight: initial;
+}
 #labyMenu h2{
     font-family: "raleLight";
     color: darkkhaki;
-    font-size: 7em;
-    margin-top: 10%;
+    font-size: 5em;
+    margin-top: 12%;
+
 }
 #labyMenu ul{
-    margin-top: 7em;
+    margin-top: 3em;
     display: flex;
 
     flex-direction: column;
@@ -149,8 +180,8 @@ span, h3, p{
 }
 #retourMenu{
     position: absolute;
-    top: 2%;
-    right: 5%;
+    top: 1%;
+    right: 1%;
     width: 135px;
     height: 40px;
     z-index: 5;
@@ -203,20 +234,36 @@ span, h3, p{
     position: absolute;
     top: 0px;
     background-size: 110%;
-    background-position-y: -9px;
-    background-position-x: -41px;
+    background-position-y: -25px;
+    background-position-x: -39px;
 }
 #saucer1{
-    top: 18%;
+    filter: hue-rotate(90deg);
+    width: 135px;
+    height: 145px;
+    top: 28%;
     left: -115%;
 }
 #saucer2{
-    top: 38%;
+    filter: hue-rotate(260deg);
+    width: 95px;
+    height: 85px;
+    top: 41%;
     left: -25%;
 }
 #saucer3{
-    top: 68%;
+    filter: hue-rotate(180deg);
+    width: 95px;
+    height: 85px;
+    top: 60%;
     left: -85%;
+}
+#saucer4{
+    filter: hue-rotate(120deg);
+    width: 80px;
+    height: 80px;
+    top: 77%;
+    left: -25%;
 }
 .saucerEnd{
     width: 60px;
@@ -229,20 +276,20 @@ span, h3, p{
 
     animation-duration: 2s;
 }
-#scoreScreen{
+#infoScreen{
     position: absolute;
-    top: 43px;
-    left: 38px;
+    top: 10px;
+    left: 10px;
     z-index: 10;
     background: blueviolet;
+    background-image: url(images/textures/metal6.jpg);
+    background-size: 389px;
+    background-position: -155px;
     border: 5px ridge aquamarine;
     width: 200px;
 }
-#scoreScreen div{
-    border: 5px ridge cornflowerblue;
-    box-sizing: border-box;
-}
-h1{
+
+ #infoScreen h2{
 /*  position: absolute;
 */ 
     color: cyan;
@@ -253,7 +300,7 @@ h1{
     text-shadow: 9px 0px 3px rgba(47,90,215,0.8);
     text-align: center;
 }
-#level{
+#infoScreen #level{
 /*  position: absolute;
 */  
     top: 10%;
@@ -265,16 +312,72 @@ h1{
     width: 100%;
     text-align: center;
 }
-#chrono{
+#infoScreen #chrono{
 /*    position: absolute;
 */    
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: darkgoldenrod;
     width: 100%;
     text-align: center;
-    margin-top: 0%;
+
+    border: 5px ridge cornflowerblue;
+    box-sizing: border-box;
+    font-family: "raleExtraBold";
+    margin: 10px 0;
+    padding: 5px 0;
+}
+#infoScreen #score{
+    font-size: 1.8em;
+    color: aliceblue;
+    width: auto;
+
+    border: 5px ridge cornflowerblue;
+    box-sizing: border-box;
+
+}
+#infoScreen #score div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: "raleLight";
+    margin-bottom: 4px;
 }
 
+#infoScreen #score > span, #infoScreen #player > span{
+    font-size: 1em;
+    color: aliceblue;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-family: "raleRegular";
+}
+#infoScreen #score div .oldPlayer, #infoScreen #score div .oldScore{
+    color: goldenrod;
+    font-size: 0.8em;
+}
+#infoScreen #score div:nth-child(2) { /*New player*/
+    font-size: 1.5em;
+    color: gold;
+    font-family: "raleLight";
+}
+#infoScreen #score div:nth-child(2) span{ /*New player*/
+    font-size: 0.7em;
+    color: gold;
+    font-family: "raleRegular";
+}
+#infoScreen #player{
+    border: 5px ridge cornflowerblue;
+    box-sizing: border-box;
+}
+#infoScreen #player #playerScreen{
+
+    font-family: "raleLight";
+    text-shadow: 0px -1px 21px rgba(88,209,197,0.67);
+    font-size: 1.9em;
+    text-align: center;
+    font-weight: bolder;
+    margin: 10px auto;
+}
 #boite{
     background-color: cadetblue;
     background-image: url(outils/laby_space.png);
@@ -299,7 +402,9 @@ h1{
 }
 #game{
     transform: rotate(45deg);
-    position: relative;
+    position: absolute;
+    bottom: 26%;
+    left: 30%;
     z-index: 10;
     opacity: 1;
 
@@ -372,7 +477,7 @@ h1{
 }
 .urgent{
 	animation-name: vite;
-	animation-duration: 1s;
+	animation-duration: 0.5s;
 	animation-iteration-count: infinite;
 }
 .bump{
@@ -386,17 +491,25 @@ h1{
 
 @keyframes topDown{
     0%{height: 0vh;}
-    50%{height: 50vh;}
+    50%{height: 50.5vh;}
     100%{height: 0vh;}
 }
 @keyframes bottomTop{
     0%{height: 0vh;}
-    50%{height: 50vh;}
+    50%{height: 50.5vh;}
     100%{height: 0vh;}
+}
+@keyframes topDownCLOSE{
+    0%{height: 0vh;}
+    100%{height: 50vh;}
+}
+@keyframes bottomTopCLOSE{
+    0%{height: 0vh;}
+    100%{height: 50vh;}
 }
 
 @keyframes vite{
-	0%{color: red; opacity: 0;}
+	0%{color: gold; opacity: 1;}
 	100%{color: red; opacity: 1;}
 }
 @keyframes bump{
@@ -406,7 +519,7 @@ h1{
 @keyframes saucer{
     0%{ opacity: 1;}
     75%{opacity: 1}
-    100%{left: 91%; opacity: 0;}
+    100%{left: 86%; opacity: 0;}
 }
 @keyframes plateauAnnimeFin{
     to{transform: rotate(0deg); opacity: 0;}
@@ -595,8 +708,8 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     font-weight: bolder;
     position: absolute;
     padding: 0.5%;  
-    right: 3%;
-    bottom: 3%;
+    right: 1%;
+    bottom: 1%;
     font-size: 1.5em;
     box-shadow: 2px 2px 5px 2px rgba(243,255,135,0.75);
 }
@@ -655,18 +768,19 @@ input:checked + .plateau + input:not(:checked) + .plateau{
         bottom: 5%;
         left: 42%;
     }
-    #scoreScreen{
+    #infoScreen{
         top: 0;
         left: 0;
         width: 100%;
         height: 126px;
         box-sizing: border-box;
-    }#scoreScreen div{
-        height: 50px;
+    }#infoScreen div{
         position: absolute;
         top: 36px;
         left: 12%;
         width: auto;
+        margin-top: 0;
+
     }
 
     #level{
@@ -677,6 +791,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
         left: 1500px;
         width: 130px;
         z-index: 17;
+        background: purple;
 
     }
 
