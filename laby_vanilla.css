@@ -23,8 +23,8 @@
 	src: url('fonts/3Dumb.ttf');
 }
 @font-face{
-	font-family:"";
-	src: url('fonts/');
+	font-family:"2Dumb";
+	src: url('fonts/2Dumb.ttf');
 }
 html{
 	font-size: 62.5%;
@@ -144,20 +144,21 @@ h1{
 #labyMenu li:first-child{
 /*    margin: 0 300px;
 */}
-#labyMenu li#formePlateau button{
-    color: cornsilk;
+#labyMenu #boutonChangeWorld{
+    background-color: cornflowerblue;
+    color: gold;
     width: 100px;
     height: 100px;
     border: 3px solid;
     border-radius: 50%;
     box-shadow: -1px 1px 84px 19px rgba(250,255,106,0.75);
 
-    animation-name: animeBoutonWorld;
+/*    animation-name: animeBoutonWorld*/;
     animation-duration: 4s;
     animation-iteration-count: infinite;
 }
-#labyMenu li#formePlateau button:hover{
-    background: linear-gradient(90deg,#0047ff 0%, #129c12 80%);
+#labyMenu #boutonChangeWorld:hover{
+/*    background: linear-gradient(90deg,#0047ff 0%, #129c12 80%);*/
     color: gold;
 }
 #pasFin{
@@ -196,8 +197,11 @@ h1{
     left: 0;
     width: 100%;
     height: 0vh;
-    z-index: 1000;
+    z-index: 120;
     background-image: url(images/textures/metal5.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 130%;
 
     overflow: hidden;
 
@@ -207,10 +211,13 @@ h1{
     width: 100%;
     height: 0vh;
     background-image: url(images/textures/metal5.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 130%;
 
     position: absolute;
     bottom: 0;
-    z-index: 1000;
+    z-index: 120;
     overflow: hidden;
     
     animation-duration: 2s;
@@ -244,11 +251,25 @@ h1{
     top: 28%;
     left: -115%;
 }
+#saucerMenu{
+    position: absolute;
+    filter: hue-rotate(90deg);
+    width: 120px;
+    height: 113px;
+    top: 19%;
+    left: 81%;
+    z-index: 110;
+    animation-name: saucerMenuDance;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+#saucerMenuAnim{
+}
 #saucer2{
     filter: hue-rotate(260deg);
     width: 95px;
     height: 85px;
-    top: 41%;
+    top: 45%;
     left: -25%;
 }
 #saucer3{
@@ -283,10 +304,14 @@ h1{
     z-index: 10;
     background: blueviolet;
     background-image: url(images/textures/metal6.jpg);
+
     background-size: 389px;
-    background-position: -155px;
-    border: 5px ridge aquamarine;
+    background-position-x: -128px;
+    background-position-y: -40px;
+    border: 5px ridge #c27cff; /*violet*/
     width: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
  #infoScreen h2{
@@ -296,21 +321,24 @@ h1{
     top: 10%;
     left: 2%;
     z-index: 1;
-    font-size: 1.7em;
-    text-shadow: 9px 0px 3px rgba(47,90,215,0.8);
+    font-size: 2.8em;
+    text-shadow: 7px 0px 1px rgba(47,90,215,0.8);
     text-align: center;
+    display: inline;
+    box-shadow: 0px 2px 0px black;
 }
 #infoScreen #level{
 /*  position: absolute;
 */  
     top: 10%;
     left: 28%;
-    font-size: 1.6em;
-    color: aliceblue;
+    font-size: 2.7em;
+    color: deepskyblue;
     z-index: 1;
     display: inline-block;
     width: 100%;
     text-align: center;
+    padding-top: 10px;
 }
 #infoScreen #chrono{
 /*    position: absolute;
@@ -320,20 +348,20 @@ h1{
     width: 100%;
     text-align: center;
 
-    border: 5px ridge cornflowerblue;
+    border: 3px inset darkkhaki;
     box-sizing: border-box;
-    font-family: "raleExtraBold";
-    margin: 10px 0;
-    padding: 5px 0;
+    font-family: "raleRegular";
+    padding: 6px 0;
+    background-color: black;
 }
 #infoScreen #score{
     font-size: 1.8em;
     color: aliceblue;
     width: auto;
 
-    border: 5px ridge cornflowerblue;
+    border: 5px groove grey;;
     box-sizing: border-box;
-
+    border-bottom: 0;
 }
 #infoScreen #score div{
     display: flex;
@@ -345,29 +373,34 @@ h1{
 
 #infoScreen #score > span, #infoScreen #player > span{
     font-size: 1em;
-    color: aliceblue;
+    color: lightyellow;
+    /* color: #5500d4; */
     display: inline-block;
     width: 100%;
     text-align: left;
     font-family: "raleRegular";
 }
 #infoScreen #score div .oldPlayer, #infoScreen #score div .oldScore{
-    color: goldenrod;
+    color: #a2d6f7;
+    text-shadow: 1px 1px 0px black;
     font-size: 0.8em;
+    font-family: "raleRegular";
 }
-#infoScreen #score div:nth-child(2) { /*New player*/
+#infoScreen #score div:nth-child(2) { 
     font-size: 1.5em;
-    color: gold;
-    font-family: "raleLight";
+    color: darkkhaki;
+    font-family: "raleRegular";
+    text-shadow: 1px 1px 0px black;
 }
 #infoScreen #score div:nth-child(2) span{ /*New player*/
-    font-size: 0.7em;
+    font-size: 0.9em;
     color: gold;
     font-family: "raleRegular";
 }
 #infoScreen #player{
     border: 5px ridge cornflowerblue;
     box-sizing: border-box;
+    border: 4px groove grey;
 }
 #infoScreen #player #playerScreen{
 
@@ -377,6 +410,9 @@ h1{
     text-align: center;
     font-weight: bolder;
     margin: 10px auto;
+    padding: 5px;
+    text-shadow: 5px -3px 3px rgb(43, 43, 42);
+    box-shadow: inset 9px -10px 19px -4px #000000;
 }
 #boite{
     background-color: cadetblue;
@@ -433,14 +469,17 @@ h1{
 }
 #game label{
     transform: rotate(270deg);
-    height: 45px;
-    width: 89px;
+    height: auto;
+    width: 100%;
     position: absolute;
     bottom: 37%;
     left: -7px;
     text-align: center;
     padding: 20% 0;
+    padding-top: 29px;
     background-color: black;
+    border: 11px inset grey;
+    box-sizing: content-box;
 }
 #game label:hover {
     color: goldenrod;
@@ -507,7 +546,14 @@ h1{
     0%{height: 0vh;}
     100%{height: 50vh;}
 }
-
+@keyframes topDownCLOSEopen{
+    0%{height: 50vh;}
+    100%{height: 0vh;}
+}
+@keyframes bottomTopCLOSEopen{
+    0%{height: 50vh;}
+    100%{height: 0vh;}
+}
 @keyframes vite{
 	0%{color: gold; opacity: 1;}
 	100%{color: red; opacity: 1;}
@@ -531,7 +577,13 @@ h1{
     75%{background: linear-gradient(90deg, #3F51B5 0%, #FFEB3B 80%);}
     100%{background: linear-gradient(90deg, #2196F3 0%, #FF9800 80%);}
 }
-
+@keyframes saucerMenuDance{
+    0%{top: 19%; left: 81%;}
+    25%{top: 16%;left: 85%;}
+    50%{top: 20%;left: 83%;}
+    50%{top: 17%;left: 82%;}
+    100%{top: 18%;left: 81%;}
+}
 #chemin1{
     grid-row-start: 3;
     grid-column-start: 1;
@@ -544,7 +596,8 @@ h1{
 	grid-column-end: 8;
     grid-row-start: 3;
     grid-row-end: 4;
-    background: antiquewhite;
+    background-image: url(images/textures/metal6.jpg);
+    background-size: cover;
 }
 #win{
     background-color: goldenrod;
@@ -559,21 +612,33 @@ h1{
     align-items: center;
 }
 
-#fin:hover ~ #chemin_fin,
-#chemin_fin:hover{
+/*#fin:hover ~ #chemin_fin,*/
+#chemin_fin/*:hover*/{
 	grid-column-start: 8;
     grid-column-end: 9;
     grid-row-start: 3;
     grid-row-end: 4;
-	background: lightblue;
+	background-image: url(images/textures/metal6.jpg);
+    background-size: contain;
+    background-position: 0;
+    width: 0%;
+    transition: all 0.5s ease;
+    box-shadow: inset 2px 2px 10px black;
+}
+#fin:hover ~ #chemin_fin,
+#chemin_fin:hover{
+    width: 100%;
 }
 
 #chemin_fin:hover ~ #valide,
  #valide:hover{
-	display: flex;
+	
+    width: 75px;
+    height: 300px;
+    overflow: unset;
 }
 #valide{
-    display: none; 
+    display: flex; 
     position: absolute;
     top: 0;
     right: -75px;
@@ -585,6 +650,10 @@ h1{
     align-items: center;
     justify-content: center;
     font-size: 1.6em;
+
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
 }
 .plateau ~ .plateau{
 	display: none;
@@ -678,6 +747,10 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     grid-row-end: 4;
     grid-column-end: 8;
     background: aliceblue;
+    background-image: url(images/textures/ligneDanger.png);
+    background-size: 201px;
+    background-position: 0px 54px;
+    background-repeat: no-repeat;
 }
 
 #bordGauche{
@@ -688,6 +761,10 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 	width: 500px;
 	height: 40px;
     opacity: 1;
+    background-image: url(images/textures/metal4.jpg);
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position-x: -190px;
 }
 #bordDroite{
     position: absolute;
@@ -698,6 +775,10 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     width: 40px;
     height: 300px;
     opacity: 1;
+    background-image: url(images/textures/metal4.jpg);
+    background-size: cover;
+    background-position-y: 0;
+    background-repeat: no-repeat;
 }
 #debug{
     display: flex;
@@ -720,9 +801,66 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 .hide{
     display: none;
 }
+#outOfOrder{
+    position: relative;
+    top: 63%;
+    left: 35%;
+    width: 200px;
+    background: #edf1d5;
+    display: inline-block;
+    text-align: center;
+    padding: 3%;
+    border-radius: 13%;
+    transform: rotate(-32deg);
+    z-index: 1469;
+    font-size: 2.7em;
+    color: teal;
+    box-shadow: 1px 1px 1px black;
+}
+#outOfOrder2{
+    position: relative;
+    top: 57%;
+    left: 1%;
+    font-size: 4em;
+    font-family: "2Dumb";
+    text-shadow: 0px 0px 16px cyan;
+    display: inline-block;
+    transform: rotate(32deg);
+    color: cyan;
+    z-index: 120;
+}
+#outOfOrder3{
+    position: relative;
+    top: 41%;
+    left: 37%;
+    font-size: 3em;
+    font-family: "2Dumb";
+    text-shadow: 0px 0px 16px lightcoral;
+    display: inline-block;
+    transform: rotate(-27deg);
+    color: lightcoral;
+    z-index: 105;
+}
+#outOfOrder4{
+    position: relative;
+    top: 0%;
+    left: 1%;
+    font-size: 3.5em;
+    font-family: "2Dumb";
+    text-shadow: 0px 0px 16px lightsteelblue;
+    display: inline-block;
+    transform: rotate(-5deg);
+    color: lightsteelblue;
+    z-index: 105;
+}
+#eggSaucer{
+    width: 60px;
+    filter: hue-rotate(145deg);
+    position: absolute;
+    right: 5%;
+    bottom: 3%;
 
-
-
+}
 
 @media screen and (min-width: 768px){
 	/* CSS pour les tablettes */

@@ -17,10 +17,18 @@ var bordDroite = document.querySelector('#bordDroite');
 var nextLevels = document.querySelectorAll('.nextLevel');
 var cssRond = document.querySelector('#plateauRond');
 var boite = document.querySelector('#boite');
-/*var "👾" = document.querySelector('#titre'); 
-*/
-var label_gagner = document.querySelector("#label_gagner");
+var oldScore = document.querySelector('#oldScoreScreen');
+var oldPlayer = document.querySelector('#oldPlayer');
+var oldScore1 = document.querySelector('#oldScoreScreen2');
+var oldPlayer1 = document.querySelector('#oldPlayer2');
+var oldScore2 = document.querySelector('#oldScoreScreen3');
+var oldPlayer2 = document.querySelector('#oldPlayer3');
+var newScore;
+var newPlayer = "PhéNiX77";
+var metalTop = document.querySelector('#metalTop');
+var metalBottom = document.querySelector('#metalBottom');
 
+var label_gagner = document.querySelector("#label_gagner");
 var interval;
 var timesUP = 5; 
 var temps = 0;
@@ -33,7 +41,7 @@ var bouton_menu = document.querySelector('#menu button');
 var ul_menu = document.querySelector('#menu ul');
 var menu_chrono = document.querySelector('#optionChrono');
 var menu_timeUP = document.querySelector('#optionVSmontre');
-
+var menuChangeWorld = document.querySelector('#boutonChangeWorld');
 transiMetal();
 displayPlayer()
 
@@ -104,12 +112,10 @@ retourMenu.addEventListener('click', function(){
 
 });
 
+	
 
 function transiMetal(){
 
-	var metalTop = document.querySelector('#metalTop');
-	var metalBottom = document.querySelector('#metalBottom');
-	
 	metalTop.style.animationName = "topDown";
 	metalBottom.style.animationName = "bottomTop";
 
@@ -119,15 +125,17 @@ function transiMetal(){
 	}, 2500)
 }
 function transiMetalCLOSE(){
-	var metalTop = document.querySelector('#metalTop');
-	var metalBottom = document.querySelector('#metalBottom');
 	
 	metalTop.style.animationName = "topDownCLOSE";
 	metalBottom.style.animationName = "bottomTopCLOSE";
 	metalTop.style.animationFillMode = "forwards";
 	metalBottom.style.animationFillMode = "forwards";
 }
+function transiMetalCLOSEopen(){
 
+	metalTop.style.animationName = "topDownCLOSEopen";
+	metalBottom.style.animationName = "bottomTopCLOSEopen";
+}
 function changeWorld(){
 	cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
 	for(var plateau of plateaux ){
@@ -170,6 +178,13 @@ function changeWorld(){
 }
 
 function reloadGame(){
+	oldScore.innerHTML = "";
+	oldPlayer.innerHTML = "";
+	oldScore1.innerHTML = "";
+	oldPlayer1.innerHTML = "";
+	oldScore2.innerHTML = "";
+	oldPlayer2.innerHTML = "";
+	clearTimeout(marioKartColor);
 	chronoRunning = false;
 	chronoTimerRunning = false;
 	clearTimeout(interval);
@@ -179,7 +194,7 @@ function reloadGame(){
 	win = null;
 	temps = 0;
 	timesUP = 5;
-	level.style.color = "aliceblue";
+	level.style.color = "deepskyblue";
 	level.innerHTML = "Level 1";
 	labyMenu.style.display = 'none';
 	gamePlateau.style.animationName = '';
@@ -235,6 +250,7 @@ function gameEnCour(){
 		displayScoreScreen(temps);
 		clearInterval(chronoDisplay);
 		saucer();
+		marioKartColor();
 
 	}else{
 		
@@ -321,81 +337,6 @@ function plateauAnnimeFin(){
 	gamePlateau.style.animationName = 'plateauAnnimeFin';
 
 };
-
-
-//-------------------------------------------------------------------------//
-//---------------------------------------------------------------------------//
-// -------------------------------- Dev MODE --------------------------------- //
-//---------------------------------------------------------------------------//
-//--------------------------------------------------------------------------//
-//-------------------------------------------------------------------------//
-var divDebug = document.createElement('div');
-var divDev = document.createElement('div');
-var labelDebug = document.createElement('label');
-var labelClose = document.createElement('label');
-var inputDebug = document.createElement('input');
-var inputClose = document.createElement('input');
-divDebug.id = 'debug';
-labelDebug.setAttribute('for', 'godMod');
-inputDebug.id = 'godMod'
-
-labelClose.setAttribute('for', 'closeDoor');
-inputClose.id = 'closeDoor'
-
-
-inputDebug.setAttribute('type', 'checkbox');
-inputClose.setAttribute('type', 'checkbox');
-
-document.body.appendChild(divDebug);
-
-divDebug.appendChild(divDev);
-divDev.innerHTML = '[DEV mode]';
-divDev.style.margin = '-2px auto 8px';
-
-divDebug.appendChild(labelDebug);
-divDebug.appendChild(inputDebug);
-
-divDebug.appendChild(labelClose);
-divDebug.appendChild(inputClose);
-
-labelDebug.style.width = "50%";
-
-
-labelDebug.innerHTML = 'GodMod    -->';
-labelClose.innerHTML = 'closeDoor -->';
-
-inputDebug.addEventListener('click', function(){
-
-	debug();
-
-});
-inputClose.addEventListener('click', function(){
-
-	transiMetalCLOSE();
-
-});
-
-function debug(){
-	if ( inputDebug.checked ){
-
-    	boite.setAttribute("DEV",0);
-
-		for( var perdu of perdus){
-
-			perdu.classList.remove('perdu');
-
-		};
-	}else if( !inputDebug.checked ){
-		boite.removeAttribute("DEV",0);
-
-		for(perdu of perdus){
-
-			perdu.classList.add('perdu');
-
-		};
-	}
-}
-//----------------------------- END - Dev Mode -------------------------//
 
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
@@ -762,42 +703,194 @@ optionChrono.addEventListener('mousemove', function(e){
 	 pasFin.style.top = pos.y + "px";
 	 pasFin.style.left = pos.x + "px";
 })
-
+//-----------menu contextuel-------------pasFin dispo---------END-------------------
 
 function displayScoreScreen(tempsReceived){
+	
+	oldScore.innerHTML = "*" +tempsReceived +"secondes*";
+	oldPlayer.innerHTML = displayPlayer();
 
-	var oldScore = document.querySelector('#oldScore');
-	var oldPlayer = document.querySelector('#oldPlayer');
-	var newScore = "*" +tempsReceived +"secondes*";
-	var newPlayer = "PhéNiX77";
+	oldScore1.innerHTML =  "*" +15 +"secondes*";
+	oldPlayer1.innerHTML = "Duke3D";
 
-	oldScore.innerHTML =  "*" +15 +"secondes*";
-	oldPlayer.innerHTML = "Duke3D";
-
-	oldScore.innerHTML += "*" +14 +"secondes*";
-	oldPlayer.innerHTML += "MaJoR_34";
-
-	oldScore.innerHTML += newScore;
-	oldPlayer.innerHTML += newPlayer;
-
+	oldScore2.innerHTML = "*" +14 +"secondes*";
+	oldPlayer2.innerHTML = "MaJoR_34";
 
 }
 function displayPlayer(){
+
 	var playerScreen = document.querySelector('#playerScreen');
-	var newPlayer = "PhéNiX77";
 	playerScreen.innerHTML = newPlayer;
+	return newPlayer;
 
 }
 var color = document.querySelector('#infoScreen #score div:nth-child(2)');
-/*var color = document.querySelector('#infoScreen #score div:nth-child(2) span');
-*/marioKartColor();
-var iDeg = 1;
+var iDeg = 0;
 function marioKartColor(){
-	iDeg += 20;
+
+	iDeg = (iDeg+30)%360;
 
 	setTimeout(marioKartColor, 200);
-	color.style.filter = "hue-rotate(" +iDeg +"deg)";
+	color.style.filter = "hue-rotate(" + iDeg +"deg)";
 }
+marioKartColor_menuChangeWorld();
+function marioKartColor_menuChangeWorld(){
+
+	iDeg = (iDeg+15)%360;
+	
+	setTimeout(marioKartColor_menuChangeWorld, 1000);
+	menuChangeWorld.style.filter = "hue-rotate(" + iDeg +"deg)";
+}
+//-------------------------------------------------------------------------//
+//---------------------------------------------------------------------------//
+// -------------------------------- Dev MODE --------------------------------- //
+//---------------------------------------------------------------------------//
+//--------------------------------------------------------------------------//
+//-------------------------------------------------------------------------//
+var divDebug = document.createElement('div');
+divDebug.id = 'debug';
+divDebug.style.display = "none";
+
+var eggSaucer = document.querySelector('#eggSaucer');
+var egg = 1;
+eggSaucer.addEventListener('click', function(){
+
+	egg++;
+
+	if(egg == 5){
+
+		divDebug.style.display = "flex";
+		eggSaucer.style.display = "none";
+
+	}
+})
+var divDev = document.createElement('div');
+var labelDebug = document.createElement('label');
+var labelClose = document.createElement('label');
+var labelPhilipsHUE = document.createElement('label');
+var inputDebug = document.createElement('input');
+var inputClose = document.createElement('input');
+var inputPhilipsHUE = document.createElement('input');
+labelDebug.setAttribute('for', 'godMod');
+inputDebug.id = 'godMod'
+
+labelClose.setAttribute('for', 'closeDoor');
+inputClose.id = 'closeDoor'
+
+labelDebug.setAttribute('for', 'PhilipsHUE');
+inputDebug.id = 'PhilipsHUE'
+
+inputDebug.setAttribute('type', 'checkbox');
+inputClose.setAttribute('type', 'checkbox');
+inputPhilipsHUE.setAttribute('type', 'checkbox');
+
+document.body.appendChild(divDebug);
+
+divDebug.appendChild(divDev);
+divDev.innerHTML = '[DEV mode]';
+divDev.style.margin = '-2px auto 8px';
+
+divDebug.appendChild(labelDebug);
+divDebug.appendChild(inputDebug);
+
+divDebug.appendChild(labelClose);
+divDebug.appendChild(inputClose);
+
+divDebug.appendChild(labelPhilipsHUE);
+divDebug.appendChild(inputPhilipsHUE);
+
+labelDebug.style.width = "50%";
+
+
+labelDebug.innerHTML = 'GodMod    -->';
+labelClose.innerHTML = 'closeDoor -->';
+labelPhilipsHUE.innerHTML = 'HUE_light -->';
+
+inputDebug.addEventListener('click', function(){
+
+	debug();
+
+});
+inputPhilipsHUE.addEventListener('click', function(){
+
+	debug();
+
+});
+var tag = false;
+inputClose.addEventListener('click', function(){
+
+	transiMetalCLOSE();
+	if(tag == false){
+		tag = true;
+		var spanOutOfOrder = document.createElement('span');
+		var spanOutOfOrder2 = document.createElement('span');
+		var spanOutOfOrder3 = document.createElement('span');
+		var spanOutOfOrder4 = document.createElement('span');
+		spanOutOfOrder.id = "outOfOrder";
+		spanOutOfOrder2.id = "outOfOrder2";
+		spanOutOfOrder3.id = "outOfOrder3";
+		spanOutOfOrder4.id = "outOfOrder4";
+		spanOutOfOrder.innerHTML = "OUT OF ORDER";
+		spanOutOfOrder2.innerHTML = "CodePhéniX is a lie !";
+		spanOutOfOrder3.innerHTML = "Brieuc = Big Brother";
+		spanOutOfOrder4.innerHTML = "Guillaume is a reptilian";
+		var metalTop = document.querySelector('#metalTop');
+		var metalBottom = document.querySelector('#metalBottom');
+		metalTop.appendChild(spanOutOfOrder);
+		metalBottom.appendChild(spanOutOfOrder2);
+		metalTop.appendChild(spanOutOfOrder3);
+		metalTop.appendChild(spanOutOfOrder4);
+	}
+
+});
+var saucerMenuEGG = document.querySelector('#saucerMenu');
+var saucerEgg = 1;
+saucerMenuEGG.addEventListener('click', function(){
+	saucerEgg++;
+	if(saucerEgg == 5){
+
+		transiMetalCLOSEopen();
+		saucerEgg = 0;
+	}
+});
+function debug(){
+	if ( inputDebug.checked ){
+
+    	boite.setAttribute("DEV",0);
+
+		for( var perdu of perdus){
+
+			perdu.classList.remove('perdu');
+
+		};
+	}else if( !inputDebug.checked ){
+		boite.removeAttribute("DEV",0);
+
+		for(perdu of perdus){
+
+			perdu.classList.add('perdu');
+
+		};
+	}else if( !inputPhilipsHUE.checked ){
+
+			clearTimeout(marioKartColor);
+
+	};
+	
+};
+//----------------------------- END - Dev Mode -------------------------//
+
+function askPseudo(){
+
+	if(newPlayer == ""){
+
+		var modalNewPlayer = document.createElement('input');
+
+	}
+
+}
+
+
 
 /*var tabTest = { "Sylvain": 200; };
 tabTest.Sylvain=700;

@@ -10,19 +10,27 @@
 	</head>
 
 	<body>
-		<div id="metalTop"><div id="bandeDanger"></div></div>
+		<div id="metalTop">
+<!-- 
+			<span></span>
+			<span></span>
+			<span></span -->>
+			<img src="images/cursor/ufo3.png" id="saucerMenu">
+			<div id="bandeDanger"></div>
+		</div>
 		<section id="labyMenu">
 			<div>
 				<h1>Labybi</h1>
 				<h2>Options</h2>
+				<img src="images/cursor/ufo2.png" id="saucerMenu">
 				<ul>
-					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button>Changer de monde !</button></li>
+					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button id="boutonChangeWorld" >Changer de monde !</button></li>
 					<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
 					<li id="optionLibre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Facile : </span> Libre ! </li>
 					<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
 					<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficle : </span>Compte à rebours.</li>
 					<li id="optionRetourPartie"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
-					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="menu.html"><<< Changer de cartouche.</a></li>
+					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="../menu.html"><<< Changer de cartouche.</a></li>
 				</ul>
 				<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 			</div>
@@ -37,16 +45,16 @@
 
 				<span>Best score : </span>
 				<div>
-					<span id="oldPlayer">PhéNiX77</span>
-					<span id="oldScore">* 12 secondes*</span>
+					<span id="oldPlayer"></span>
+					<span id="oldScoreScreen"></span>
 				</div>
 				<div>
-					<span class="oldPlayer" id="oldPlayer2">Duke3D</span>
-					<span class="oldScore" id="scoreScreen2">* 15 secondes*</span>
+					<span class="oldPlayer" id="oldPlayer2"></span>
+					<span class="oldScore" id="oldScoreScreen2"></span>
 				</div>
 				<div>
-					<span class="oldPlayer" id="oldPlayer3">MaJoR34</span>
-					<span class="oldScore" id="scoreScreen3">* 13 secondes*</span>
+					<span class="oldPlayer" id="oldPlayer3"></span>
+					<span class="oldScore" id="oldScoreScreen3"></span>
 				</div>
 
 				<div id="player">
@@ -142,6 +150,7 @@
 				
 		</section>
 		<div id="metalBottom"><div id="bandeDanger2"></div></div>
+		<img id="eggSaucer" src="images/cursor/ufo2.png">
 		<script type="text/javascript" src="laby_vanilla.js"></script>
 	</body>
 </html>
