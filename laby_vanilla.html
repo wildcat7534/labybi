@@ -11,18 +11,24 @@
 
 	<body>
 		<div id="metalTop">
-<!-- 
-			<span></span>
-			<span></span>
-			<span></span -->>
-			<img src="images/cursor/ufo3.png" id="saucerMenu">
+			<img src="images/cursor/ufo3.png" id="saucerMetal">
 			<div id="bandeDanger"></div>
 		</div>
+		
+		<section id="welcome">
+			<p id="welcomeMessage">
+				<form id="formPlayerID">
+					<label id="playerID" >Entrez vôtre pseudo !</label>
+					<input type="name" name="playerID" for="playerID">
+				</form>
+			</p>
+		</section>
+
 		<section id="labyMenu">
 			<div>
 				<h1>Labybi</h1>
 				<h2>Options</h2>
-				<img src="images/cursor/ufo2.png" id="saucerMenu">
+				<img src="images/cursor/ufo2.png" id="saucerMenuOption">
 				<ul>
 					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button id="boutonChangeWorld" >Changer de monde !</button></li>
 					<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
@@ -64,12 +70,14 @@
 			</div>
 		</div>
 		<h1>Labybi</h1>
-		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer1">
-		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer2">
-		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer3">
-		<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer4">
 
 		<section id="boite">
+
+			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer1">
+			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer2">
+			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer3">
+			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer4">
+
 			<section id="game">
 				
 				<input type="checkbox" name="check" id="check">
@@ -151,6 +159,7 @@
 		</section>
 		<div id="metalBottom"><div id="bandeDanger2"></div></div>
 		<img id="eggSaucer" src="images/cursor/ufo2.png">
+		<script type="text/javascript" src="laby_vanilla_recoTB.js"></script>
 		<script type="text/javascript" src="laby_vanilla.js"></script>
 	</body>
 </html>

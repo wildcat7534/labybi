@@ -42,6 +42,8 @@ var ul_menu = document.querySelector('#menu ul');
 var menu_chrono = document.querySelector('#optionChrono');
 var menu_timeUP = document.querySelector('#optionVSmontre');
 var menuChangeWorld = document.querySelector('#boutonChangeWorld');
+var inavecEE = 0;
+var finavecEE;
 transiMetal();
 displayPlayer()
 
@@ -99,6 +101,8 @@ for( var choixOpt of choixOptions ){
 		};
 	});
 };
+
+
 retourMenu.addEventListener('click', function(){
 	transiMetal();
 	clearTimeout(interval);
@@ -136,8 +140,7 @@ function transiMetalCLOSEopen(){
 	metalTop.style.animationName = "topDownCLOSEopen";
 	metalBottom.style.animationName = "bottomTopCLOSEopen";
 }
-function changeWorld(){
-	cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
+function changeWorld(){ //le monde rond
 	for(var plateau of plateaux ){
 		if( plateau.classList.contains('plateauRond') ){
 
@@ -151,10 +154,12 @@ function changeWorld(){
 				chemin.classList.remove('cheminRond');
 			}
 			for( var nextLevel of nextLevels ){
-				valide.style.top = '0';
+				nextLevel.style.top = '0';
 			}
 			bordDroite.style.display = 'block';
 			bordGauche.style.display = 'block';
+			divWin.style.borderRadius = '0%';
+			cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
 
 		}else{
 
@@ -178,6 +183,17 @@ function changeWorld(){
 }
 
 function reloadGame(){
+	
+	regex_mehdi.lastIndex = 0;
+	if(regex_mehdi.test(newPlayer)){
+
+		timesUP = 10;
+		console.log(timesUP)
+
+	}else{
+		timesUP = 5;
+	}
+	finavecEE = 0;
 	oldScore.innerHTML = "";
 	oldPlayer.innerHTML = "";
 	oldScore1.innerHTML = "";
@@ -193,7 +209,7 @@ function reloadGame(){
 	numPlateau = 0;
 	win = null;
 	temps = 0;
-	timesUP = 5;
+	
 	level.style.color = "deepskyblue";
 	level.innerHTML = "Level 1";
 	labyMenu.style.display = 'none';
@@ -251,6 +267,7 @@ function gameEnCour(){
 		clearInterval(chronoDisplay);
 		saucer();
 		marioKartColor();
+		totalFin();
 
 	}else{
 		
@@ -291,18 +308,18 @@ function chronoTimer(){
 	}
 };
 
-theLabels.forEach(function(labelCliquer, j){
+theLabels.forEach(function(labelCliquer, j){  //animation end game !
 
 	j = j + 1;
 
 	labelCliquer.addEventListener('click', function(){
 
-			timesUP += 3;
+			timesUP += 5;
 
 			level.innerHTML = "Level " +( j + 1 );
 
 
-			if( j == 4 ){
+			if( j == theLabels.length ){
 				win = true;
 				level.style.color = "gold";
 				level.innerHTML = "*Gold Level*";
@@ -311,7 +328,8 @@ theLabels.forEach(function(labelCliquer, j){
 	});
 });
 
-function saucer(){
+function saucer(){  //animation end game !
+
 	var saucers = document.querySelectorAll('.saucerEnd');
 
 	setTimeout(function (){
@@ -338,10 +356,21 @@ function plateauAnnimeFin(){
 
 };
 
+
+
+
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //------------------------------ RANDOM LEVEL ! -----------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 
 var balades = [
 		{
@@ -659,9 +688,22 @@ function deleteNewPath(){
 		path.classList.add('hide');
 	}
 };
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//-------------------------END------RANDOM-----------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 
 
-//-----------menu contextuel-------------pasFin dispo----------------------------
+//---------------------------------------------------------------------------------//
+//-----------menu contextuel-------------pas de Fin dispo----------------------------
+//---------------------------------------------------------------------------------//
+
 var pos;
 var optionLibre = document.querySelector('#optionLibre');
 var pasFin = document.querySelector('#pasFin');
@@ -703,11 +745,15 @@ optionChrono.addEventListener('mousemove', function(e){
 	 pasFin.style.top = pos.y + "px";
 	 pasFin.style.left = pos.x + "px";
 })
-//-----------menu contextuel-------------pasFin dispo---------END-------------------
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+//-----------menu contextuel-------------pas de Fin dispo---------END--------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 
 function displayScoreScreen(tempsReceived){
 	
-	oldScore.innerHTML = "*" +tempsReceived +"secondes*";
+	oldScore.innerHTML = "*" +tempsReceived +" secondes*";
 	oldPlayer.innerHTML = displayPlayer();
 
 	oldScore1.innerHTML =  "*" +15 +"secondes*";
@@ -717,13 +763,7 @@ function displayScoreScreen(tempsReceived){
 	oldPlayer2.innerHTML = "MaJoR_34";
 
 }
-function displayPlayer(){
 
-	var playerScreen = document.querySelector('#playerScreen');
-	playerScreen.innerHTML = newPlayer;
-	return newPlayer;
-
-}
 var color = document.querySelector('#infoScreen #score div:nth-child(2)');
 var iDeg = 0;
 function marioKartColor(){
@@ -741,12 +781,27 @@ function marioKartColor_menuChangeWorld(){
 	setTimeout(marioKartColor_menuChangeWorld, 1000);
 	menuChangeWorld.style.filter = "hue-rotate(" + iDeg +"deg)";
 }
-//-------------------------------------------------------------------------//
-//---------------------------------------------------------------------------//
-// -------------------------------- Dev MODE --------------------------------- //
-//---------------------------------------------------------------------------//
-//--------------------------------------------------------------------------//
-//-------------------------------------------------------------------------//
+
+
+
+
+//------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------------//
+// ------------------------------------- Dev MODE ------------------------------------------------------ //
+//---------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+
+
 var divDebug = document.createElement('div');
 divDebug.id = 'debug';
 divDebug.style.display = "none";
@@ -762,6 +817,7 @@ eggSaucer.addEventListener('click', function(){
 		divDebug.style.display = "flex";
 		eggSaucer.style.display = "none";
 
+		finavecEE += 25;
 	}
 })
 var divDev = document.createElement('div');
@@ -843,14 +899,14 @@ inputClose.addEventListener('click', function(){
 	}
 
 });
-var saucerMenuEGG = document.querySelector('#saucerMenu');
+var saucerMetalEGG = document.querySelector('#saucerMetal');
 var saucerEgg = 1;
-saucerMenuEGG.addEventListener('click', function(){
+saucerMetalEGG.addEventListener('click', function(){
 	saucerEgg++;
 	if(saucerEgg == 5){
 
 		transiMetalCLOSEopen();
-		saucerEgg = 0;
+		saucerEgg = 15;
 	}
 });
 function debug(){
@@ -879,16 +935,87 @@ function debug(){
 	
 };
 //----------------------------- END - Dev Mode -------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
 
-function askPseudo(){
 
-	if(newPlayer == ""){
 
-		var modalNewPlayer = document.createElement('input');
 
-	}
+var saucerMenuOption = document.querySelector('#saucerMenuOption');
+var saucerMenuOptionClick = 0;
 
-}
+saucerMenuOption.addEventListener('click', function(){
+
+	saucerMenuOptionClick++;
+
+		if(saucerMenuOptionClick == 5){
+
+			saucerMenuOption.style.width = "20px";
+			saucerMenuOption.style.height = "20px";
+
+			finavecEE += 15;
+
+			saucerMenuOptionClick = 0;
+		}
+});
+var labymenuH1 = document.querySelector('#labyMenu h1');
+var labymenuH1Click = 0;
+
+labymenuH1.addEventListener('click', function(){
+
+	labymenuH1Click++;
+
+		if(labymenuH1Click == 5){
+
+			labymenuH1.style.transform = "rotate(28deg)";
+			labymenuH1.style.color = "#b55d38";
+
+			finavecEE += 15;
+
+			labymenuH1Click = 0;
+		}
+});
+
+var labymenuH2 = document.querySelector('#labyMenu h2');
+var labymenuH2Click = 0;
+var labymenuH2Rotate = 0;
+var compteur = 0;
+
+labymenuH2.addEventListener('click', function(){
+
+	labymenuH2Click++;
+
+
+		if(labymenuH2Click == 5){
+
+			rotateMM;
+/*			labymenuH2.style.color = "#ec46be";*/
+
+			var rotateMM = setInterval(function(){
+
+				compteur++;
+
+				labymenuH2Rotate = (labymenuH2Rotate +20);
+				labymenuH2.style.transform = "rotateX("+labymenuH2Rotate +"deg)";
+
+				finavecEE += 15;
+
+				if(compteur >= 9){
+
+					clearInterval(rotateMM);
+					labymenuH2Click = 0;
+					labymenuH2.style.color = "darkkhaki";
+				}
+			}, 500);
+			
+		}
+		compteur = 0;
+});
 
 
 
