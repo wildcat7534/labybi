@@ -32,10 +32,18 @@ html{
 }
 body{
     cursor: url('images/cursor/ufo3cursorMini.png') 15 11, crosshair;
+    overflow: hidden;
 
 }
 img{
 	max-width: 100%;
+}
+
+#boutonSkipWelcome{
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 
@@ -57,7 +65,7 @@ img{
 #labyMenu div{
     text-align: center;
 }
-#labyMenu h1{
+h1#labyMenuH1{
     font-family: "3Dumb";
     font-size: 10em;
     color: powderblue;
@@ -65,8 +73,9 @@ img{
     transform: rotate(-32deg);
     top: 11%;
     left: 1%;
+    font-weight: initial;
 }
-h1{
+h1#theTitle{
     font-family: "3Dumb";
     font-size: 10em;
     color: powderblue;
@@ -76,17 +85,26 @@ h1{
     left: 35%;
     z-index: 10;
     font-weight: initial;
+    transition: all 3s ease;
+    background-image: none;
+    padding: none;
 }
-#labyMenu h2{
+#titreLabyMenu{
     font-family: "raleLight";
     color: darkkhaki;
     font-size: 5em;
-    margin-top: 12%;
+    margin-bottom: 1.3em;
 
 }
-#labyMenu ul{
-    margin-top: 3em;
+#menuLabyMenu{
+    margin-top: 17em;
     display: flex;
+
+    flex-direction: column;
+}
+#optionLabyMenu{
+    margin-top: 25em;
+    display: none;
 
     flex-direction: column;
 }
@@ -101,6 +119,17 @@ h1{
     font-family: Karatula;
     position: relative;
 }
+#labyMenu ul#optionLabyMenu li{
+
+    color: darkgoldenrod;
+
+    margin: 2em auto;
+    cursor: pointer;
+    display: inline;
+
+    font-family: Karatula;
+    position: relative;
+}
 #labyMenu #imgMenu{
     width: 15px;
     left: -29px;
@@ -108,7 +137,8 @@ h1{
     position: absolute;
     display: none;
 }
-#labyMenu ul li:hover #imgMenu{
+#labyMenu ul li:hover #imgMenu
+{
     display: inline;
 }
 #textDanger{
@@ -128,14 +158,9 @@ h1{
     width: 150px;
 }
 
-#labyMenu ul li#optionRetourCartoucheDeJeux{
-    position: absolute;
-    bottom: 3%;
-    left: 3%;
-}
 #optionRetourCartoucheDeJeux a{
     text-decoration: none;
-    color: aliceblue;
+    color: #53c7f7;
 }
 #optionRetourCartoucheDeJeux a:hover{
     color: antiquewhite;
@@ -170,16 +195,34 @@ h1{
     color: red;
     display: none;
 }
-#labyMenu ul li:hover{
+#labyMenu ul li:hover,
+#labyMenu #optionLabyMenu li:hover{
     color: gold;
 }
 #labyMenu ul li span{
     color: darkkhaki;
-    font-size: 1.1em;
+    font-size: 1.3em;
     width: 125px;
+}
+#infoScreen{
+    background-image: url(images/textures/metal1.jpg);
+    background-position-x: 72px;
+    background-position-y: 460px;
+
 }
 #labyMenu div ul #optionVSmontre{
     margin-bottom: 6%;
+}
+#labyMenu #optionMelangerEtMonde{
+
+    margin-top: 4em;
+    color: aliceblue;
+}
+#labyMenu ul li#optionRetourCartoucheDeJeux{
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    color: aliceblue;
 }
 #retourMenu{
     position: absolute;
@@ -443,7 +486,7 @@ h1{
     position: absolute;
     overflow: hidden;
 }
-#boite[DEV]{
+#boite[DEV]{ /*mode DEV activé*/
     border: 9px ridge gold;
     background-image: none;
     box-sizing: border-box;
@@ -516,6 +559,8 @@ h1{
     color: white;
 	display: none;
 	z-index: 10;
+    color: #9154ff;
+    font-size: 2em;
 }
 .perduRond{
     border-radius: 100%;
@@ -873,8 +918,8 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     width: 60px;
     filter: hue-rotate(145deg);
     position: absolute;
-    right: 5%;
-    bottom: 3%;
+    right: 25px;
+    bottom: 25px;
 }
 #welcome{
     width: 100vw;
@@ -886,26 +931,27 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     z-index: 110;
 
 
-    display: flex;
-    flex-direction: column;
+/*    display: flex;
+*/    flex-direction: column;
     align-items: center;
 
     overflow: hidden;
     
-    transition: opacity 3s ease;
+    transition: opacity 3s linear;
 }
 #welcome.Hide{
     opacity: 0;
 }
 #welcomeMessage{
-    font-size: 0em;
+    font-size: 5em;
 
     color: darkgoldenrod;
     position: absolute;
-    top: 20vh;
-    transform: rotateX(65deg);
+    top: 300px;
+    left: 19%;
+    transform: perspective(80px) rotateX(20deg) translateY(-360px);
 
-    transition: all 6s linear;
+    transition: all 5s linear;
 
 }
 #formPlayerID{
@@ -931,14 +977,62 @@ input[name="playerID"]{
 }
 
 #welcomeMessage.animeStarWars{
-    font-size: 10em;
-    top: 50vh;
-    text-align: center;
+    
+    transform: perspective(80px) rotateX(20deg) translateY(190px);
 }
+#credits {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+}
+#credits p{
+    margin-top: 210%;
+    margin-left: 15%;
+    color: aliceblue;
+    transition: all 20s linear;
+}
+#credits .creditsTitre{
 
+    color: goldenrod; 
+    font-size: 3.2em;
+    display: inline-block;
+    margin: 30px auto;
 
+}
+#credits .creditsNom{
 
+    margin-left: 10px;
+    font-size: 3em;
+    margin: 5px auto;
+    margin-left: 35px;
+}
+#credits p.animationCredits{
 
+     margin-top: -210%;
+
+}
+#bonus{
+    position: relative;
+    top: -20%;
+    left: 320px;
+    font-size: 3em;
+    color: gold;
+    opacity: 0;
+    z-index: 100;
+    transform: rotate(-15deg);
+
+    transition: all 0.5s linear;
+
+}
+#bonus.animationBonus{
+
+     opacity: 1;
+}
 
 
 
@@ -955,8 +1049,37 @@ input[name="playerID"]{
 @media screen and (min-width: 1124px){
 	/* CSS poour les ordianteurs */
 
-    h1{
-        font-size: 4em;
+    h1#theTitle{
+        font-size: 5em;
+        color: #58e0d3;
+        position: absolute;
+        transform: rotate(0deg);
+        top: 38.6px;
+        left: 4.7px;
+        display: inline;
+        background-image: url(images/textures/metal9.jpg);
+        background-size: 200px;
+        padding: 15px 23px;
+    }
+    #formPlayerID{
+        left: 35vw;
+        font-size: 3.5em;
+    }
+    h1#labyMenuH1{
+        top: 18%;
+        font-size: 15em;
+
+    }
+    #titreLabyMenu{
+        font-size: 7em;
+        margin-bottom: 0.9em;
+    }
+    #saucerMenuOption{
+        width: 150px;
+        height: 143px;
+    }
+    #labyMenu ul li span{
+        font-size: 1.4em;
     }
     #metalTop{
         background-size: cover;
@@ -966,6 +1089,7 @@ input[name="playerID"]{
     }
     #bandeDanger{
         background-size: 110%;
+        background-position-y: -19px;
     }
     #bandeDanger2{
         background-size: 110%;
@@ -988,30 +1112,81 @@ input[name="playerID"]{
         left: 42%;
     }
     #infoScreen{
+        width: auto;
         top: 0;
         left: 0;
         width: 100%;
         height: 126px;
         box-sizing: border-box;
-    }#infoScreen div{
+        background-image: url(images/textures/metal1.jpg);
+        background-size: contain;
+        background-position-x: 12px;
+        background-position-y: 120px;
+    }
+    #infoScreen div{
         position: absolute;
-        top: 36px;
+        top: 34px;
         left: 12%;
-        width: auto;
         margin-top: 0;
+        height: 84px;
+        width: 400px;
 
     }
+    #infoScreen #score div{
+        display: unset;
+        width: 1147px;
+    }
+     #infoScreen #score div#oldPlayerDuke{
+        position: absolute;
+        top: 0px;
+        left: 120px;
+    }
+    #infoScreen #score div#oldPlayerMajor{
+        left: 320px;
+        top: 0;
+    }
+    #infoScreen #score div#newPlayerHighScore{
+        left: 200px;
+    }
+    #infoScreen #score div:nth-child(2){
+        top: 15px;
+        left: 130px;
+        font-size: 1.6em;
+    }
+    #infoScreen #player{
+        border: none;
+        box-sizing: none;
 
+    }
+    #infoScreen #player #playerScreen{
+        position: absolute;
+        top: 0;
+        margin: unset;
+        padding: unset;
+        text-shadow: none;
+        box-shadow: none;
+
+    }
+    #infoScreen #chrono{
+        font-size: 3em;
+        padding-left: 320px;
+        width: 88%;
+    }
     #level{
         font-size: 3em;
     }
     #retourMenu{
-        top: 45px;
-        left: 1500px;
+        top: 55px;
+        left: 1700px;
         width: 130px;
         z-index: 17;
-        background: purple;
+        background: #481748;
 
     }
-
+    #welcomeMessage{
+        left: 30%;
+    }
+    #credits p{
+        margin-top: 110%;
+    }
 }

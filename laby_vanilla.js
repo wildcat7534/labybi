@@ -42,8 +42,9 @@ var ul_menu = document.querySelector('#menu ul');
 var menu_chrono = document.querySelector('#optionChrono');
 var menu_timeUP = document.querySelector('#optionVSmontre');
 var menuChangeWorld = document.querySelector('#boutonChangeWorld');
-var inavecEE = 0;
-var finavecEE;
+var finavecEE = 0;
+var goMarioKartColor;
+
 transiMetal();
 displayPlayer()
 
@@ -160,7 +161,7 @@ function changeWorld(){ //le monde rond
 			bordGauche.style.display = 'block';
 			divWin.style.borderRadius = '0%';
 			cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
-
+			clearTimeout(letsGo);
 		}else{
 
 			cssRond.setAttribute('href', 'laby_vanilla_rond.css');
@@ -178,29 +179,46 @@ function changeWorld(){ //le monde rond
 			for( var nextLevel of nextLevels ){
 				nextLevel.style.top = '95px';
 			}
+			tourneTourne();
 		}
 	}
 }
 
+var gameTourne = document.querySelector('#game');
+var tour = 0;
+var letsGo;
+function tourneTourne(){
+
+	letsGo = setTimeout(tourneTourne, 1000);
+	tour += 2;
+	gameTourne.style.transform = 'rotate(' +tour +'deg)';
+
+};
 function reloadGame(){
 	
 	regex_mehdi.lastIndex = 0;
+	regex_volo.lastIndex = 0;
 	if(regex_mehdi.test(newPlayer)){
 
 		timesUP = 10;
-		console.log(timesUP)
+		console.log('bonus temps pour Mehdi : ', timesUP)
+
+
+	}else if(regex_volo.test(newPlayer)){
+
+		timesUP = 50;
+		console.log('bonus temps concepteur: ', timesUP)
 
 	}else{
 		timesUP = 5;
 	}
-	finavecEE = 0;
 	oldScore.innerHTML = "";
 	oldPlayer.innerHTML = "";
 	oldScore1.innerHTML = "";
 	oldPlayer1.innerHTML = "";
 	oldScore2.innerHTML = "";
 	oldPlayer2.innerHTML = "";
-	clearTimeout(marioKartColor);
+	clearTimeout(goMarioKartColor);
 	chronoRunning = false;
 	chronoTimerRunning = false;
 	clearTimeout(interval);
@@ -316,7 +334,7 @@ theLabels.forEach(function(labelCliquer, j){  //animation end game !
 
 			timesUP += 5;
 
-			level.innerHTML = "Level " +( j + 1 );
+			level.innerHTML = "Level " +j ;
 
 
 			if( j == theLabels.length ){
@@ -327,6 +345,12 @@ theLabels.forEach(function(labelCliquer, j){  //animation end game !
 			};
 	});
 });
+
+function plateauAnnimeFin(){
+
+	gamePlateau.style.animationName = 'plateauAnnimeFin';
+
+};
 
 function saucer(){  //animation end game !
 
@@ -350,11 +374,66 @@ function saucer(){  //animation end game !
 	}, 6000);
 };
 
-function plateauAnnimeFin(){
+function totalFin(){
 
-	gamePlateau.style.animationName = 'plateauAnnimeFin';
+	var labyMenu = document.querySelector('#labyMenu');
+/*	labyMenu.style.display = 'flex';
+*/
+	setTimeout(function(){
 
+		welcome.classList.remove('Hide', 'Hide2');
+
+	}, 2000);
+/*	welcome.classList.remove('Hide2');
+*/
+	welcomeMessage.style.transition = 'opacity 2s linear';
+	welcomeMessage.style.fontSize = '5em';
+/*	var credits = document.querySelector('#credits');
+	credits.appendChild(appendChild);*/
+/*	welcomeMessage.style.margin = '42% 0';*/
+	welcomeMessage.style.transform = 'unset';
+	if( finavecEE < 100 ){
+
+		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '
+									+finavecEE +'% des secrets !';
+	}else if( finavecEE >= 100){
+
+		welcomeMessage.innerHTML = 'Bravo !!!! ' +newPlayer +' vous avez trouvé tous les secrets !! '
+									+'avec '+finavecEE +'% des secrets trouvés ! Félicitation xD ';
+
+	}
+
+	setTimeout(function(){
+
+		welcome.classList.add('Hide', 'Hide2');
+
+		var h1 = document.querySelector('#theTitle');
+
+		theTitle.style.top = '55%';
+		theTitle.style.left = '0%';
+		theTitle.style.transform ='rotate(-40deg)';
+		theTitle.style.backgroundImage = 'none';
+		theTitle.style.fontSize = '8em';
+
+
+		var credits = document.querySelector('#credits');
+		var creditsP = document.querySelector('#credits p');
+
+		credits.style.display = 'flex';
+
+
+		setTimeout(function(){
+
+			creditsP.classList.add('animationCredits');
+			
+		}, 2000);
+
+
+	}, 8000);
 };
+
+
+
 
 
 
@@ -708,15 +787,16 @@ var pos;
 var optionLibre = document.querySelector('#optionLibre');
 var pasFin = document.querySelector('#pasFin');
 
+
 optionLibre.addEventListener('mouseout', function(){
 
 	pasFin.style.display = 'none';
 
-})
+});
 optionLibre.addEventListener('mouseenter', function(){
 	
 		pasFin.style.display = 'inline';
-})
+});
 optionLibre.addEventListener('mousemove', function(e){
 
 	 pos = {"x": e.clientX, "y": e.clientY};
@@ -724,7 +804,7 @@ optionLibre.addEventListener('mousemove', function(e){
 	 pos.x += 15;
 	 pasFin.style.top = pos.y + "px";
 	 pasFin.style.left = pos.x + "px";
-})
+});
 
 var optionChrono = document.querySelector('#optionChrono');
 
@@ -732,11 +812,11 @@ optionChrono.addEventListener('mouseout', function(){
 
 	pasFin.style.display = 'none';
 
-})
+});
 optionChrono.addEventListener('mouseenter', function(){
 	
 		pasFin.style.display = 'inline';
-})
+});
 optionChrono.addEventListener('mousemove', function(e){
 
 	 pos = {"x": e.clientX, "y": e.clientY};
@@ -744,7 +824,44 @@ optionChrono.addEventListener('mousemove', function(e){
 	 pos.x += 15;
 	 pasFin.style.top = pos.y + "px";
 	 pasFin.style.left = pos.x + "px";
-})
+});
+
+/*var gameLabels = document.querySelectorAll('#game label'); // BONUS "+5 SEC" suis le curseur !
+var bonus = document.querySelector('#bonus');
+var boite = document.querySelector('#boite');
+
+for(var label of gameLabels){
+
+	label.addEventListener('click', function(){
+
+		setTimeout(cursorPosition, 2500);
+
+		bonus.classList.add('animationBonus');
+
+		setTimeout(function(){
+
+			bonus.classList.remove('animationBonus');
+		}, 2000);
+		
+	});
+};
+
+function cursorPosition(){
+
+	boite.addEventListener('mousemove', function(e){
+
+		pos = {"x": e.clientX, "y": e.clientY};
+		pos.y -= 650;
+		pos.x -= 650;
+		bonus.style.top = pos.y + "px";
+		bonus.style.left = pos.x + "px";
+	});
+	
+};*/
+
+
+
+
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //-----------menu contextuel-------------pas de Fin dispo---------END--------------//
@@ -764,14 +881,14 @@ function displayScoreScreen(tempsReceived){
 
 }
 
-var color = document.querySelector('#infoScreen #score div:nth-child(2)');
+var colorDivBestScore = document.querySelector('#infoScreen #score div:nth-child(2)');
 var iDeg = 0;
 function marioKartColor(){
 
 	iDeg = (iDeg+30)%360;
 
-	setTimeout(marioKartColor, 200);
-	color.style.filter = "hue-rotate(" + iDeg +"deg)";
+	goMarioKartColor = setTimeout(marioKartColor, 200);
+	colorDivBestScore.style.filter = "hue-rotate(" + iDeg +"deg)";
 }
 marioKartColor_menuChangeWorld();
 function marioKartColor_menuChangeWorld(){
@@ -808,8 +925,9 @@ divDebug.style.display = "none";
 
 var eggSaucer = document.querySelector('#eggSaucer');
 var egg = 1;
+var countEggSaucer = 0;
 eggSaucer.addEventListener('click', function(){
-
+	console.log('[DEV]mode');
 	egg++;
 
 	if(egg == 5){
@@ -817,9 +935,14 @@ eggSaucer.addEventListener('click', function(){
 		divDebug.style.display = "flex";
 		eggSaucer.style.display = "none";
 
-		finavecEE += 25;
+		if(countEggSaucer == 0){
+
+			finavecEE += 45;
+			console.log('EGG : ',finavecEE );
+			countEggSaucer = 1;
+		}
 	}
-})
+});
 var divDev = document.createElement('div');
 var labelDebug = document.createElement('label');
 var labelClose = document.createElement('label');
@@ -868,8 +991,9 @@ inputDebug.addEventListener('click', function(){
 
 });
 inputPhilipsHUE.addEventListener('click', function(){
+	console.log('clic HUE');
 
-	debug();
+	clearTimeout(goMarioKartColor);
 
 });
 var tag = false;
@@ -901,12 +1025,21 @@ inputClose.addEventListener('click', function(){
 });
 var saucerMetalEGG = document.querySelector('#saucerMetal');
 var saucerEgg = 1;
+var countSaucerMetalEgg = 0;
 saucerMetalEGG.addEventListener('click', function(){
 	saucerEgg++;
 	if(saucerEgg == 5){
 
 		transiMetalCLOSEopen();
-		saucerEgg = 15;
+		saucerEgg = 0;
+
+		if(countSaucerMetalEgg == 0){
+
+			finavecEE += 25;
+			console.log('EGG : ',finavecEE );
+			countSaucerMetalEgg = 1;
+		}
+
 	}
 });
 function debug(){
@@ -927,11 +1060,7 @@ function debug(){
 			perdu.classList.add('perdu');
 
 		};
-	}else if( !inputPhilipsHUE.checked ){
-
-			clearTimeout(marioKartColor);
-
-	};
+	}
 	
 };
 //----------------------------- END - Dev Mode -------------------------//
@@ -944,11 +1073,15 @@ function debug(){
 //-------------------------------------------------------------------------------------------------------//
 
 
-
+//-----------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------EGGS-------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
 
 var saucerMenuOption = document.querySelector('#saucerMenuOption');
 var saucerMenuOptionClick = 0;
-
+var countSaucerMenuOption = 0;
 saucerMenuOption.addEventListener('click', function(){
 
 	saucerMenuOptionClick++;
@@ -958,14 +1091,20 @@ saucerMenuOption.addEventListener('click', function(){
 			saucerMenuOption.style.width = "20px";
 			saucerMenuOption.style.height = "20px";
 
+		if(countSaucerMenuOption == 0){
+
 			finavecEE += 15;
+			console.log('EGG : ',finavecEE );
+			countSaucerMenuOption = 1;
+		}
+
 
 			saucerMenuOptionClick = 0;
 		}
 });
 var labymenuH1 = document.querySelector('#labyMenu h1');
 var labymenuH1Click = 0;
-
+var countLabymenuH1 = 0;
 labymenuH1.addEventListener('click', function(){
 
 	labymenuH1Click++;
@@ -975,41 +1114,51 @@ labymenuH1.addEventListener('click', function(){
 			labymenuH1.style.transform = "rotate(28deg)";
 			labymenuH1.style.color = "#b55d38";
 
-			finavecEE += 15;
+		if(countLabymenuH1 == 0){
+
+			finavecEE += 10;
+			console.log('EGG : ',finavecEE );
+			countLabymenuH1 = 1;
+		}
 
 			labymenuH1Click = 0;
 		}
 });
 
-var labymenuH2 = document.querySelector('#labyMenu h2');
+var titreLabyMenu = document.querySelector('#titreLabyMenu');
 var labymenuH2Click = 0;
 var labymenuH2Rotate = 0;
 var compteur = 0;
-
-labymenuH2.addEventListener('click', function(){
+var countTitreLabyMenu =0;
+titreLabyMenu.addEventListener('click', function(){
 
 	labymenuH2Click++;
 
 
 		if(labymenuH2Click == 5){
 
+			if(countTitreLabyMenu == 0){
+
+				finavecEE += 5;
+				console.log('EGG : ',finavecEE );
+				countTitreLabyMenu = 1;
+			}
+
 			rotateMM;
-/*			labymenuH2.style.color = "#ec46be";*/
+/*			titreLabyMenu.style.color = "#ec46be";*/
 
 			var rotateMM = setInterval(function(){
 
 				compteur++;
 
-				labymenuH2Rotate = (labymenuH2Rotate +20);
-				labymenuH2.style.transform = "rotateX("+labymenuH2Rotate +"deg)";
+				labymenuH2Rotate = (labymenuH2Rotate +40);
+				titreLabyMenu.style.transform = "rotateX("+labymenuH2Rotate +"deg)";
 
-				finavecEE += 15;
-
-				if(compteur >= 9){
+				if(labymenuH2Rotate >= 200){
 
 					clearInterval(rotateMM);
 					labymenuH2Click = 0;
-					labymenuH2.style.color = "darkkhaki";
+					titreLabyMenu.style.color = "darkkhaki";
 				}
 			}, 500);
 			
@@ -1017,6 +1166,25 @@ labymenuH2.addEventListener('click', function(){
 		compteur = 0;
 });
 
+var optionOptions = document.querySelector('#optionOptions');
+var menuLabyMenu = document.querySelector('#menuLabyMenu');
+var optionLabyMenu = document.querySelector('#optionLabyMenu');
+var optionLabyMenuRetour = document.querySelector('#optionLabyMenuRetour');
+
+optionOptions.addEventListener('click', function(){
+
+	optionLabyMenu.style.display = 'flex';
+	menuLabyMenu.style.display = 'none';
+
+});
+optionLabyMenuRetour.addEventListener('click', function(){
+
+	optionLabyMenu.style.display = 'none';
+	menuLabyMenu.style.display = 'flex';
+
+});
+
+//------------------------------EGGS END---------------------------------------------------------------//
 
 
 /*var tabTest = { "Sylvain": 200; };
@@ -1028,26 +1196,50 @@ var test = new Intl.locale();
 
 
 
-/*
-EXEMPLE
+function Marsupilami(nom, couleur){
 
-	grid-column-start: 4;
-    grid-column-end: 6;
-    grid-row-start: 2;
-    grid-row-end: 2;
+	this.nom = nom;
+	this.couleur = couleur;
+	this.nbpattes = 2;
+	this.crier = function(){
 
-*/
+		return 'Houba houba !';
 
+	}
+}
 
-//idée choix .plateau formes :
+function Chien(nom, couleur){
+	let puce = "oui";
+	this.nom = nom;
+	this.couleur = couleur;
+	Object.defineProperty(this, 'nbpattes', {
+		//enumerable: true,
+		writable: false,
+		value: 4
+	});
+	//this.nbpattes = 4;
+	//Object.freeze(this.nbpattes, true);
+	this.crier = function(){
 
-/*    background-color: indianred;
-    background: radial-gradient(circle farthest-corner at center center, #ff0000 0%, #540000 130%);
-    box-shadow: 38px -9px 29px 3px rgba(95,0,0,0.73);
-    width: 500px;
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    background: radial-gradient(circle farthest-corner at center center, #ff0000 30%, #000000 100%);
-    grid-template-rows: repeat(5, 1fr);
-    position: relative; */
+		return 'Ouaf ouaf !';
+
+	}
+}
+
+var animaux = new Array();
+
+animaux.push(new Chien('Snoopy', 'Blanc'));
+animaux.push(new Chien('Pluto', 'orange'));
+animaux.push(new Marsupilami('Mars', 'noir'));
+animaux.push(new Marsupilami('Marsupilaminette', 'jaune et noir'));
+
+function crier(){
+
+	animaux.forEach(function(animal){
+
+		console.log(animal.nom + ' :', animal.crier());
+	});
+	
+}
+
+var dingo = new Chien('Dingo', 'noir');

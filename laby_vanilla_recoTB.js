@@ -21,14 +21,25 @@ var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
 var welcome = document.querySelector('#welcome');
+var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
+
+var welcomeMessage = document.querySelector('#welcomeMessage');
 
 
-askPlayerName();
+var newPlayerInput = document.querySelector('input[name="playerID"]');
+
+newPlayerInput.addEventListener('keypress', function(){
+	
+	if(event.keyCode == 13){
+		event.preventDefault();
+		askPlayerName();
+	}
+});
+
+newPlayerInput.addEventListener('change', askPlayerName);
+
 function askPlayerName(){
 
-	var newPlayerInput = document.querySelector('input[name="playerID"]');
-
-	newPlayerInput.addEventListener('change', function(){
 		console.log('change !' +newPlayer);
 		newPlayer = newPlayerInput.value;
 		displayPlayer();
@@ -49,10 +60,18 @@ function askPlayerName(){
 				welcome.classList.add('Hide2');
 
 			}, 5500);
-		};
-		
-	});
+
+		}
+	
 };
+
+
+boutonSkipWelcome.addEventListener('click', function(){
+	
+	formPlayerID.classList.add('Hide2');
+	welcome.classList.add('Hide');
+	welcome.classList.add('Hide2');
+});
 
 function displayPlayer(){
 
@@ -60,9 +79,8 @@ function displayPlayer(){
 	playerScreen.innerHTML = newPlayer;
 	return newPlayer;
 
-}
+};
 
-var welcomeMessage = document.querySelector('#welcomeMessage');
 
 function helloYou(newPlayer){
 
@@ -98,7 +116,7 @@ console.log('lettre : ' +lettre[0]);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Arriveras-tu à tout trouver ?";
 		animeStarWars();
 
-	}else if(regex_sylvain.test(newPlayer)){
+	}else if(regex_teddy.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Alors Shooter, prêt à t'occuper de ton double ? Un contrat et un contrat.";
@@ -109,9 +127,21 @@ console.log('lettre : ' +lettre[0]);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Non d'un Chocobo doré, arriveras-tu à finir à 100% ce jeux aussi ?";
 		animeStarWars();
 
+	}else if(regex_christopher.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Merci pour tes idées ! Arriveras-tu à finir à 100% ce jeux aussi ?";
+		animeStarWars();
+
+	}else if(regex_michel.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".C'est Michèl ? Merci de t'intèresser aux jeux vidéo :-)";
+		animeStarWars();
+
 	}else{
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".Tu ne fais pas partie de la BlueTeam mais je te bonne chance pour finir à 100% :)";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".Un inconnu ? Bonne chance pour finir à 100% :)";
 		animeStarWars();
 	}
 };
@@ -122,22 +152,6 @@ function animeStarWars(){
 
 }
 
-function totalFin(){
-
-	var labyMenu = document.querySelector('#labyMenu');
-/*	labyMenu.style.display = 'flex';
-*/
-	setTimeout(function(){
-
-		welcome.classList.remove('Hide', 'Hide2');
-
-	}, 2000)
-/*	welcome.classList.remove('Hide2');
-*/
-	welcomeMessage.style.transition = 'opacity 2s linear';
-	welcomeMessage.style.fontSize = '6em';
-	welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '+finavecEE +'% des secrets !';
-}
 
 
 

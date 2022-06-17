@@ -22,21 +22,66 @@
 					<input type="name" name="playerID" for="playerID">
 				</form>
 			</p>
+			<button id="boutonSkipWelcome">SKIP</button>
+		</section>
+		<section id="credits">
+			<p>
+				<span class="creditsTitre">Producer :</span><br>
+				<br>
+				<span class="creditsNom">CodePhénix</span><br>
+				<br>
+				<span class="creditsTitre">Lead Programmer :</span><br>
+				<br>
+				<span class="creditsNom">Guillaume</span><br>
+				<br>
+				<span class="creditsTitre">Programmer :</span><br>
+				<br> 
+				<span class="creditsNom">Volo</span><br>
+				<br>
+				<span class="creditsTitre">Beta tester :</span><br>
+				<br>
+				<span class="creditsNom">YouYou</span><br>
+				<br>
+				<span class="creditsTitre">Original ideas :</span><br>
+				<br>
+				<span class="creditsNom">Guillaume</span><br>
+				<br>
+				<span class="creditsNom">YouYou</span><br>
+				<br>
+				<span class="creditsNom">Tof</span><br>
+				<br>
+				<span class="creditsNom">Brakebein</span><br>
+				<br>			
+				<span class="creditsNom">Chris</span><br>
+				<br>			
+
+			</p>
+			
 		</section>
 
 		<section id="labyMenu">
 			<div>
-				<h1>Labybi</h1>
-				<h2>Options</h2>
+				<h1 id="labyMenuH1">Labybi</h1>
 				<img src="images/cursor/ufo2.png" id="saucerMenuOption">
-				<ul>
-					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button id="boutonChangeWorld" >Changer de monde !</button></li>
-					<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Shuffle les niveaux !</button></div></li>
+				<ul id="menuLabyMenu">
+					<h2 id="titreLabyMenu">Menu</h2>
+					
 					<li id="optionLibre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Facile : </span> Libre ! </li>
-					<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre : fais ton meilleur temps !</li>
-					<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficle : </span>Compte à rebours.</li>
-					<li id="optionRetourPartie"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
+					<li id="optionChrono"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Moyen : </span>Contre la montre, fais ton meilleur temps !</li>
+					<li id="optionVSmontre"><img id="imgMenu" src="images/cursor/ufo2.png"><span>Difficile : </span>Compte à rebours.</li>
+					<li id="optionOptions"><img id="imgMenu" src="images/cursor/ufo2.png">OPTIONS</li>
+					<li id="optionMelangerEtMonde"><img id="imgMenu" src="images/cursor/ufo2.png">>> Retour partie ! <<</li>
 					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="images/cursor/ufo2.png"><a href="../menu.html"><<< Changer de cartouche.</a></li>
+				</ul>
+
+				<ul id="optionLabyMenu">
+
+					<h2 id="titreLabyMenu">Options</h2>
+					
+					<li id="formePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><button id="boutonChangeWorld" >Changer de monde !</button></li>
+					<li id="shufflePlateau"><img id="imgMenu" src="images/cursor/ufo2.png"><div id="textDanger"><button>Mélanger les niveaux !</button></div></li>
+					<li id="optionLabyMenuRetour"><img id="imgMenu" src="images/cursor/ufo2.png"><<< retour MENU</li>
+					
 				</ul>
 				<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 			</div>
@@ -50,15 +95,15 @@
 			<div id="score">
 
 				<span>Best score : </span>
-				<div>
+				<div id="newPlayerHighScore">
 					<span id="oldPlayer"></span>
 					<span id="oldScoreScreen"></span>
 				</div>
-				<div>
+				<div id="oldPlayerDuke">
 					<span class="oldPlayer" id="oldPlayer2"></span>
 					<span class="oldScore" id="oldScoreScreen2"></span>
 				</div>
-				<div>
+				<div id="oldPlayerMajor">
 					<span class="oldPlayer" id="oldPlayer3"></span>
 					<span class="oldScore" id="oldScoreScreen3"></span>
 				</div>
@@ -69,9 +114,11 @@
 				</div>
 			</div>
 		</div>
-		<h1>Labybi</h1>
+		<h1 id="theTitle">Labybi</h1>
 
 		<section id="boite">
+
+				<span id="bonus"> + 5 sec</span>
 
 			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer1">
 			<img src="images/cursor/ufo2.png" class="saucerEnd" id="saucer2">
@@ -80,6 +127,7 @@
 
 			<section id="game">
 				
+
 				<input type="checkbox" name="check" id="check">
 				<div class="plateau plateauNormal" id="plateau1"  style="background-image: url(images/fond/fondSpace7.jpg);">
 					<div id="chemin1" class="chemin chemin1 originPath"></div>
@@ -140,7 +188,7 @@
 						<label for="check4" id="label_gagner" >Finit !</label>
 						
 					</div>
-					<div class="perdu">PERDU !</div>
+					<div class="perdu">LOST !</div>
 
 				</div>
 
