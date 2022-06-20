@@ -374,6 +374,14 @@ function saucer(){  //animation end game !
 	}, 6000);
 };
 
+
+
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//------------------------------END OF GAME----------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
 function totalFin(){
 
 	var labyMenu = document.querySelector('#labyMenu');
@@ -400,6 +408,16 @@ function totalFin(){
 
 		welcomeMessage.innerHTML = 'Bravo !!!! ' +newPlayer +' vous avez trouvé tous les secrets !! '
 									+'avec '+finavecEE +'% des secrets trouvés ! Félicitation xD ';
+
+		regex_christophe.lastIndex = 0;
+		if(regex_christophe.test(newPlayer)){
+
+			welcomeMessage.innerHTML = "Bravo !!!! " +newPlayer +" Non d'un Chocobo doré !!!"
+									+"Tu as fais" +finavecEE +"% des secrets trouvés ! Je suis pas étonné venant de toi !\
+									Félicitation ;D ";
+
+
+		}
 
 	}
 
@@ -431,7 +449,12 @@ function totalFin(){
 
 	}, 8000);
 };
-
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//------------------------------END OF GAME----------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------//
 
 
 
@@ -826,6 +849,10 @@ optionChrono.addEventListener('mousemove', function(e){
 	 pasFin.style.left = pos.x + "px";
 });
 
+
+
+//-------------BONUS "+5" A FAIRE --------------------------------//
+
 /*var gameLabels = document.querySelectorAll('#game label'); // BONUS "+5 SEC" suis le curseur !
 var bonus = document.querySelector('#bonus');
 var boite = document.querySelector('#boite');
@@ -858,7 +885,7 @@ function cursorPosition(){
 	});
 	
 };*/
-
+//-------------BONUS "+5" A FAIRE --------------------------------//
 
 
 
@@ -867,6 +894,11 @@ function cursorPosition(){
 //-----------menu contextuel-------------pas de Fin dispo---------END--------------//
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
+
+
+
+
+//---------------------------------DISPLAY SCORE------------------------------------------------//
 
 function displayScoreScreen(tempsReceived){
 	
@@ -899,6 +931,7 @@ function marioKartColor_menuChangeWorld(){
 	menuChangeWorld.style.filter = "hue-rotate(" + iDeg +"deg)";
 }
 
+//------------------------------Fin display score----------------------------------------------------------//
 
 
 
@@ -1166,7 +1199,7 @@ titreLabyMenu.addEventListener('click', function(){
 		compteur = 0;
 });
 
-var optionOptions = document.querySelector('#optionOptions');
+var optionOptions = document.querySelector('#optionOptions'); // Option supplemtentaire avec plateau rond et aléatoire
 var menuLabyMenu = document.querySelector('#menuLabyMenu');
 var optionLabyMenu = document.querySelector('#optionLabyMenu');
 var optionLabyMenuRetour = document.querySelector('#optionLabyMenuRetour');
@@ -1196,7 +1229,7 @@ var test = new Intl.locale();
 
 
 
-function Marsupilami(nom, couleur){
+/*function Marsupilami(nom, couleur){
 
 	this.nom = nom;
 	this.couleur = couleur;
@@ -1242,4 +1275,4 @@ function crier(){
 	
 }
 
-var dingo = new Chien('Dingo', 'noir');
+var dingo = new Chien('Dingo', 'noir');*/
