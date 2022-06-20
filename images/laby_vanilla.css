@@ -4,34 +4,34 @@
 	}
 @font-face{
     font-family:"raleLight";
-    src: url('images/fonts/Raleway-Light.ttf');
+    src: url('fonts/Raleway-Light.ttf');
 }@font-face{
     font-family:"raleRegular";
-    src: url('images/fonts/Raleway-Regular.ttf');
+    src: url('fonts/Raleway-Regular.ttf');
 }@font-face{
     font-family:"raleExtraLight";
-    src: url('images/fonts/Raleway-ExtraLight.ttf');
+    src: url('fonts/Raleway-ExtraLight.ttf');
 }@font-face{
     font-family:"raleBold";
-    src: url('images/fonts/Raleway-Bold.ttf');
+    src: url('fonts/Raleway-Bold.ttf');
 }@font-face{
 	font-family:"raleExtraBold";
-	src: url('images/fonts/Raleway-ExtraBold.ttf');
+	src: url('fonts/Raleway-ExtraBold.ttf');
 }
 @font-face{
 	font-family:"3Dumb";
-	src: url('images/fonts/3Dumb.ttf');
+	src: url('fonts/3Dumb.ttf');
 }
 @font-face{
 	font-family:"2Dumb";
-	src: url('images/fonts/2Dumb.ttf');
+	src: url('fonts/2Dumb.ttf');
 }
 html{
 	font-size: 62.5%;
 
 }
 body{
-    cursor: url('images/cursor/ufo3cursorMini.png') 15 11, crosshair;
+    cursor: url('cursor/ufo3cursorMini.png') 15 11, crosshair;
     overflow: hidden;
 
 }
@@ -142,7 +142,7 @@ h1#theTitle{
     display: inline;
 }
 #textDanger{
-    background-image: url(images/textures/ligneDanger.png);
+    background-image: url(textures/ligneDanger.png);
     width: 160px;
     height: 31px;
     padding-left: 10px;
@@ -205,7 +205,7 @@ h1#theTitle{
     width: 125px;
 }
 #infoScreen{
-    background-image: url(images/textures/metal1.jpg);
+    background-image: url(textures/metal1.jpg);
     background-position-x: 72px;
     background-position-y: 460px;
 
@@ -244,7 +244,7 @@ h1#theTitle{
     width: 100%;
     height: 0vh;
     z-index: 120;
-    background-image: url(images/textures/metal5.jpg);
+    background-image: url(textures/metal5.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 130%;
@@ -256,7 +256,7 @@ h1#theTitle{
 #metalBottom{
     width: 100%;
     height: 0vh;
-    background-image: url(images/textures/metal5.jpg);
+    background-image: url(textures/metal5.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 130%;
@@ -271,7 +271,7 @@ h1#theTitle{
 #bandeDanger{
     width: 100%;
     height: 20px;
-    background-image: url(images/textures/ligneDanger.png);
+    background-image: url(textures/ligneDanger.png);
 
     position: absolute;
     bottom: 0px;
@@ -282,7 +282,7 @@ h1#theTitle{
 #bandeDanger2{
     width: 100%;
     height: 20px;
-    background-image: url(images/textures/ligneDanger.png);
+    background-image: url(textures/ligneDanger.png);
 
     position: absolute;
     top: 0px;
@@ -361,7 +361,7 @@ h1#theTitle{
     left: 10px;
     z-index: 10;
     background: blueviolet;
-    background-image: url(images/textures/metal6.jpg);
+    background-image: url(textures/metal6.jpg);
 
     background-size: 389px;
     background-position-x: -128px;
@@ -475,7 +475,7 @@ h1#theTitle{
 #boite{
     background-color: cadetblue;
     background-image: url(outils/laby_space.png);
-    background-image: url(images/fond/fondSpace5.jpg);
+    background-image: url(fond/fondSpace5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -491,7 +491,7 @@ h1#theTitle{
     background-image: none;
     box-sizing: border-box;
     background-image: url(outils/laby_space.png);
-    background-image: url(images/textures/ligneDanger.png);
+    background-image: url(textures/ligneDanger.png);
     background-size: 100%;
     background-repeat: repeat;
 }
@@ -542,7 +542,7 @@ h1#theTitle{
 }
 #game label:hover {
     color: goldenrod;
-    cursor: url('images/cursor/ufo3cursorMini.png') 15 11, crosshair;
+    cursor: url('cursor/ufo3cursorMini.png') 15 11, crosshair;
 }
 #game label.labelRond{
     top: 90px;
@@ -657,7 +657,7 @@ h1#theTitle{
 	grid-column-end: 8;
     grid-row-start: 3;
     grid-row-end: 4;
-    background-image: url(images/textures/metal6.jpg);
+    background-image: url(textures/metal6.jpg);
     background-size: cover;
 }
 #win{
@@ -679,7 +679,7 @@ h1#theTitle{
     grid-column-end: 9;
     grid-row-start: 3;
     grid-row-end: 4;
-	background-image: url(images/textures/metal6.jpg);
+	background-image: url(textures/metal6.jpg);
     background-size: contain;
     background-position: 0;
     width: 0%;
@@ -808,7 +808,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     grid-row-end: 4;
     grid-column-end: 8;
     background: aliceblue;
-    background-image: url(images/textures/ligneDanger.png);
+    background-image: url(textures/ligneDanger.png);
     background-size: 201px;
     background-position: 0px 54px;
     background-repeat: no-repeat;
@@ -822,7 +822,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 	width: 500px;
 	height: 40px;
     opacity: 1;
-    background-image: url(images/textures/metal4.jpg);
+    background-image: url(textures/metal4.jpg);
     background-size: 140%;
     background-repeat: no-repeat;
     background-position-x: -190px;
@@ -836,7 +836,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     width: 40px;
     height: 300px;
     opacity: 1;
-    background-image: url(images/textures/metal4.jpg);
+    background-image: url(textures/metal4.jpg);
     background-size: cover;
     background-position-y: 0;
     background-repeat: no-repeat;
@@ -1057,7 +1057,7 @@ input[name="playerID"]{
         top: 38.6px;
         left: 4.7px;
         display: inline;
-        background-image: url(images/textures/metal9.jpg);
+        background-image: url(textures/metal9.jpg);
         background-size: 200px;
         padding: 15px 23px;
     }
@@ -1118,7 +1118,7 @@ input[name="playerID"]{
         width: 100%;
         height: 126px;
         box-sizing: border-box;
-        background-image: url(images/textures/metal1.jpg);
+        background-image: url(textures/metal1.jpg);
         background-size: contain;
         background-position-x: 12px;
         background-position-y: 120px;
