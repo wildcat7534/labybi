@@ -160,11 +160,11 @@ function changeWorld(){ //le monde rond
 			bordDroite.style.display = 'block';
 			bordGauche.style.display = 'block';
 			divWin.style.borderRadius = '0%';
-			cssRond.removeAttribute('href', 'laby_vanilla_rond.css');
+			cssRond.removeAttribute('href', 'tools/laby_vanilla_rond.css');
 			clearTimeout(letsGo);
 		}else{
 
-			cssRond.setAttribute('href', 'laby_vanilla_rond.css');
+			cssRond.setAttribute('href', 'tools/laby_vanilla_rond.css');
 			plateau.classList.replace('plateauNormal', 'plateauRond');
 			mondeRond = true;
 			for( var perdu of perdus){
@@ -212,6 +212,13 @@ function reloadGame(){
 	}else{
 		timesUP = 5;
 	}
+	for(var plateau of plateaux ){
+
+		if(plateau.classList.contains('plateauRond')){
+			timesUP = 20;
+
+	}};
+
 	oldScore.innerHTML = "";
 	oldPlayer.innerHTML = "";
 	oldScore1.innerHTML = "";
