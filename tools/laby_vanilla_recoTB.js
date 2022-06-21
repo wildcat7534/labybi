@@ -14,10 +14,11 @@ var regex_PlayerName2 = /^([a-z_?]{3,7})$|^([a-z]{3,7})([0-9]{0,3})$|^(([a-z_?])
 var regex_mehdi = /(mehdi)|(elmehdi)|(yousssef)|(youyou)/gi;
 var regex_sylvain = /(sylvain)|(maitre)|(Brakebein)/gi;
 var regex_volo = /(volo)/gi;
-var regex_christophe = /(christophe)|(tof)/gi;
+var regex_christophe = /(christophe)|(tof)|(tophe)/gi;
 var regex_michel = /(michel)|(magny)/gi;
 var regex_christopher = /(chris)/gi;
 var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
+var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
 var welcome = document.querySelector('#welcome');
@@ -137,6 +138,12 @@ console.log('lettre : ' +lettre[0]);
 
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".C'est Michèl ? Merci de t'intèresser aux jeux vidéo :-)";
+		animeStarWars();
+
+	}else if(regex_ff7.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! C'est vous les rebelles contre la Shinra ?";
 		animeStarWars();
 
 	}else{

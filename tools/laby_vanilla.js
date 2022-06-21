@@ -44,6 +44,8 @@ var menu_timeUP = document.querySelector('#optionVSmontre');
 var menuChangeWorld = document.querySelector('#boutonChangeWorld');
 var finavecEE = 0;
 var goMarioKartColor;
+var colorDivBestScore = document.querySelector('#infoScreen #score div:nth-child(2)');
+colorDivBestScore.classList.add('marioKartColorDivs');
 
 transiMetal();
 displayPlayer()
@@ -385,10 +387,11 @@ function saucer(){  //animation end game !
 
 //----------------------------------------------------------------------------------------------//
 //----------------------------------------------------------------------------------------------//
-//------------------------------END OF GAME----------------------------------------------------//
+//------------------------------END OF GAME-----------Fin du jeu--------------------------------//
 //----------------------------------------------------------------------------------------------//
 //----------------------------------------------------------------------------------------------//
 //----------------------------------------------------------------------------------------------//
+
 function totalFin(){
 
 	var labyMenu = document.querySelector('#labyMenu');
@@ -407,7 +410,9 @@ function totalFin(){
 	credits.appendChild(appendChild);*/
 /*	welcomeMessage.style.margin = '42% 0';*/
 	welcomeMessage.style.transform = 'unset';
-	if( finavecEE < 100 ){
+	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
+	boutonSkipWelcome.style.display = 'none';
+	if( 0 > finavecEE < 100 ){
 
 		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '
 									+finavecEE +'% des secrets !';
@@ -423,26 +428,22 @@ function totalFin(){
 									+"Tu as fais" +finavecEE +"% des secrets trouvés ! Je suis pas étonné venant de toi !\
 									Félicitation ;D ";
 
-
 		}
+	}else if( finavecEE == 0 ){
 
+		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu mais vous avez trouvé aucun secret ( '+finavecEE +' % )'
 	}
+
+var h1Laby = document.querySelector('#theTitle');
+var credits = document.querySelector('#credits');
+var creditsP = document.querySelector('#credits p');
 
 	setTimeout(function(){
 
 		welcome.classList.add('Hide', 'Hide2');
 
-		var h1 = document.querySelector('#theTitle');
-
-		theTitle.style.top = '55%';
-		theTitle.style.left = '0%';
-		theTitle.style.transform ='rotate(-40deg)';
-		theTitle.style.backgroundImage = 'none';
-		theTitle.style.fontSize = '8em';
-
-
-		var credits = document.querySelector('#credits');
-		var creditsP = document.querySelector('#credits p');
+		h1Laby.classList.add('marioKartColorDivs');
+		h1Laby.classList.add('creditsEnd');
 
 		credits.style.display = 'flex';
 
@@ -450,12 +451,24 @@ function totalFin(){
 		setTimeout(function(){
 
 			creditsP.classList.add('animationCredits');
+
 			
 		}, 2000);
 
 
 	}, 8000);
+
+	setTimeout(function(){
+
+		h1Laby.classList.remove('creditsEnd');
+
+		creditsP.classList.remove('animationCredits');
+		credits.style.display = 'none';
+		
+	},30000);
 };
+
+
 //----------------------------------------------------------------------------------------------//
 //----------------------------------------------------------------------------------------------//
 //------------------------------END OF GAME----------------------------------------------------//
@@ -912,7 +925,7 @@ function displayScoreScreen(tempsReceived){
 	oldScore.innerHTML = "*" +tempsReceived +" secondes*";
 	oldPlayer.innerHTML = displayPlayer();
 
-	oldScore1.innerHTML =  "*" +15 +"secondes*";
+	oldScore1.innerHTML =  "*" +11 +"secondes*";
 	oldPlayer1.innerHTML = "Duke3D";
 
 	oldScore2.innerHTML = "*" +14 +"secondes*";
@@ -920,15 +933,39 @@ function displayScoreScreen(tempsReceived){
 
 }
 
-var colorDivBestScore = document.querySelector('#infoScreen #score div:nth-child(2)');
+
+var test = "Salut";
+
+recup(test);
+
+function recup(qqchose){
+
+	console.log(qqchose);
+};
+
+
+
+
 var iDeg = 0;
+
 function marioKartColor(){
+
+var marioKartColorDivs = document.querySelectorAll('.marioKartColorDivs');
 
 	iDeg = (iDeg+30)%360;
 
+
+
+	for( var divColor of marioKartColorDivs ){
+
+		
+		divColor.style.filter = "hue-rotate(" + iDeg +"deg)";
+
+		}
+
 	goMarioKartColor = setTimeout(marioKartColor, 200);
-	colorDivBestScore.style.filter = "hue-rotate(" + iDeg +"deg)";
-}
+};
+
 marioKartColor_menuChangeWorld();
 function marioKartColor_menuChangeWorld(){
 
@@ -936,7 +973,7 @@ function marioKartColor_menuChangeWorld(){
 	
 	setTimeout(marioKartColor_menuChangeWorld, 1000);
 	menuChangeWorld.style.filter = "hue-rotate(" + iDeg +"deg)";
-}
+};
 
 //------------------------------Fin display score----------------------------------------------------------//
 

@@ -90,6 +90,16 @@ h1#theTitle{
     background-image: none;
     padding: none;
 }
+h1#theTitle.creditsEnd{
+    transform: rotate(-40deg);
+    top: 55%;
+    left: 0%;
+    background-image: none;
+    font-size: 8em;
+}
+.marioKartColorDivs{
+
+}
 #titreLabyMenu{
     font-family: "raleLight";
     color: darkkhaki;
@@ -1061,6 +1071,13 @@ input[name="playerID"]{
         background-image: url(textures/metal9.jpg);
         background-size: 200px;
         padding: 15px 23px;
+    }
+    h1#theTitle.creditsEnd{
+        transform: rotate(-40deg);
+        top: 55%;
+        left: 0%;
+        background-image: none;
+        font-size: 8em;
     }
     #formPlayerID{
         left: 35vw;

@@ -1,4 +1,5 @@
 /\ ERRATUM : COMPATIBLE QUE CHROMIUM /\
+/\ Jouer en demie-fenêtre de préférence (+fluide etc) /\
 
 __Bienvenue sur ce projet de jeux-vidéo !__ (EDIT: Version finale réparée)
 
