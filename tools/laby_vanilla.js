@@ -447,6 +447,7 @@ function totalFin(){
 	setTimeout(function(){
 
 		welcome.classList.add('Hide', 'Hide2');
+		welcomeMessage.classList.remove('welcomeFinSecret');
 
 		h1Laby.classList.add('marioKartColorDivs');
 		h1Laby.classList.add('creditsEnd');
