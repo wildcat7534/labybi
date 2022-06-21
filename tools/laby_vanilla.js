@@ -412,22 +412,23 @@ function totalFin(){
 	welcomeMessage.style.transform = 'unset';
 	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 	boutonSkipWelcome.style.display = 'none';
-	if( 0 > finavecEE < 100 ){
+	if(  finavecEE < 100 && finavecEE > 0 ){
 
 		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '
 									+finavecEE +'% des secrets !';
 	}else if( finavecEE >= 100){
 
-		welcomeMessage.innerHTML = 'Bravo !!!! ' +newPlayer +' vous avez trouvé tous les secrets !! '
-									+'avec '+finavecEE +'% des secrets trouvés ! Félicitation xD ';
-
 		regex_christophe.lastIndex = 0;
 		if(regex_christophe.test(newPlayer)){
-
+			console.log('Fin pour :' +newPlayer);
 			welcomeMessage.innerHTML = "Bravo !!!! " +newPlayer +" Non d'un Chocobo doré !!!"
 									+"Tu as fais" +finavecEE +"% des secrets trouvés ! Je suis pas étonné venant de toi !\
 									Félicitation ;D ";
 
+		}else{
+
+			welcomeMessage.innerHTML = 'Bravo !!!! ' +newPlayer +' vous avez trouvé tous les secrets !! '
+									+'avec '+finavecEE +'% des secrets trouvés ! Félicitation xD ';
 		}
 	}else if( finavecEE == 0 ){
 

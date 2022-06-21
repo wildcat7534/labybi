@@ -95,7 +95,15 @@ console.log('lettre : ' +lettre[0]);
 
 /*	regex_mehdi.lastIndex = 0;*/ // pour reset le test() au début de la recherche.
 
-
+	
+	regex_mehdi.lastIndex = 0;
+	regex_volo.lastIndex = 0;
+	regex_sylvain.lastIndex = 0;
+	regex_christophe.lastIndex = 0;
+	regex_teddy.lastIndex = 0;
+	regex_christopher.lastIndex = 0;
+	regex_ff7.lastIndex = 0;
+	regex_michel.lastIndex = 0;
 	if(regex_mehdi.test(newPlayer)){
 
 		console.log(regex_mehdi.test(newPlayer), newPlayer);
@@ -125,7 +133,7 @@ console.log('lettre : ' +lettre[0]);
 	}else if(regex_christophe.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Non d'un Chocobo doré, arriveras-tu à finir à 100% ce jeux aussi ?";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Nom d'un Chocobo doré, arriveras-tu à finir à 100% ce jeux aussi ?";
 		animeStarWars();
 
 	}else if(regex_christopher.test(newPlayer)){
