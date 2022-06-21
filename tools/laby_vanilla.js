@@ -925,25 +925,13 @@ function displayScoreScreen(tempsReceived){
 	oldScore.innerHTML = "*" +tempsReceived +" secondes*";
 	oldPlayer.innerHTML = displayPlayer();
 
-	oldScore1.innerHTML =  "*" +11 +"secondes*";
-	oldPlayer1.innerHTML = "Duke3D";
+	oldScore1.innerHTML =  "*" +10 +" secondes*";
+	oldPlayer1.innerHTML = "Guillaume";
 
-	oldScore2.innerHTML = "*" +14 +"secondes*";
-	oldPlayer2.innerHTML = "MaJoR_34";
+	oldScore2.innerHTML = "*" +11 +" secondes*";
+	oldPlayer2.innerHTML = "Duke3d";
 
 }
-
-
-var test = "Salut";
-
-recup(test);
-
-function recup(qqchose){
-
-	console.log(qqchose);
-};
-
-
 
 
 var iDeg = 0;

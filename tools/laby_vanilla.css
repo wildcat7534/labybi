@@ -482,6 +482,7 @@ h1#theTitle.creditsEnd{
     padding: 5px;
     text-shadow: 5px -3px 3px rgb(43, 43, 42);
     box-shadow: inset 9px -10px 19px -4px #000000;
+    text-transform: capitalize;
 }
 #boite{
     background-color: cadetblue;
