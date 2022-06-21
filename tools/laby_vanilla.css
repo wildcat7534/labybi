@@ -960,7 +960,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     color: darkgoldenrod;
     position: absolute;
     top: 300px;
-    left: 19%;
+    left: 5%;
     transform: perspective(80px) rotateX(20deg) translateY(-360px);
 
     transition: all 5s linear;
@@ -1045,7 +1045,14 @@ input[name="playerID"]{
 
      opacity: 1;
 }
+.welcomeFinSecret{
 
+    width: 850px;
+    height: auto;
+    border: 2px solid palegoldenrod;
+    padding: 4px 10px;
+    
+}
 
 
 
@@ -1092,6 +1099,9 @@ input[name="playerID"]{
     #titreLabyMenu{
         font-size: 7em;
         margin-bottom: 0.9em;
+    }
+    #contactLabyMenu{
+        width: 20px;
     }
     #saucerMenuOption{
         width: 150px;

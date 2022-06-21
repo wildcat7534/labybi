@@ -264,6 +264,12 @@ function chronos(){
 						+" secondes écoulées !";
 	temps++;
 	chronoRunning = true;
+
+	if( win == true ){
+
+		clearTimeout(interval);
+
+	}
 }
 
 //pour le VS la montre
@@ -395,23 +401,22 @@ function saucer(){  //animation end game !
 function totalFin(){
 
 	var labyMenu = document.querySelector('#labyMenu');
-/*	labyMenu.style.display = 'flex';
-*/
+
 	setTimeout(function(){
 
 		welcome.classList.remove('Hide', 'Hide2');
 
 	}, 2000);
-/*	welcome.classList.remove('Hide2');
-*/
+
 	welcomeMessage.style.transition = 'opacity 2s linear';
 	welcomeMessage.style.fontSize = '5em';
-/*	var credits = document.querySelector('#credits');
-	credits.appendChild(appendChild);*/
-/*	welcomeMessage.style.margin = '42% 0';*/
+
 	welcomeMessage.style.transform = 'unset';
 	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 	boutonSkipWelcome.style.display = 'none';
+
+	welcomeMessage.classList.add('welcomeFinSecret');
+
 	if(  finavecEE < 100 && finavecEE > 0 ){
 
 		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '
@@ -435,9 +440,9 @@ function totalFin(){
 		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu mais vous avez trouvé aucun secret ( '+finavecEE +' % )'
 	}
 
-var h1Laby = document.querySelector('#theTitle');
-var credits = document.querySelector('#credits');
-var creditsP = document.querySelector('#credits p');
+	var h1Laby = document.querySelector('#theTitle');
+	var credits = document.querySelector('#credits');
+	var creditsP = document.querySelector('#credits p');
 
 	setTimeout(function(){
 
@@ -922,15 +927,26 @@ function cursorPosition(){
 //---------------------------------DISPLAY SCORE------------------------------------------------//
 
 function displayScoreScreen(tempsReceived){
+
+	var scoreBefore = 10;
+	var playerBefore = "Guillaume";
 	
 	oldScore.innerHTML = "*" +tempsReceived +" secondes*";
 	oldPlayer.innerHTML = displayPlayer();
 
-	oldScore1.innerHTML =  "*" +10 +" secondes*";
-	oldPlayer1.innerHTML = "Guillaume";
+	if( tempsReceived < scoreBefore ){
 
-	oldScore2.innerHTML = "*" +11 +" secondes*";
-	oldPlayer2.innerHTML = "Duke3d";
+		oldScore1.innerHTML = "*" +tempsReceived +" secondes*";
+		oldPlayer1.innerHTML = displayPlayer();
+
+	}else{
+		oldScore1.innerHTML =  "*" +scoreBefore +" secondes*";
+		oldPlayer1.innerHTML = playerBefore;
+
+	}
+
+		oldScore2.innerHTML = "*" +11 +" secondes*";
+		oldPlayer2.innerHTML = "Duke3d";
 
 }
 
