@@ -139,6 +139,15 @@ h1#theTitle.creditsEnd{
     font-family: Karatula;
     position: relative;
 }
+#labyMenu ul li#optionOptions{
+
+    color: blueviolet;
+    margin-top: 45px;    
+}
+#labyMenu ul li#optionRetourPartie{
+    color: aliceblue;
+    margin-top: 80px;
+}
 #labyMenu ul#optionLabyMenu li{
 
     color: darkgoldenrod;
