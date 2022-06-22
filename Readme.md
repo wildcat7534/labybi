@@ -1,7 +1,7 @@
 /\ ERRATUM : COMPATIBLE QUE CHROMIUM /\
 /\ Jouer en demie-fenêtre de préférence (+fluide etc) /\
 
-__Bienvenue sur ce projet de jeux-vidéo !__ (EDIT: Version finale réparée)
+__Bienvenue sur ce projet de jeux-vidéo !__
 
 __Si vous voulez ne pas vous divulgacher (spoiler) essayez de jouer et surtout arriver à voir la FIN du jeu ;D__
 
