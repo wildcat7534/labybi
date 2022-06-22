@@ -427,8 +427,13 @@ function totalFin(){
 		if(regex_christophe.test(newPlayer)){
 			console.log('Fin pour :' +newPlayer);
 			welcomeMessage.innerHTML = "Bravo !!!! " +newPlayer +" Non d'un Chocobo doré !!!"
-									+"Tu as fais" +finavecEE +"% des secrets trouvés ! Je suis pas étonné venant de toi !\
+									+"Tu as fais" +finavecEE +" % des secrets trouvés ! Je suis pas étonné venant de toi !\
 									Félicitation ;D ";
+
+		}else if(regex_fred.test(newPlayer)){
+			console.log('Fin pour :' +newPlayer);
+			welcomeMessage.innerHTML = "Bravo !!!! " +newPlayer
+									+"Tu as fais" +finavecEE +" % des secrets trouvés ! Et en plus tu finis le jeu à 100% !";
 
 		}else{
 

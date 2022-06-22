@@ -19,6 +19,8 @@ var regex_michel = /(michel)|(magny)/gi;
 var regex_christopher = /(chris)/gi;
 var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
 var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
+var regex_fred = /(fred)|(frederique)|(kraspouille)/gi;
+var regex_marc = /(marc)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
 var welcome = document.querySelector('#welcome');
@@ -152,6 +154,18 @@ console.log('lettre : ' +lettre[0]);
 
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! C'est vous les rebelles contre la Shinra ?";
+		animeStarWars();
+
+	}else if(regex_fred.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Primo-Phénix qui vient tester mon jeu ? C'est un honneur ! =D";
+		animeStarWars();
+
+	}else if(regex_marc.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" !Tiens un ancien 'voisin' ? =D";
 		animeStarWars();
 
 	}else{
