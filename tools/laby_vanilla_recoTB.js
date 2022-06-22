@@ -19,7 +19,7 @@ var regex_michel = /(michel)|(magny)/gi;
 var regex_christopher = /(chris)/gi;
 var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
 var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
-var regex_fred = /(fred)|(frederique)|(kraspouille)/gi;
+var regex_fred = /(fred)|(frederique)|(craspouille)/gi;
 var regex_marc = /(marc)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
