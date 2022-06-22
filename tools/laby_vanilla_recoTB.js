@@ -10,7 +10,7 @@ var regex_lettre = /^([a-z]{7})([0-9]{3})/;
 var regex_codepostal = /^([0-9]{5})$/;
 var regex_nom_composé = /^([a-z]+)(-)([a-z]+)$/;
 var regex_PlayerName = /^([a-z]{3,7})$|^([a-z]{3,7})([0-9]{0,3})$/;
-var regex_PlayerName2 = /^([a-z_?]{3,7})$|^([a-z]{3,7})([0-9]{0,3})$|^(([a-z_?]){1,5})([0-9]{0,3})$/i;
+var regex_PlayerName2 = /^([a-z_?]{3,15})$|^([a-z]{3,12})([0-9]{0,3})$|^(([a-z_?]){1,12})([0-9]{0,3})$/i;
 var regex_mehdi = /(mehdi)|(elmehdi)|(yousssef)|(youyou)/gi;
 var regex_sylvain = /(sylvain)|(maitre)|(Brakebein)/gi;
 var regex_volo = /(volo)/gi;
@@ -106,6 +106,8 @@ console.log('lettre : ' +lettre[0]);
 	regex_christopher.lastIndex = 0;
 	regex_ff7.lastIndex = 0;
 	regex_michel.lastIndex = 0;
+	regex_fred.lastIndex = 0;
+	regex_marc.lastIndex = 0;
 	if(regex_mehdi.test(newPlayer)){
 
 		console.log(regex_mehdi.test(newPlayer), newPlayer);
