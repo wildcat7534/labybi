@@ -18,6 +18,8 @@ NewEgg Nom[SECRET][SECRET][SECRET]
 
 cosmétique générique fin
 
+correction longueur pseudo (merci Craspouille ;)
+
 v0.9
 
 fin générique non bloquante (finit le F5 pour rejouer !)

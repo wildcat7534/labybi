@@ -28,7 +28,6 @@ var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 
 var welcomeMessage = document.querySelector('#welcomeMessage');
 
-
 var newPlayerInput = document.querySelector('input[name="playerID"]');
 
 newPlayerInput.addEventListener('keypress', function(){
@@ -46,6 +45,8 @@ function askPlayerName(){
 		console.log('change !' +newPlayer);
 		newPlayer = newPlayerInput.value;
 		displayPlayer();
+
+		console.log(regex_PlayerName2.test(newPlayer));
 
 		if(regex_PlayerName2.test(newPlayer)){
 			console.log('regex OK ' +newPlayer);
@@ -175,15 +176,29 @@ console.log('lettre : ' +lettre[0]);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".Un inconnu ? Bonne chance pour finir à 100% :)";
 		animeStarWars();
 	}
+
+	recScores();
+	function recScores(){
+
+		if((localStorage.getItem(newPlayer)) == null){
+			
+			console.log('pas de score dans le locale storage');
+
+		}else{
+
+			welcomeMessage.innerHTML += '<br>' +' votre meilleur temps est : ' +localStorage.getItem(newPlayer) +' sec';
+
+			console.log('bienvenue : ', newPlayer, 'Score temps est : ', localStorage.getItem(newPlayer));
+		}
+	};
+
+
+	function animeStarWars(){
+		
+		welcomeMessage.classList.add('animeStarWars');
+
+	};
 };
-
-function animeStarWars(){
-	
-	welcomeMessage.classList.add('animeStarWars');
-
-}
-
-
 
 
 

@@ -46,8 +46,6 @@ img{
     right: 10px;
 /*    right: 10px;*/
 }
-
-
 #labyMenu{
     width: 100vw;
     height: 100vh;
@@ -116,6 +114,8 @@ h1#theTitle.creditsEnd{
     margin-bottom: 1.3em;
 
 }
+
+
 #menuLabyMenu{
     margin-top: 17em;
     display: flex;
@@ -190,6 +190,8 @@ h1#theTitle.creditsEnd{
 #optionRetourCartoucheDeJeux a{
     text-decoration: none;
     color: #53c7f7;
+    font-size: 0.8em;
+
 }
 #optionRetourCartoucheDeJeux a:hover{
     color: antiquewhite;
@@ -555,6 +557,7 @@ h1#theTitle.creditsEnd{
     box-shadow: 0px 0px 243px 47px rgba(255,0,0,0.73);
     background: radial-gradient(circle farthest-corner 
         at center center, #cd5c5c 62%, #000000 80%);
+
 }
 #game label{
     transform: rotate(270deg);
@@ -618,7 +621,18 @@ h1#theTitle.creditsEnd{
     color: gold;
     font-size: 3.2em;
 }
-
+#cache{
+    display: none;
+}
+/*.tourneTourne{
+    animation-name: tourneTourne;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+@keyframes tourneTourne{
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(360deg);}
+}*/
 @keyframes topDown{
     0%{height: 0vh;}
     50%{height: 50.5vh;}

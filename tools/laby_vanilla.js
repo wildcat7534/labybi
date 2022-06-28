@@ -106,7 +106,8 @@ for( var choixOpt of choixOptions ){
 };
 
 
-retourMenu.addEventListener('click', function(){
+retourMenu.addEventListener('click', function(){ // retour menu AVEC jeu en pause que l'on peut reprendre
+
 	transiMetal();
 	clearTimeout(interval);
 	clearInterval(chronoDisplay);
@@ -121,7 +122,7 @@ retourMenu.addEventListener('click', function(){
 
 	
 
-function transiMetal(){
+function transiMetal(){ // portes metaliques animation
 
 	metalTop.style.animationName = "topDown";
 	metalBottom.style.animationName = "bottomTop";
@@ -131,19 +132,20 @@ function transiMetal(){
 		metalBottom.style.animationName = "";
 	}, 2500)
 }
-function transiMetalCLOSE(){
+function transiMetalCLOSE(){ // portes metaliques
 	
 	metalTop.style.animationName = "topDownCLOSE";
 	metalBottom.style.animationName = "bottomTopCLOSE";
 	metalTop.style.animationFillMode = "forwards";
 	metalBottom.style.animationFillMode = "forwards";
 }
-function transiMetalCLOSEopen(){
+function transiMetalCLOSEopen(){ // portes metaliques
 
 	metalTop.style.animationName = "topDownCLOSEopen";
 	metalBottom.style.animationName = "bottomTopCLOSEopen";
 }
-function changeWorld(){ //le monde rond
+var letsGo;
+function changeWorld(){ //le monde rond ou pas !
 	for(var plateau of plateaux ){
 		if( plateau.classList.contains('plateauRond') ){
 
@@ -163,8 +165,11 @@ function changeWorld(){ //le monde rond
 			bordGauche.style.display = 'block';
 			divWin.style.borderRadius = '0%';
 			cssRond.removeAttribute('href', 'tools/laby_vanilla_rond.css');
+			console.log('tourne plus');
 			clearTimeout(letsGo);
-		}else{
+			plateau.classList.remove('tourneTourne');
+
+		}else if( plateau.classList.contains('plateauNormal')){
 
 			cssRond.setAttribute('href', 'tools/laby_vanilla_rond.css');
 			plateau.classList.replace('plateauNormal', 'plateauRond');
@@ -181,14 +186,17 @@ function changeWorld(){ //le monde rond
 			for( var nextLevel of nextLevels ){
 				nextLevel.style.top = '95px';
 			}
+			console.log('tourne !');
+			plateau.classList.add('tourneTourne');
+
 			tourneTourne();
 		}
 	}
 }
 
-var gameTourne = document.querySelector('#game');
+var gameTourne = document.querySelector('#game'); // fait tourner le monde rond !
 var tour = 0;
-var letsGo;
+
 function tourneTourne(){
 
 	letsGo = setTimeout(tourneTourne, 1000);
@@ -196,7 +204,7 @@ function tourneTourne(){
 	gameTourne.style.transform = 'rotate(' +tour +'deg)';
 
 };
-function reloadGame(){
+function reloadGame(){  // reload tous pour rejouer !
 	
 	regex_mehdi.lastIndex = 0;
 	regex_volo.lastIndex = 0;
@@ -299,7 +307,7 @@ function gameEnCour(){
 		displayScoreScreen(temps);
 		clearInterval(chronoDisplay);
 		saucer();
-		marioKartColor();
+
 		totalFin();
 
 	}else{
@@ -353,9 +361,11 @@ theLabels.forEach(function(labelCliquer, j){  //animation end game !
 
 
 			if( j == theLabels.length ){
+				
 				win = true;
 				level.style.color = "gold";
 				level.innerHTML = "*Gold Level*";
+
 				plateauAnnimeFin();
 			};
 	});
@@ -399,6 +409,8 @@ function saucer(){  //animation end game !
 //----------------------------------------------------------------------------------------------//
 
 function totalFin(){
+
+
 
 	var labyMenu = document.querySelector('#labyMenu');
 
@@ -580,7 +592,7 @@ function copyTabNumPiks(){
 	 return copyNumPiks;
 }
 
-var numPlateau = 0;
+var numPlateau  = 0;
 function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au hasard.
 
 	while( numPlateau <= 4 && mondeRond == false  ){
@@ -932,23 +944,36 @@ function cursorPosition(){
 
 //---------------------------------DISPLAY SCORE------------------------------------------------//
 
-function displayScoreScreen(tempsReceived){
 
-	var scoreBefore = 10;
-	var playerBefore = "Guillaume";
+		
+var scoreBefore = 10;
+var playerBefore = "Guillaume";
+
+function displayScoreScreen(tempsReceived){
 	
 	oldScore.innerHTML = "*" +tempsReceived +" secondes*";
 	oldPlayer.innerHTML = displayPlayer();
 
-	if( tempsReceived < scoreBefore ){
+	if(tempsReceived < localStorage.getItem(newPlayer) ||  localStorage.getItem(newPlayer) == null ){
 
-		oldScore1.innerHTML = "*" +tempsReceived +" secondes*";
+		localStorage.setItem(newPlayer, tempsReceived);	
+
+		console.log('meileur temps : ', localStorage.getItem(newPlayer));
+
+		marioKartColor();
+	}
+
+	if( localStorage.getItem(newPlayer) < scoreBefore ){
+
+		oldScore1.innerHTML = "*" +localStorage.getItem(newPlayer) +" secondes*";
 		oldPlayer1.innerHTML = displayPlayer();
 
 	}else{
+
 		oldScore1.innerHTML =  "*" +scoreBefore +" secondes*";
 		oldPlayer1.innerHTML = playerBefore;
 
+		console.log('enregistrement score : ', newPlayer, localStorage.getItem(newPlayer));
 	}
 
 		oldScore2.innerHTML = "*" +11 +" secondes*";
@@ -964,8 +989,6 @@ function marioKartColor(){
 var marioKartColorDivs = document.querySelectorAll('.marioKartColorDivs');
 
 	iDeg = (iDeg+30)%360;
-
-
 
 	for( var divColor of marioKartColorDivs ){
 
