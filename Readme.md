@@ -1,12 +1,11 @@
-/\ ERRATUM : COMPATIBLE QUE CHROMIUM /\
-/\ Jouer en demie-fenêtre de préférence (+fluide etc) /\
+/\ ERRATUM : COMPATIBLE +sur CHROMIUM /\
 
 __Bienvenue sur ce projet de jeux-vidéo !__
 
-__Si vous voulez ne pas vous divulgacher (spoiler) essayez de jouer et surtout arriver à voir la FIN du jeu ;D__
+__Si vous voulez ne pas vous divulgacher (spoiler) essayez de jouer sans voir le code
+et surtout arriver à voir la FIN du jeu ;D__
 
 ![Alt text](tools/labyMenuFin.png)
-
 
 
 v 1.1
@@ -14,9 +13,6 @@ v 1.1
 centrage générique début, message bonus
 
 fin mise en place barre info grand écran
-
-
-
 
 v 1.0
 
