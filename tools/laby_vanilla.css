@@ -146,7 +146,7 @@ h1#theTitle.creditsEnd{
 }
 #labyMenu ul li#optionRetourPartie{
     color: aliceblue;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 #labyMenu ul#optionLabyMenu li{
 
@@ -406,12 +406,12 @@ h1#theTitle.creditsEnd{
  #infoScreen h2{
 /*  position: absolute;
 */ 
-    color: cyan;
+    color: #ff0a59;
     top: 10%;
     left: 2%;
     z-index: 1;
     font-size: 2.8em;
-    text-shadow: 7px 0px 1px rgba(47,90,215,0.8);
+    text-shadow: 5px 2px 4px rgba(47,90,215,0.8);
     text-align: center;
     display: inline;
     box-shadow: 0px 2px 0px black;
@@ -430,8 +430,6 @@ h1#theTitle.creditsEnd{
     padding-top: 10px;
 }
 #infoScreen #chrono{
-/*    position: absolute;
-*/    
     font-size: 1.5em;
     color: darkgoldenrod;
     width: 100%;
@@ -451,6 +449,7 @@ h1#theTitle.creditsEnd{
     border: 5px groove grey;;
     box-sizing: border-box;
     border-bottom: 0;
+    left: 150px;
 }
 #infoScreen #score div{
     display: flex;
@@ -462,12 +461,14 @@ h1#theTitle.creditsEnd{
 
 #infoScreen #score > span, #infoScreen #player > span{
     font-size: 1em;
-    color: lightyellow;
-    /* color: #5500d4; */
+/*    color: lightyellow;
+*/  
+    color: lightyellow; 
     display: inline-block;
     width: 100%;
     text-align: left;
     font-family: "raleRegular";
+    padding: 7px 11px 0 7px;
 }
 #infoScreen #score div .oldPlayer, #infoScreen #score div .oldScore{
     color: #a2d6f7;
@@ -540,7 +541,7 @@ h1#theTitle.creditsEnd{
 }
 .plateau{
 	background-color: indianred;
-	box-shadow: 38px -9px 29px 3px rgba(95,0,0,0.73);
+	box-shadow: 36px -7px 29px 3px rgb(154, 153, 138);
 	width: 500px;
 	height: 300px;
 
@@ -686,9 +687,26 @@ h1#theTitle.creditsEnd{
     0%{top: 19%; left: 81%;}
     25%{top: 16%;left: 85%;}
     50%{top: 20%;left: 83%;}
-    50%{top: 17%;left: 82%;}
+    75%{top: 17%;left: 82%;}
     100%{top: 18%;left: 81%;}
 }
+@keyframes marioKartColorAnime{
+    0%{color: crimson;}
+    25%{color: cyan;}
+    50%{color: greenyellow;}
+    75%{color: darkmagenta;}
+    100%{color: yellow;}
+}
+.marioKartColorAnimeCss{
+    animation-name: marioKartColorAnime;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+}.marioKartColorAnimeCssLent{
+    animation-name: marioKartColorAnime;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
 #chemin1{
     grid-row-start: 3;
     grid-column-start: 1;
@@ -990,9 +1008,11 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     font-size: 5em;
 
     color: darkgoldenrod;
-    position: absolute;
+/*    position: absolute;
     top: 300px;
-    left: 20%;
+    left: 20%;*/
+
+    padding: 25% 15%;
     transform: perspective(80px) rotateX(20deg) translateY(-360px);
 
     transition: all 5s linear;
@@ -1023,6 +1043,8 @@ input[name="playerID"]{
 #welcomeMessage.animeStarWars{
     
     transform: perspective(80px) rotateX(20deg) translateY(190px);
+
+    text-align: center;
 }
 #credits {
     display: none;
@@ -1077,15 +1099,6 @@ input[name="playerID"]{
 
      opacity: 1;
 }
-#welcomeMessage.welcomeFinSecret{
-
-    width: 850px;
-    height: auto;
-    border: 2px solid palegoldenrod;
-    padding: 4px 10px;
-    left: 5%;
-    
-}
 
 
 
@@ -1098,20 +1111,25 @@ input[name="playerID"]{
 
 	
 }
-@media screen and (min-width: 1124px){
+@media screen and (min-width: 1200px){
 	/* CSS poour les ordianteurs */
 
     h1#theTitle{
-        font-size: 5em;
+        font-size: 4.1em;
         color: #58e0d3;
         position: absolute;
-        transform: rotate(0deg);
-        top: 38.6px;
-        left: 4.7px;
+        transform: rotate(-12deg);
+        top: 34.9px;
+        left: 6.7px;
         display: inline;
-        background-image: url(textures/metal9.jpg);
-        background-size: 200px;
-        padding: 15px 23px;
+/*        background-image: url(textures/metal9.jpg);
+*/        
+        background-size: 250px;
+        padding-left: 0.5px;
+        padding-top: 0.5em;
+/*        transform: translateX(-14%) scale(0.9);
+*/        width: 159px;
+        height: 59px;
     }
     h1#theTitle.creditsEnd{
         transform: rotate(-40deg);
@@ -1155,6 +1173,11 @@ input[name="playerID"]{
         background-size: 110%;
     }
 
+    #infoScreen #score > span, #infoScreen #player > span{
+        font-weight: bold;
+        color: #bea3e6;
+    }
+
     #chrono{
         font-size: 2.8em;
         width: 250px;
@@ -1171,6 +1194,13 @@ input[name="playerID"]{
         bottom: 5%;
         left: 42%;
     }
+    #infoScreen #level{
+        position: absolute;
+        top: -10px;
+    }
+    #infoScreen #score{
+        height: 66%;
+    }
     #infoScreen{
         width: auto;
         top: 0;
@@ -1179,8 +1209,9 @@ input[name="playerID"]{
         height: 126px;
         box-sizing: border-box;
         background-image: url(textures/metal1.jpg);
-        background-size: contain;
-        background-position-x: 12px;
+        background-image: url(textures/metal9.jpg);
+/*        background-size: contain;
+*/        background-position-x: 12px;
         background-position-y: 120px;
     }
     #infoScreen div{
@@ -1197,16 +1228,21 @@ input[name="playerID"]{
         width: 1147px;
     }
      #infoScreen #score div#oldPlayerDuke{
-        position: absolute;
-        top: 0px;
+        top: -9px;
         left: 120px;
+        padding: 4px 0 0 8px;
+        font-size: 0.9em;
     }
     #infoScreen #score div#oldPlayerMajor{
         left: 320px;
-        top: 0;
+        top: -9px;
+        padding: 4px 0 0 8px;
+        font-size: 0.9em;
     }
     #infoScreen #score div#newPlayerHighScore{
-        left: 200px;
+        left: 154px;
+        top: 2px;
+        letter-spacing: 3.9px;
     }
     #infoScreen #score div:nth-child(2){
         top: 15px;
@@ -1216,32 +1252,38 @@ input[name="playerID"]{
     #infoScreen #player{
         border: none;
         box-sizing: none;
-
     }
     #infoScreen #player #playerScreen{
-        position: absolute;
-        top: 0;
+        font-size: 1.7em;
+        position: relative;
+        top: -30px;
         margin: unset;
         padding: unset;
         text-shadow: none;
         box-shadow: none;
-
+        left: 200px;
     }
     #infoScreen #chrono{
-        font-size: 3em;
-        padding-left: 320px;
-        width: 88%;
-    }
+        font-size: 2.2em; 
+        /* width: 88%; */
+        /* margin-left: 0px; */
+        position: fixed;
+        left: 157px;
+        top: 1.7em;
+        width: 86.5%;
+        padding-left: 300px;
+        padding-top: 23px;
+        }
     #level{
         font-size: 3em;
     }
     #retourMenu{
-        top: 55px;
-        left: 1700px;
+        top: 60px;
+        right: 100px;
         width: 130px;
         z-index: 17;
-        background: #481748;
-
+        background: #5500d4;
+        font-size: 3.3em;
     }
     #welcomeMessage{
         left: 30%;

@@ -245,7 +245,7 @@ function reloadGame(){  // reload tous pour rejouer !
 	win = null;
 	temps = 0;
 	
-	level.style.color = "deepskyblue";
+	level.style.color = "";
 	level.innerHTML = "Level 1";
 	labyMenu.style.display = 'none';
 	gamePlateau.style.animationName = '';
@@ -427,8 +427,6 @@ function totalFin(){
 	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 	boutonSkipWelcome.style.display = 'none';
 
-	welcomeMessage.classList.add('welcomeFinSecret');
-
 	if(  finavecEE < 100 && finavecEE > 0 ){
 
 		welcomeMessage.innerHTML = 'Bravo ' +newPlayer +' vous avez finit le jeu en trouvant '
@@ -464,9 +462,8 @@ function totalFin(){
 	setTimeout(function(){
 
 		welcome.classList.add('Hide', 'Hide2');
-		welcomeMessage.classList.remove('welcomeFinSecret');
 
-		h1Laby.classList.add('marioKartColorDivs');
+		h1Laby.classList.add('marioKartColorAnimeCssLent');
 		h1Laby.classList.add('creditsEnd');
 
 		credits.style.display = 'flex';
@@ -485,11 +482,12 @@ function totalFin(){
 	setTimeout(function(){
 
 		h1Laby.classList.remove('creditsEnd');
+		h1Laby.classList.remove('marioKartColorAnimeCssLent');
 
 		creditsP.classList.remove('animationCredits');
 		credits.style.display = 'none';
 		
-	},30000);
+	},24000);
 };
 
 
@@ -1094,7 +1092,7 @@ labelDebug.style.width = "50%";
 
 labelDebug.innerHTML = 'GodMod    -->';
 labelClose.innerHTML = 'closeDoor -->';
-labelPhilipsHUE.innerHTML = 'HUE_light -->';
+labelPhilipsHUE.innerHTML = 'stopMarioColor -->';
 
 inputDebug.addEventListener('click', function(){
 
@@ -1244,7 +1242,6 @@ var countTitreLabyMenu =0;
 titreLabyMenu.addEventListener('click', function(){
 
 	labymenuH2Click++;
-
 
 		if(labymenuH2Click == 5){
 

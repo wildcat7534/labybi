@@ -8,6 +8,16 @@ __Si vous voulez ne pas vous divulgacher (spoiler) essayez de jouer et surtout a
 ![Alt text](tools/labyMenuFin.png)
 
 
+
+v 1.1
+
+centrage générique début, message bonus
+
+fin mise en place barre info grand écran
+
+
+
+
 v 1.0
 
 Cosmetique fin%
