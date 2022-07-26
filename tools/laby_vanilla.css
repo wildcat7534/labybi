@@ -114,8 +114,30 @@ h1#theTitle.creditsEnd{
     margin-bottom: 1.3em;
 
 }
-
-
+#credits_menu_div{
+    overflow: hidden;
+    box-shadow: -3px -3px 43px 42px rgba(0,0,0,1) inset;
+    -webkit-box-shadow: -3px -3px 43px 42px rgba(0,0,0,1) inset;
+    -moz-box-shadow: -3px -3px 43px 42px rgba(0,0,0,1) inset;
+    border: ridge purple 2px;
+    width: 54em;
+    position: absolute;
+    bottom: 1.5%;
+}
+#credits_menu_span{
+    font-size: 1.8em;
+    color: cornflowerblue;
+    position: relative;
+    animation-name: transiCredits;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+/*    transition: right 6s linear;
+*/}
+@keyframes transiCredits{
+    from{right: -100%;}
+    to{right: 100%;}
+}
 #menuLabyMenu{
     margin-top: 17em;
     display: flex;
@@ -140,13 +162,14 @@ h1#theTitle.creditsEnd{
     position: relative;
 }
 #labyMenu ul li#optionOptions{
-
     color: blueviolet;
-    margin-top: 45px;    
+    margin-top: 45px;   
+    font-size: 1.9em; 
 }
 #labyMenu ul li#optionRetourPartie{
     color: aliceblue;
     margin-top: 50px;
+    letter-spacing: 0.5em;
 }
 #labyMenu ul#optionLabyMenu li{
 
@@ -190,7 +213,7 @@ h1#theTitle.creditsEnd{
 #optionRetourCartoucheDeJeux a{
     text-decoration: none;
     color: #53c7f7;
-    font-size: 0.8em;
+    font-size: 0.6em;
 
 }
 #optionRetourCartoucheDeJeux a:hover{
@@ -1098,7 +1121,7 @@ input[name="playerID"]{
 #bonus.animationBonus{
 
      opacity: 1;
-}
+}1
 
 
 
