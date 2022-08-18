@@ -55,6 +55,8 @@ correction longueur pseudo (merci Craspouille ;)
 
 corrections bugs
 
+enregistrement des scores !
+
 
 v0.9
 
