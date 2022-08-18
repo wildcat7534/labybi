@@ -77,6 +77,7 @@ corrections bugs
 
 curseur soucoupe enlevé pour croix sur le menu suite au retour des bêta-tester
 
+le temps s'arrête et reprend l'ors des retours menu !
 
 v0.7
 
