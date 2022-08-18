@@ -26,15 +26,15 @@
 		</section>
 		<section id="credits">
 			<p>
-				<span class="creditsTitre">Producer :</span><br>
+				<span class="creditsTitre">Association :</span><br>
 				<br>
 				<span class="creditsNom marioKartColorAnimeCss">CodePhénix</span><br>
 				<br>
-				<span class="creditsTitre">Lead Programmer :</span><br>
+				<span class="creditsTitre">Lead Developer :</span><br>
 				<br>
 				<span class="creditsNom">Guillaume</span><br>
 				<br>
-				<span class="creditsTitre">Programmer :</span><br>
+				<span class="creditsTitre">Developer :</span><br>
 				<br> 
 				<span class="creditsNom">Volo</span><br>
 				<br>
@@ -44,13 +44,19 @@
 				<br>
 				<span class="creditsNom">Tophe</span><br>
 				<br>
-				<span class="creditsTitre">Original ideas :</span><br>
+				<span class="creditsNom">Craspouille</span><br>
+				<br>
+				<span class="creditsTitre">Originals ideas :</span><br>
 				<br>
 				<span class="creditsNom">Guillaume</span><br>
 				<br>
 				<span class="creditsNom">Brakebein</span><br>
 				<br>			
 				<span class="creditsNom">Chris</span><br>
+				<br>
+				<span class="creditsTitre">Relecture Readme.md :</span><br>
+				<br>
+				<span class="creditsNom">Cody</span><br>
 				<br>			
 
 			</p>
@@ -70,7 +76,7 @@
 					<li id="optionOptions"><img id="imgMenu" src="tools/cursor/ufo2.png">configurations avancées</li>
 					<li id="optionRetourPartie"><img id="imgMenu" src="tools/cursor/ufo2.png">>> Retour partie ! <<</li>
 					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="tools/cursor/ufo2.png"><a href="../menu.html"><<< Changer de cartouche.</a></li>
-					
+					<li id="patchNote"><a href="Readme.md">Patch Notes</a></li>
 				</ul>
 
 				<ul id="optionLabyMenu">
@@ -78,17 +84,21 @@
 					<h2 id="titreLabyMenu">configurations</h2>
 					
 					<li id="formePlateau"><img id="imgMenu" src="tools/cursor/ufo2.png"><button id="boutonChangeWorld" >Changer de monde !</button></li>
-					<li id="shufflePlateau"><img id="imgMenu" src="tools/cursor/ufo2.png"><div id="textDanger"><button>Mélanger les niveaux !</button></div></li>
+					<li id="shufflePlateau"><img id="imgMenu" src="tools/cursor/ufo2.png"><button>Mélanger les niveaux !</button></li>
+					<li id="effaceScore"><img id="imgMenu" src="tools/cursor/ufo2.png"><div id="textDanger"><button>Effacer mon score</button></div></li>
 					<li id="optionLabyMenuRetour"><img id="imgMenu" src="tools/cursor/ufo2.png"><<< retour MENU</li>
 					
 				</ul>
 				<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 				<div id="credits_menu_div">
-					<span id="credits_menu_span">-- Poducteur: <strong class='marioKartColorAnimeCss'>CodePhénix</strong> -- Réalisateur: Volo -- 2022 --</span>
+					<p id="credits_menu_span">-- Association: <strong class='marioKartColorAnimeCss'>CodePhénix</strong> -- Réalisateur: Volo -- 2022 -- version: 1.1 -- <span id="dateAnnee"></span></p>
 					
 				</div>
 			</div>
+			<img id="imgContactPP" src="tools/pictures/share.png">
 			<img id="imgContact" src="tools/pictures/icon-twitter.svg">
+			<img id="imgContact2" src="tools/pictures/icon-email.svg">
+			<img id="imgContact3" src="tools/pictures/icon-facebook.svg">
 		</section>
 		
 		<button id="retourMenu">Menu</button>
@@ -148,10 +158,9 @@
 				</div>
 				
 				<input type="checkbox" name="check" id="check2">
-				<div class="plateau plateauNormal" style="background-image: url(tools/fond/fondSpace8.jpeg);">
+				<div class="plateau plateauNormal" style="background-image: url(tools/fond/fondSpace8.jpeg); background-size: cover;">
 
 					<div id="chemin2" class="chemin chemin2 originPath"></div>
-
 					<div id="chemin2d" class="chemin chemin2 originPath"></div>
 					<div id="chemin2a" class="chemin chemin2 originPath"></div>
 

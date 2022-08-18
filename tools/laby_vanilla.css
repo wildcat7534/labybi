@@ -33,18 +33,15 @@ html{
 body{
     cursor: url('cursor/ufo3cursorMini.png') 15 11, crosshair;
     overflow: hidden;
-
 }
 img{
 	max-width: 100%;
 }
 
 #boutonSkipWelcome{
-
     position: absolute;
     bottom: 10px;
     right: 10px;
-/*    right: 10px;*/
 }
 #labyMenu{
     width: 100vw;
@@ -59,15 +56,31 @@ img{
 
     align-items: center;
     overflow: hidden;
-
 }
+
 #contactLabyMenu{
     
+}
+#imgContactPP{
+    position: fixed;
+    bottom: 45px;
+    right: 125px;
+    width: 35px;
 }
 #imgContact{
     position: fixed;
     bottom: 45px;
     right: 105px;
+    width: 20px;
+}#imgContact2{
+    position: fixed;
+    bottom: 45px;
+    right: 85px;
+    width: 20px;
+}#imgContact3{
+    position: fixed;
+    bottom: 45px;
+    right: 65px;
     width: 20px;
 }
 #labyMenu div{
@@ -110,9 +123,8 @@ h1#theTitle.creditsEnd{
 #titreLabyMenu{
     font-family: "raleLight";
     color: darkkhaki;
-    font-size: 5em;
-    margin-bottom: 1.3em;
-
+    font-size: 8.4em;
+    margin-bottom: 0.1em;
 }
 #credits_menu_div{
     overflow: hidden;
@@ -120,7 +132,8 @@ h1#theTitle.creditsEnd{
     -webkit-box-shadow: -3px -3px 43px 42px rgba(0,0,0,1) inset;
     -moz-box-shadow: -3px -3px 43px 42px rgba(0,0,0,1) inset;
     border: ridge purple 2px;
-    width: 54em;
+    width: 54.5em;
+    height: 2em;
     position: absolute;
     bottom: 1.5%;
 }
@@ -132,16 +145,16 @@ h1#theTitle.creditsEnd{
     animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-/*    transition: right 6s linear;
-*/}
+    display: inline-block;
+    width: max-content;
+}
 @keyframes transiCredits{
-    from{right: -100%;}
-    to{right: 100%;}
+    from{right: -130%;}
+    to{right: 170%;}
 }
 #menuLabyMenu{
     margin-top: 17em;
     display: flex;
-
     flex-direction: column;
 }
 #optionLabyMenu{
@@ -172,10 +185,8 @@ h1#theTitle.creditsEnd{
     letter-spacing: 0.5em;
 }
 #labyMenu ul#optionLabyMenu li{
-
     color: darkgoldenrod;
-
-    margin: 2em auto;
+    margin: 1em auto;
     cursor: pointer;
     display: inline;
 
@@ -193,6 +204,17 @@ h1#theTitle.creditsEnd{
 {
     display: inline;
 }
+#labyMenu ul li#patchNote{
+    right: 3%;
+    position: absolute;
+    bottom: 16%;
+
+}
+#patchNote a{
+
+    color: gold;
+    font-size: 0.7em;
+}
 #textDanger{
     background-image: url(textures/ligneDanger.png);
     width: 160px;
@@ -205,16 +227,17 @@ h1#theTitle.creditsEnd{
     background-position-y: -7px;
     box-shadow: 0px 1px 53px 17px rgba(230,255,152,0.75);
 }
+#effaceScore div button{
+    color: red;
+}
 #shufflePlateau button{
-    color: goldenrod;
+    color: #2041da;
     width: 150px;
 }
-
 #optionRetourCartoucheDeJeux a{
     text-decoration: none;
     color: #53c7f7;
     font-size: 0.6em;
-
 }
 #optionRetourCartoucheDeJeux a:hover{
     color: antiquewhite;
@@ -234,12 +257,11 @@ h1#theTitle.creditsEnd{
     border-radius: 50%;
     box-shadow: -1px 1px 84px 19px rgba(250,255,106,0.75);
 
-/*    animation-name: animeBoutonWorld*/;
     animation-duration: 4s;
     animation-iteration-count: infinite;
+    font-size: 0.7em;
 }
 #labyMenu #boutonChangeWorld:hover{
-/*    background: linear-gradient(90deg,#0047ff 0%, #129c12 80%);*/
     color: gold;
 }
 #pasFin{
@@ -262,13 +284,11 @@ h1#theTitle.creditsEnd{
     background-image: url(textures/metal1.jpg);
     background-position-x: 72px;
     background-position-y: 460px;
-
 }
 #labyMenu div ul #optionVSmontre{
     margin-bottom: 6%;
 }
 #labyMenu #optionMelangerEtMonde{
-
     margin-top: 4em;
     color: aliceblue;
 }
@@ -290,7 +310,6 @@ h1#theTitle.creditsEnd{
     color: gold;
     font-size: 2.7em;
 }
-
 #metalTop{
     position: absolute;
     top: 0;
@@ -407,7 +426,7 @@ h1#theTitle.creditsEnd{
     z-index: 1;
     opacity: 1;
 
-    animation-duration: 2s;
+    animation-duration: 4s;
 }
 #infoScreen{
     position: absolute;
@@ -424,11 +443,10 @@ h1#theTitle.creditsEnd{
     width: 200px;
     display: flex;
     flex-direction: column;
+    transition: all 1s ease;
 }
 
  #infoScreen h2{
-/*  position: absolute;
-*/ 
     color: #ff0a59;
     top: 10%;
     left: 2%;
@@ -440,8 +458,6 @@ h1#theTitle.creditsEnd{
     box-shadow: 0px 2px 0px black;
 }
 #infoScreen #level{
-/*  position: absolute;
-*/  
     top: 10%;
     left: 28%;
     font-size: 2.7em;
@@ -484,8 +500,6 @@ h1#theTitle.creditsEnd{
 
 #infoScreen #score > span, #infoScreen #player > span{
     font-size: 1em;
-/*    color: lightyellow;
-*/  
     color: lightyellow; 
     display: inline-block;
     width: 100%;
@@ -516,7 +530,6 @@ h1#theTitle.creditsEnd{
     border: 4px groove grey;
 }
 #infoScreen #player #playerScreen{
-
     font-family: "raleLight";
     text-shadow: 0px -1px 21px rgba(88,209,197,0.67);
     font-size: 1.9em;
@@ -729,7 +742,6 @@ h1#theTitle.creditsEnd{
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
-
 #chemin1{
     grid-row-start: 3;
     grid-column-start: 1;
@@ -791,8 +803,7 @@ h1#theTitle.creditsEnd{
     z-index: 30;
     width: 75px;
     height: 300px;
-/*    background-color: steelblue;
-*/    color: white;
+    color: white;
     align-items: center;
     justify-content: center;
     font-size: 1.6em;
@@ -810,7 +821,6 @@ h1#theTitle.creditsEnd{
 	top: 0;
 	left: 0;
 }
-
 input:checked + .plateau {
     display: none ; 
 }
@@ -1011,7 +1021,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     height: 100vh;
     background-color: black;
     opacity: 1;
-
     position: absolute;
     z-index: 110;
 
@@ -1222,7 +1231,7 @@ input[name="playerID"]{
         top: -10px;
     }
     #infoScreen #score{
-        height: 66%;
+        height: 68%;
     }
     #infoScreen{
         width: auto;

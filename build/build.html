@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="icon" type="image/x-icon" href="" alt="favicon">
+		<link rel="stylesheet" type="text/css" href="css_build.css">
+		<script src="vue.js"></script>
+	</head>
+
+	<body>
+		<header>
+		</header>
+
+		<main>
+			<section id="selection">
+				<table id="tableau">
+					<caption>laby_builder</caption>
+					<thead>
+						<tr>
+							<th></th>
+							<th>col_1</th>
+							<th>col_2</th>
+							<th>col_3</th>
+							<th>col_4</th>
+							<th>col_5</th>
+							<th>col_6</th>
+							<th>col_7</th>
+							<th>col_8</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>ligne_1</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>ligne_2</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>ligne_3</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="chemin_fin"></td>
+						</tr>
+						<tr>
+							<th>ligne_4</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>ligne_5</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="rendu">
+				<div id="plateau">
+					<div id="chemin1"></div>
+				</div>
+			</section>
+			<section id="affichage">
+				<span>grid-row-start:<span id="rowStart"></span></span>
+				<span>grid-column-start:<span id="colStart"></span></span>
+				<span>grid-row-end:<span id="rowEnd"></span></span>
+				<span>grid-column-end:<span id="colEnd"></span></span>
+			</section>
+
+
+			<div id="app">
+				
+			</div>
+			<div id="app-2">
+				<span v-bind:title="message">
+					Hover your mouse over me for a few secondes
+					to see my dynamically bound title!
+				</span>
+			</div>
+			
+		</main>
+		
+		<footer>
+		</footer>
+		<script src="vue_build.js"></script>
+		<script type="text/javascript" src="js_build.js"></script>
+	</body>
+</html>

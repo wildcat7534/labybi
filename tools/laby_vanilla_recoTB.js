@@ -16,11 +16,13 @@ var regex_sylvain = /(sylvain)|(maitre)|(Brakebein)/gi;
 var regex_volo = /(volo)/gi;
 var regex_christophe = /(christophe)|(tof)|(tophe)/gi;
 var regex_michel = /(michel)|(magny)/gi;
-var regex_christopher = /(chris)/gi;
+var regex_christopher = /(christopher)/gi;
 var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
 var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
 var regex_fred = /(fred)|(frederique)|(craspouille)/gi;
 var regex_marc = /(marc)/gi;
+var regex_chris = /(chris)/gi;
+var regex_mrd = /(bob)|(bob34)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
 var welcome = document.querySelector('#welcome');
@@ -171,7 +173,20 @@ console.log('lettre : ' +lettre[0]);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" !Tiens un ancien 'voisin' ? =D";
 		animeStarWars();
 
-	}else{
+	}else if(regex_chris.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Chriiiis mes rangeeeers !!! ^^7";
+		animeStarWars();
+
+	}else if(regex_mrd.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Trouveras-tu les secrets comme à l'époque où on jouait à Roger Wilco ?";
+		animeStarWars();
+
+	}
+	else{
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".Un inconnu ? Bonne chance pour finir à 100% :)";
 		animeStarWars();

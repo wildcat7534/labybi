@@ -48,19 +48,23 @@ var colorDivBestScore = document.querySelector('#infoScreen #score div:nth-child
 colorDivBestScore.classList.add('marioKartColorDivs');
 
 transiMetal();
-displayPlayer()
+displayPlayer();
 
 for( var choixOpt of choixOptions ){
 	choixOpt.addEventListener('click', function(){
 		if( this.id == 'formePlateau' ){
+
 			deleteNewPath();
 			changeWorld();
+
 		}else if( this.id == 'shufflePlateau' ){
+
 			 deleteOldPath();
 			 deleteNewPath();
 			 var copyNumPiks = copyTabNumPiks();
 			 numPlateau = 0;
 			 randomLevel();
+
 		}else if( this.id == 'optionLibre' ){
 			transiMetal();
 
@@ -91,17 +95,23 @@ for( var choixOpt of choixOptions ){
 			}, 1000);
 		}else if( this.id == 'optionRetourPartie' ){
 
-				labyMenu.style.display = 'none';
-				if( chronoRunning == true ){
-					chronos();
-					
-				}else if( chronoTimerRunning == true ){
+			labyMenu.style.display = 'none';
 
-					chronoTimer();	
-				}
+			if( chronoRunning == true ){
+
+				chronos();
+				
+			}else if( chronoTimerRunning == true ){
+
+				chronoTimer();	
+			}
 
 
-		};
+		}else if( this.id == 'effaceScore' ){
+
+			localStorage.removeItem(newPlayer);
+			console.log('Effacement de la mémoire locale.');
+		}
 	});
 };
 
@@ -422,6 +432,16 @@ function totalFin(){
 
 	welcomeMessage.style.transition = 'opacity 2s linear';
 	welcomeMessage.style.fontSize = '5em';
+	welcomeMessage.style.border = 'ridge 11px goldenrod';
+/*	welcomeMessage.style.width = 'contain';*/
+/*	welcomeMessage.style.height = '150px';*/
+	welcomeMessage.style.marginTop = '20%';
+	welcomeMessage.style.padding = '130px 0px 95px 0px';
+	welcomeMessage.style.backgroundColor = 'blue';
+
+/*	newPlayer.style.color = 'gold';
+	newPlayer.style.fontSize = '6em';*/
+
 
 	welcomeMessage.style.transform = 'unset';
 	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
@@ -487,7 +507,7 @@ function totalFin(){
 		creditsP.classList.remove('animationCredits');
 		credits.style.display = 'none';
 		
-	},24000);
+	},30000);
 };
 
 
@@ -1291,6 +1311,12 @@ optionLabyMenuRetour.addEventListener('click', function(){
 	menuLabyMenu.style.display = 'flex';
 
 });
+
+var dateAnnee = document.querySelector('#dateAnnee');
+dateAnnee.style.color = "red";
+var laDate = new Date();
+
+dateAnnee.innerHTML = "Wow my game is stil playing in " +laDate.getFullYear() +" !!! =}";
 
 //------------------------------EGGS END---------------------------------------------------------------//
 

@@ -1,0 +1,94 @@
+*{
+	margin:0;
+	padding: 0;
+	}
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+/* Exemple font-family : leckerliOne(écriture scolaire); karatula(écriture scolaire cool)
+Karumbi (écriture scolaire medecin) Noto Sans Egyptian Hieroglyphs(hieroglyphe)  */
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+html{
+	font-size: 62.5%;
+}
+body{
+	font-size: calc(1em + 1vw);
+}
+img{
+	max-width: 100%;
+}
+span, h3, p{
+	font-family: "";
+}
+
+#tableau{
+    margin: 2% 20% 0 5%;
+}
+#tableau td,
+#tableau th{
+	border: 1px solid black;
+}
+
+#tableau td:hover{
+	background-color: red;
+}
+
+#tableau_rendu{
+	margin: 10% auto;
+}
+#tableau_rendu td,
+#tableau_rendu th{
+	border: 1px solid black;
+}
+.chemin_fin{
+	background-color: green;
+}
+#affichage{
+    position: absolute;
+    top: 12%;
+    right: 18%;
+    display: flex;
+    flex-direction: column;
+}
+#rendu{
+	text-align: center;
+    position: absolute;
+	top: 46%;
+    left: 23%;
+
+}
+#plateau{
+    background-color: indianred;
+    box-shadow: 11px 11px 10px 3px rgb(154, 153, 138);
+    width: 400px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    position: relative;
+}
+
+@media screen and (min-width: 768px){
+	/* CSS pour les tablettes */
+	body{
+		
+	}
+
+
+	
+}
+@media screen and (min-width: 1024px){
+	/* CSS poour les ordianteurs */
+	body{
+		
+		}
+
+}
