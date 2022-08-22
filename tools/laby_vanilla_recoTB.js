@@ -111,6 +111,9 @@ console.log('lettre : ' +lettre[0]);
 	regex_michel.lastIndex = 0;
 	regex_fred.lastIndex = 0;
 	regex_marc.lastIndex = 0;
+	regex_chris.lastIndex = 0;
+	regex_mrd.lastIndex = 0;
+
 	if(regex_mehdi.test(newPlayer)){
 
 		console.log(regex_mehdi.test(newPlayer), newPlayer);

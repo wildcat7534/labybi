@@ -5,6 +5,8 @@ var check = document.querySelector("#check");
 var checks = document.querySelectorAll('#game input[name="check"]');
 var labyMenu = document.querySelector('#labyMenu');
 var retourMenu = document.querySelector('#retourMenu');
+var reload = document.querySelector('#reload');
+var reloadSpan = document.querySelector('#reloadSpan');
 var theLabels = document.querySelectorAll('label');
 var gamePlateau = document.querySelector('#game');
 var plateaux = document.querySelectorAll('.plateau');
@@ -130,8 +132,21 @@ retourMenu.addEventListener('click', function(){ // retour menu AVEC jeu en paus
 
 });
 
-	
+function reloadGo(){
 
+	reload.style.height = '40px';
+
+	reload.addEventListener('click', function(){
+
+		reloadGame();
+		gameEnCour();
+		chronoTimer();
+
+		reload.style.height = '7px';
+			
+	});
+};
+	
 function transiMetal(){ // portes metaliques animation
 
 	metalTop.style.animationName = "topDown";
@@ -141,19 +156,19 @@ function transiMetal(){ // portes metaliques animation
 		metalTop.style.animationName = "";
 		metalBottom.style.animationName = "";
 	}, 2500)
-}
+};
 function transiMetalCLOSE(){ // portes metaliques
 	
 	metalTop.style.animationName = "topDownCLOSE";
 	metalBottom.style.animationName = "bottomTopCLOSE";
 	metalTop.style.animationFillMode = "forwards";
 	metalBottom.style.animationFillMode = "forwards";
-}
+};
 function transiMetalCLOSEopen(){ // portes metaliques
 
 	metalTop.style.animationName = "topDownCLOSEopen";
 	metalBottom.style.animationName = "bottomTopCLOSEopen";
-}
+};
 var letsGo;
 function changeWorld(){ //le monde rond ou pas !
 	for(var plateau of plateaux ){
@@ -230,7 +245,7 @@ function reloadGame(){  // reload tous pour rejouer !
 		console.log('bonus temps concepteur: ', timesUP)
 
 	}else{
-		timesUP = 5;
+		timesUP = 7;
 	}
 	for(var plateau of plateaux ){
 
@@ -239,6 +254,7 @@ function reloadGame(){  // reload tous pour rejouer !
 
 	}};
 
+	reload.style.height = '0px';
 	oldScore.innerHTML = "";
 	oldPlayer.innerHTML = "";
 	oldScore1.innerHTML = "";
@@ -302,6 +318,8 @@ function gameEnCour(){
 		chrono.innerHTML = "Temps écoulé ! PERDU";
 
 		chrono.classList.remove('urgent');
+
+		reloadGo();
 
 		for( var perdu of perdus){
 			perdu.style.display = "flex";

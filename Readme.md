@@ -15,6 +15,12 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
+v1.3
+
+suite retour testeur ajout bouton RELOAD pour relancer la partie rapidement
+
+NewEgg Nom [SECRET][SECRET]
+
 
 v 1.2
 

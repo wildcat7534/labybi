@@ -117,7 +117,8 @@ h1#theTitle.creditsEnd{
     background-image: none;
     font-size: 8em;
 }
-.marioKartColorDivs{
+.marioKartColorDivs
+{
 
 }
 #titreLabyMenu{
@@ -309,6 +310,27 @@ h1#theTitle.creditsEnd{
     font-family: "Codystar";
     color: gold;
     font-size: 2.7em;
+}
+#reload{
+
+    position: absolute;
+    left: 41px;
+    top: 286px;
+    width: 150px;
+    height: 5px;
+    z-index: 5;
+    background-color: black;
+    overflow: hidden;
+
+    transition: all 0.5s linear;
+}#reload span{
+    font-family: "Codystar";
+    position: relative;
+    color: gold;
+    font-size: 2em;
+/*    top: -28px;
+
+    transition: all 0.5s linear;*/
 }
 #metalTop{
     position: absolute;
@@ -1316,6 +1338,11 @@ input[name="playerID"]{
         z-index: 17;
         background: #5500d4;
         font-size: 3.3em;
+    }
+    #reload{    
+        left: 157px;
+        top: 126px;
+
     }
     #welcomeMessage{
         left: 30%;
