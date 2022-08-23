@@ -1137,7 +1137,7 @@ input[name="playerID"]{
 
 }
 #bonus{
-    position: relative;
+    position: absolute;
     top: -20%;
     left: 320px;
     font-size: 3em;
@@ -1146,7 +1146,7 @@ input[name="playerID"]{
     z-index: 100;
     transform: rotate(-15deg);
 
-    transition: all 0.5s linear;
+    transition: opacity 0.5s linear;
 
 }
 #bonus.animationBonus{

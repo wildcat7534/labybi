@@ -1,4 +1,5 @@
 /\ ERRATUM : COMPATIBLE plutôt sur CHROMIUM /\
+/\ Préférez plutôt la fenêtre moins large /\
 
 __Bienvenue sur ce projet de jeux-vidéo !__
 
@@ -15,14 +16,22 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
-v1.3
 
-suite retour testeur ajout bouton RELOAD pour relancer la partie rapidement
+-v 1.4-
+
+ajout (enfin !!!) de l'info '+ 5sec' et en suivi sur le curseur ! 
+
+
+-v 1.3-
+
+suite retour Guillaume ajout bouton RELOAD pour relancer la partie rapidement
+suite retour Guillaume passage à 7 secondes(avant 5s) pour le départ  
+
 
 NewEgg Nom [SECRET][SECRET]
 
 
-v 1.2
+-v 1.2-
 
 [effacer mon score] : ne supprime plus tout le localStorage
 
@@ -38,7 +47,7 @@ couverture espace niveau2 corrigée (cover)
 
 meilleur cosmétique fin_% à la ff7 :)
 
-v 1.1
+-v 1.1-
 
 centrage générique début, message bonus
 
@@ -47,7 +56,7 @@ fin de la mise en place de la barre info grand écran
 corrections bugs
 
 
-v 1.0
+-v 1.0-
 
 meilleur cosmétique fin_%
 
@@ -64,7 +73,7 @@ corrections bugs
 enregistrement des scores !
 
 
-v0.9
+-v 0.9-
 
 fin générique non bloquante (finit le F5 pour rejouer !)
 
@@ -75,7 +84,7 @@ corrections bugs
 changement Menu (+ compréhensible) suite au retour des bêta-tester
 
 
-v0.8
+-v 0.8-
 
 générique de fin, déplacement H1
 
@@ -87,7 +96,7 @@ curseur soucoupe enlevé pour croix sur le menu suite au retour des bêta-tester
 
 le temps s'arrête et reprend l'ors des retours menu !
 
-v0.7
+-v 0.7-
 
 refont menu
 
@@ -101,7 +110,7 @@ EEgg ajoutés à [REDACTED]
 bonton SKIP ajouté (parce que c'est bien mais c'est long le générique StarWars(r)...
 
 
-v0.6
+-v 0.6-
 
 text flottant 'fin non disponible' dans le menu
 
@@ -110,7 +119,7 @@ formulaire pseudo
 test : niveau dans un monde rond avec une grid + petite
 
 
-v0.5
+-v 0.5-
 
 ajout titre du jeu
 
@@ -121,7 +130,7 @@ ajout crédit / générique
 ajout d'une fin 
 
 
-v0.4
+-v 0.4-
 
 animation portes
 
@@ -132,7 +141,7 @@ ajout d'un icone soucoupe
 ajout de fond d'écran de l'espaaaace
 
 
-v0.3
+-v 0.3-
 
 ajout d'un petit menu
 
@@ -140,12 +149,12 @@ fonction aléatoire et
 ajout du bouton de chargement des niveaux en aléatoire
 
 
-v0.2
+-v 0.2-
 
 ajout d'un chronos en JS
 
 
-v0.1
+-v 0.1-
 
 exercice de labyrinthe avec changement de parcours seulement en css/html
 

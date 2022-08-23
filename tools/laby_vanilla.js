@@ -933,21 +933,32 @@ optionChrono.addEventListener('mousemove', function(e){
 
 //-------------BONUS "+5" A FAIRE --------------------------------//
 
-/*var gameLabels = document.querySelectorAll('#game label'); // BONUS "+5 SEC" suis le curseur !
+var gameLabels = document.querySelectorAll('#game label'); // BONUS "+5 SEC" suit le curseur !
 var bonus = document.querySelector('#bonus');
 var boite = document.querySelector('#boite');
+var recupPosition = false;
 
 for(var label of gameLabels){
 
+	// cursorPo = cursorPosition();
+
 	label.addEventListener('click', function(){
 
-		setTimeout(cursorPosition, 2500);
+		cursorPosition();
 
-		bonus.classList.add('animationBonus');
+		setTimeout(function(){
+
+			bonus.classList.add('animationBonus');
+			
+		}, 100);
+
 
 		setTimeout(function(){
 
 			bonus.classList.remove('animationBonus');
+
+			recupPosition = false;
+
 		}, 2000);
 		
 	});
@@ -955,17 +966,25 @@ for(var label of gameLabels){
 
 function cursorPosition(){
 
-	boite.addEventListener('mousemove', function(e){
+	recupPosition = true;
 
-		pos = {"x": e.clientX, "y": e.clientY};
-		pos.y -= 650;
-		pos.x -= 650;
-		bonus.style.top = pos.y + "px";
-		bonus.style.left = pos.x + "px";
+	boite.addEventListener('mousemove', function(e){
+		
+		if( recupPosition == true ){
+
+			pos = {"x": e.clientX, "y": e.clientY};
+			pos.y -= 25;
+			pos.x += 17;
+			bonus.style.top = pos.y + "px";
+			bonus.style.left = pos.x + "px";
+
+			console.log(pos.x, pos.y);
+		}
 	});
+
 	
-};*/
-//-------------BONUS "+5" A FAIRE --------------------------------//
+};
+//-------------BONUS "+5" A FAIRE -------------END-------------------//
 
 
 
@@ -1022,18 +1041,18 @@ var iDeg = 0;
 
 function marioKartColor(){
 
-var marioKartColorDivs = document.querySelectorAll('.marioKartColorDivs');
+	var marioKartColorDivs = document.querySelectorAll('.marioKartColorDivs');
 
-	iDeg = (iDeg+30)%360;
+		iDeg = (iDeg+30)%360;
 
-	for( var divColor of marioKartColorDivs ){
+		for( var divColor of marioKartColorDivs ){
 
-		
-		divColor.style.filter = "hue-rotate(" + iDeg +"deg)";
+			
+			divColor.style.filter = "hue-rotate(" + iDeg +"deg)";
 
-		}
+			}
 
-	goMarioKartColor = setTimeout(marioKartColor, 200);
+		goMarioKartColor = setTimeout(marioKartColor, 200);
 };
 
 marioKartColor_menuChangeWorld();
