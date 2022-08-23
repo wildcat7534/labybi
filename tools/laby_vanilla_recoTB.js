@@ -132,13 +132,13 @@ console.log('lettre : ' +lettre[0]);
 	else if(regex_sylvain.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Arriveras-tu à tout trouver ?";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Hello Master ^^7 Arriveras-tu à tout trouver ?";
 		animeStarWars();
 
 	}else if(regex_teddy.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Alors Shooter, prêt à t'occuper de ton double ? Un contrat et un contrat.";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Alors Shooter, prêt à t'occuper de ton double ?";
 		animeStarWars();
 	}else if(regex_christophe.test(newPlayer)){
 
@@ -173,7 +173,7 @@ console.log('lettre : ' +lettre[0]);
 	}else if(regex_marc.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" !Tiens un ancien 'voisin' ? =D";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Tiens un ancien 'voisin' ? =D";
 		animeStarWars();
 
 	}else if(regex_chris.test(newPlayer)){
@@ -191,7 +191,7 @@ console.log('lettre : ' +lettre[0]);
 	}
 	else{
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +".Un inconnu ? Bonne chance pour finir à 100% :)";
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +". Un inconnu ? Bonne chance pour finir à 100% :)";
 		animeStarWars();
 	}
 

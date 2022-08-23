@@ -112,7 +112,7 @@ h1#theTitle{
 }
 h1#theTitle.creditsEnd{
     transform: rotate(-40deg);
-    top: 55%;
+    top: 64%;
     left: 0%;
     background-image: none;
     font-size: 8em;
@@ -1060,7 +1060,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 }
 #welcomeMessage{
     font-size: 5em;
-
     color: darkgoldenrod;
 /*    position: absolute;
     top: 300px;
@@ -1071,6 +1070,18 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 
     transition: all 5s linear;
 
+}#welcomeMessage.endMessage{
+
+    font-size: 5em;
+    border: ridge 11px goldenrod;
+    background-color: blue;
+    text-align: center;
+
+    margin-top: 20%;
+    padding: 130px 0px 95px 0px;
+
+    transform: unset;
+    transition: opacity 2s linear;
 }
 #formPlayerID{
     position: absolute;
@@ -1187,7 +1198,7 @@ input[name="playerID"]{
     }
     h1#theTitle.creditsEnd{
         transform: rotate(-40deg);
-        top: 55%;
+        top: 65%;
         left: 0%;
         background-image: none;
         font-size: 8em;
@@ -1348,6 +1359,6 @@ input[name="playerID"]{
         left: 30%;
     }
     #credits p{
-        margin-top: 110%;
+        margin-top: 125%;
     }
 }

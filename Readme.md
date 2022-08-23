@@ -19,7 +19,9 @@ _j'espère que vous vous amuserez !_
 
 -v 1.4-
 
-ajout (enfin !!!) de l'info '+ 5sec' et en suivi sur le curseur ! 
+ajout (enfin !!!) de l'info '+ 5sec' et en suivi sur le curseur !
+
+correction bug générique sur grande fenêtre
 
 
 -v 1.3-
