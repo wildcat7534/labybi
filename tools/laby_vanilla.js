@@ -1032,8 +1032,8 @@ function displayScoreScreen(tempsReceived){
 		console.log('enregistrement score : ', newPlayer, localStorage.getItem(newPlayer));
 	}
 
-		oldScore2.innerHTML = "*" +11 +" secondes*";
-		oldPlayer2.innerHTML = "Duke3d";
+		oldScore2.innerHTML = "*" +13 +" secondes*";
+		oldPlayer2.innerHTML = "Craspouille";
 
 }
 
