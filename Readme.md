@@ -17,6 +17,14 @@ _j'espère que vous vous amuserez !_
 ![Alt text](tools/labyMenuFin.png)
 
 
+
+-v 1.5-
+
+compatibilité Firefox : en cour...
+
+correction police (ajout de Karatula dans le dossier fonts...)
+
+
 -v 1.4-
 
 ajout (enfin !!!) de l'info '+ 5sec' et en suivi sur le curseur !

@@ -23,8 +23,20 @@
 	src: url('fonts/3Dumb.ttf');
 }
 @font-face{
-	font-family:"2Dumb";
-	src: url('fonts/2Dumb.ttf');
+    font-family:"2Dumb";
+    src: url('fonts/2Dumb.ttf');
+}@font-face{
+    font-family:"karatula";
+    src: url('fonts/karatula/KARAI.ttf');
+}@font-face{
+    font-family:"karatulaB";
+    src: url('fonts/karatula/KARAB.ttf');
+}@font-face{
+    font-family:"karatulaI";
+    src: url('fonts/karatula/KARABI.ttf');
+}@font-face{
+	font-family:"karatulaN";
+	src: url('fonts/karatula/KARAN.ttf');
 }
 html{
 	font-size: 62.5%;
@@ -148,10 +160,11 @@ h1#theTitle.creditsEnd{
     animation-timing-function: linear;
     display: inline-block;
     width: max-content;
+    width: -moz-max-content;
 }
 @keyframes transiCredits{
     from{right: -130%;}
-    to{right: 170%;}
+    to{right: 200%;}
 }
 #menuLabyMenu{
     margin-top: 17em;
@@ -172,7 +185,7 @@ h1#theTitle.creditsEnd{
     cursor: pointer;
     display: inline;
 
-    font-family: Karatula;
+    font-family: karatula;
     position: relative;
 }
 #labyMenu ul li#optionOptions{
@@ -191,7 +204,7 @@ h1#theTitle.creditsEnd{
     cursor: pointer;
     display: inline;
 
-    font-family: Karatula;
+    font-family: karatula;
     position: relative;
 }
 #labyMenu #imgMenu{
@@ -281,11 +294,6 @@ h1#theTitle.creditsEnd{
     font-size: 1.3em;
     width: 125px;
 }
-#infoScreen{
-    background-image: url(textures/metal1.jpg);
-    background-position-x: 72px;
-    background-position-y: 460px;
-}
 #labyMenu div ul #optionVSmontre{
     margin-bottom: 6%;
 }
@@ -318,12 +326,15 @@ h1#theTitle.creditsEnd{
     top: 286px;
     width: 150px;
     height: 5px;
-    z-index: 5;
     background-color: black;
     overflow: hidden;
-
+    z-index: 1;
     transition: all 0.5s linear;
-}#reload span{
+}#reload.reloadOpen{
+    height: 40px;
+    z-index: 11;
+}
+#reload span{
     font-family: "Codystar";
     position: relative;
     color: gold;
@@ -451,6 +462,9 @@ h1#theTitle.creditsEnd{
     animation-duration: 4s;
 }
 #infoScreen{
+    background-image: url(textures/metal1.jpg);
+    background-position-x: 72px;
+    background-position-y: 460px;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -468,8 +482,8 @@ h1#theTitle.creditsEnd{
     transition: all 1s ease;
 }
 
- #infoScreen h2{
-    color: #ff0a59;
+#infoScreen h2{
+    color: violet;
     top: 10%;
     left: 2%;
     z-index: 1;
@@ -478,6 +492,15 @@ h1#theTitle.creditsEnd{
     text-align: center;
     display: inline;
     box-shadow: 0px 2px 0px black;
+}
+@-moz-document url-prefix() {
+
+    #infoScreen h2{
+       color: pink;
+       margin: 0 auto;
+       width: -moz-max-content;
+       font-size: 2.4em;
+    }
 }
 #infoScreen #level{
     top: 10%;
@@ -812,7 +835,6 @@ h1#theTitle.creditsEnd{
 
 #chemin_fin:hover ~ #valide,
  #valide:hover{
-	
     width: 75px;
     height: 300px;
     overflow: unset;
@@ -833,6 +855,11 @@ h1#theTitle.creditsEnd{
     width: 0px;
     height: 0px;
     overflow: hidden;
+}
+@-moz-document url-prefix(){
+    #valide{
+        font-size: 1.5em;
+    }
 }
 .plateau ~ .plateau{
 	display: none;
@@ -1238,11 +1265,6 @@ input[name="playerID"]{
         background-size: 110%;
     }
 
-    #infoScreen #score > span, #infoScreen #player > span{
-        font-weight: bold;
-        color: #bea3e6;
-    }
-
     #chrono{
         font-size: 2.8em;
         width: 250px;
@@ -1253,7 +1275,6 @@ input[name="playerID"]{
         text-align: center;
         margin-top: 5%;
     }
-
     #labyMenu ul li#optionRetourMenuJeux{
         position: absolute;
         bottom: 5%;
@@ -1267,7 +1288,6 @@ input[name="playerID"]{
         height: 68%;
     }
     #infoScreen{
-        width: auto;
         top: 0;
         left: 0;
         width: 100%;
@@ -1279,6 +1299,7 @@ input[name="playerID"]{
 */        background-position-x: 12px;
         background-position-y: 120px;
     }
+
     #infoScreen div{
         position: absolute;
         top: 34px;
@@ -1287,6 +1308,10 @@ input[name="playerID"]{
         height: 84px;
         width: 400px;
 
+    }
+    #infoScreen #score > span, #infoScreen #player > span{
+        font-weight: bold;
+        color: #bea3e6;
     }
     #infoScreen #score div{
         display: unset;
@@ -1344,10 +1369,10 @@ input[name="playerID"]{
     }
     #retourMenu{
         top: 60px;
-        right: 100px;
+        right: 10%;
         width: 130px;
         z-index: 17;
-        background: #5500d4;
+        background: #6346b0;
         font-size: 3.3em;
     }
     #reload{    

@@ -134,7 +134,8 @@ retourMenu.addEventListener('click', function(){ // retour menu AVEC jeu en paus
 
 function reloadGo(){
 
-	reload.style.height = '40px';
+	// reload.style.height = '40px';
+	reload.classList.add('reloadOpen');
 
 	reload.addEventListener('click', function(){
 
@@ -142,7 +143,8 @@ function reloadGo(){
 		gameEnCour();
 		chronoTimer();
 
-		reload.style.height = '7px';
+/*		reload.style.height = '7px';
+*/		reload.classList.remove('reloadOpen');
 			
 	});
 };
@@ -254,7 +256,7 @@ function reloadGame(){  // reload tous pour rejouer !
 
 	}};
 
-	reload.style.height = '0px';
+	reload.classList.remove('reloadOpen');
 	oldScore.innerHTML = "";
 	oldPlayer.innerHTML = "";
 	oldScore1.innerHTML = "";
