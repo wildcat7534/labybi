@@ -42,10 +42,21 @@ newPlayerInput.addEventListener('keypress', function(){
 
 newPlayerInput.addEventListener('change', askPlayerName);
 
+function normalizedFullName(newPlayerF) {
+    return newPlayerF.split(' ').map(function (word) {
+    return word[0].toUpperCase() + word.slice(1)
+    
+    }).join(' ')
+};
+
 function askPlayerName(){
 
 		console.log('change !' +newPlayer);
 		newPlayer = newPlayerInput.value;
+		newPlayer = normalizedFullName(newPlayer);
+
+		console.log('Pseudo mis en Majuscule : ', normalizedFullName(newPlayer));
+
 		displayPlayer();
 
 		console.log(regex_PlayerName2.test(newPlayer));

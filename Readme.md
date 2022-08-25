@@ -18,6 +18,11 @@ _j'espère que vous vous amuserez !_
 
 
 
+-v 1.6-
+
+ajout fonction prénom en Majuscule pour éviter de sauvegarder 2 scores différents 
+si le nom est rentré avec ou sans majuscule
+
 -v 1.5-
 
 compatibilité Firefox : en cour...
