@@ -18,9 +18,9 @@ _j'espère que vous vous amuserez !_
 
 
 
--v 1.6-
+-v 1.6- (25/08/2022)
 
-ajout fonction prénom en Majuscule pour éviter de sauvegarder 2 scores différents 
+ajout fonction pseudo en Majuscule pour éviter de sauvegarder 2 scores différents 
 si le nom est rentré avec ou sans majuscule
 
 -v 1.5-
