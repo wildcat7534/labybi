@@ -4,9 +4,10 @@
 __Bienvenue sur ce projet de jeux-vidéo !__
 
 _c'est parti d'un exercice où je devais exclusivement utiliser de la CSS et HTML sans 
-JavaScript pour faire changer les niveaux. A partir de là je suis allé beaucoup plus loin
-, avec du JavaScript, et fait un jeu complet pour mon rendu de diplôme. Fan des Easter Eggs
-d'époque, où les programmeurs cachaient des messages pour les utilisateurs/joueurs. 
+JavaScript pour faire changer les niveaux avec, quand même, l'utilisation du clic. 
+A partir de là je suis allé beaucoup plus loin, avec du JavaScript, et fait un jeu complet 
+pour mon rendu de diplôme. Fan des Easter Eggs d'époque, où les programmeurs cachaient des 
+messages pour les utilisateurs/joueurs. 
 J'aimais beaucoup ce lien que cela créait._
 
 __Si vous voulez ne pas vous le divulgacher (spoiler) essayez de jouer sans voir le code
@@ -16,7 +17,11 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
+-v 1.7-
 
+ajout balise <meta> pour compatibilité tout écran pour width: 100% soit compris partout
+
+ajout écran bleu (of death) pour incompatibilité mobile (en dessous de 855pixel)
 
 -v 1.6- (25/08/2022)
 

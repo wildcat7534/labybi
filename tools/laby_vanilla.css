@@ -1190,14 +1190,29 @@ input[name="playerID"]{
 #bonus.animationBonus{
 
      opacity: 1;
-}1
+}
+
+#noMobile{
+    display: none;
+}
 
 
 
-@media screen and (min-width: 768px){
-	/* CSS pour les tablettes */
-	body{
-		
+@media screen and (max-width: 855px){
+
+	#noMobile{
+        display: unset;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        background-color: blue;
+        color: goldenrod;
+        text-align: center;
+        padding-top: 42%;
+        font-size: 3em;
 	}
 
 
