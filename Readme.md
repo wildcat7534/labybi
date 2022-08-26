@@ -23,10 +23,16 @@ ajout balise <meta> pour compatibilité tout écran pour width: 100% soit compri
 
 ajout écran bleu (of death) pour incompatibilité mobile (en dessous de 855pixel)
 
+ajout des rêgles à l'écran de pseudo
+
+ajout du ;pdf et .gif de l'exercice de départ !
+
+
 -v 1.6- (25/08/2022)
 
 ajout fonction pseudo en Majuscule pour éviter de sauvegarder 2 scores différents 
 si le nom est rentré avec ou sans majuscule
+
 
 -v 1.5-
 

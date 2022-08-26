@@ -453,16 +453,6 @@ function totalFin(){
 	welcomeMessage.classList.add('endMessage');
 	welcomeMessage.classList.remove('animeStarWars');
 
-/*	welcomeMessage.style.transition = 'opacity 2s linear';
-	welcomeMessage.style.fontSize = '5em';
-	welcomeMessage.style.border = 'ridge 11px goldenrod';
-
-	welcomeMessage.style.marginTop = '20%';
-	welcomeMessage.style.padding = '130px 0px 95px 0px';
-	welcomeMessage.style.backgroundColor = 'blue';
-
-	welcomeMessage.style.transform = 'unset';*/
-
 	var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 	boutonSkipWelcome.style.display = 'none';
 
