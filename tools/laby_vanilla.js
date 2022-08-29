@@ -443,6 +443,11 @@ function totalFin(){
 
 
 	var labyMenu = document.querySelector('#labyMenu');
+	var rules = document.querySelector('#rules');
+	var gifExo = document.querySelector('#gifExo');
+
+	rules.classList.add('hide', 'hide2');
+	gifExo.classList.add('hide', 'hide2');
 
 	setTimeout(function(){
 
@@ -1022,8 +1027,8 @@ function displayScoreScreen(tempsReceived){
 		console.log('enregistrement score : ', newPlayer, localStorage.getItem(newPlayer));
 	}
 
-		oldScore2.innerHTML = "*" +13 +" secondes*";
-		oldPlayer2.innerHTML = "Craspouille";
+		oldScore2.innerHTML = "*" +12 +" secondes*";
+		oldPlayer2.innerHTML = "Mehdi";
 
 }
 
@@ -1347,6 +1352,22 @@ var laDate = new Date();
 dateAnnee.innerHTML = "Wow my game is stil playing in " +laDate.getFullYear() +" !!! =}";
 
 //------------------------------EGGS END---------------------------------------------------------------//
+
+/*var myWindow = window.open('Readme.md','Readme','height=800,width=600');
+*/
+/*var blob = new Blob;*/
+/*var text = new Blob(Blob.prototype.text('Readme.md'));
+*/
+/*var myWindow = window.open("data:text/html;charset=utf-8,"+newWin, "", "_blank")
+*/
+/*newWin.document.write('html to write...');*/
+
+/* myWindow.onload = function(){
+     let content = "<button class='btn btn-primary' onclick='window.print();'>Confirm</button>";
+   myWindow.document.getElementById('mainBody').innerHTML = content;
+    } 
+
+myWindow.window.close();*/
 
 
 /*var tabTest = { "Sylvain": 200; };

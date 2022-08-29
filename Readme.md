@@ -17,6 +17,14 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
+
+-v 1.8-
+
+correction police (ajout de codystar(bouton Menu) dans le dossier fonts...)
+
+grosse optimisation du poids 40Mo --> 8,3Mo (énorme compression des images, textures)
+
+
 -v 1.7-
 
 ajout balise <meta> pour compatibilité tout écran pour width: 100% soit compris partout
@@ -25,7 +33,7 @@ ajout écran bleu (of death) pour incompatibilité mobile (en dessous de 855pixe
 
 ajout des rêgles à l'écran de pseudo
 
-ajout du ;pdf et .gif de l'exercice de départ !
+ajout du .pdf et .gif de l'exercice de départ !
 
 
 -v 1.6- (25/08/2022)

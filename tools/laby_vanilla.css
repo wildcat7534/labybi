@@ -35,8 +35,14 @@
     font-family:"karatulaI";
     src: url('fonts/karatula/KARABI.ttf');
 }@font-face{
-	font-family:"karatulaN";
-	src: url('fonts/karatula/KARAN.ttf');
+    font-family:"karatulaN";
+    src: url('fonts/karatula/KARAN.ttf');
+}@font-face{
+    font-family:"codystarL";
+    src: url('fonts/codystar/codystarL.ttf');
+}@font-face{
+	font-family:"codystarR";
+	src: url('fonts/codystar/codystarR.ttf');
 }
 html{
 	font-size: 62.5%;
@@ -53,11 +59,22 @@ img{
 #rules{
     color: darkgoldenrod;
     font-size: 2.6em;
-    padding: 4%;
     letter-spacing: 0.1em;
     line-height: 1.4em;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90vw;
+    height: 270px;
+    text-align: center;
 }
-
+#gifExo{
+    max-width: 100%;
+    position: absolute;
+    top: 40px;
+    left: 12%;
+    width: 70%;
+}
 #boutonSkipWelcome{
     position: absolute;
     bottom: 10px;
@@ -323,7 +340,7 @@ h1#theTitle.creditsEnd{
     height: 40px;
     z-index: 5;
     background: black;
-    font-family: "Codystar";
+    font-family: "CodystarR";
     color: gold;
     font-size: 2.7em;
 }
@@ -343,7 +360,7 @@ h1#theTitle.creditsEnd{
     z-index: 11;
 }
 #reload span{
-    font-family: "Codystar";
+    font-family: "CodystarR";
     position: relative;
     color: gold;
     font-size: 2em;
@@ -599,6 +616,7 @@ h1#theTitle.creditsEnd{
     background-image: url(outils/laby_space.png);
     background-image: url(fond/fondSpace5.jpg);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1229,6 +1247,21 @@ input[name="playerID"]{
 @media screen and (min-width: 1200px){
 	/* CSS poour les ordianteurs */
 
+    #gifExo {
+        max-width: 100%;
+        position: absolute;
+        top: 30px;
+        left: 28%;
+        width: 48%;
+    }
+    #boutonSkipWelcome {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 22px;
+    }
+
     h1#theTitle{
         font-size: 4.1em;
         color: #58e0d3;
@@ -1237,7 +1270,6 @@ input[name="playerID"]{
         top: 34.9px;
         left: 6.7px;
         display: inline;
-/*        background-image: url(textures/metal9.jpg);
 */        
         background-size: 250px;
         padding-left: 0.5px;

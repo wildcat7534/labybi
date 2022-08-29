@@ -20,7 +20,7 @@ var regex_christopher = /(christopher)/gi;
 var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
 var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
 var regex_fred = /(fred)|(frederique)|(craspouille)/gi;
-var regex_marc = /(marc)/gi;
+var regex_marc = /(marc)|(sophie)/gi;
 var regex_chris = /(chris)/gi;
 var regex_mrd = /(bob)|(bob34)/gi;
 
