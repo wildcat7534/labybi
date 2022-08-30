@@ -90,13 +90,11 @@ img{
     z-index: 100;
     display: flex;
     flex-direction: column;
-
     align-items: center;
     overflow: hidden;
 }
 
 #contactLabyMenu{
-    
 }
 #imgContactPP{
     position: fixed;
@@ -156,7 +154,6 @@ h1#theTitle.creditsEnd{
 }
 .marioKartColorDivs
 {
-
 }
 #titreLabyMenu{
     font-family: "raleLight";
@@ -199,7 +196,6 @@ h1#theTitle.creditsEnd{
 #optionLabyMenu{
     margin-top: 25em;
     display: none;
-
     flex-direction: column;
 }
 #labyMenu ul li{
@@ -209,7 +205,6 @@ h1#theTitle.creditsEnd{
     margin: 1em auto;
     cursor: pointer;
     display: inline;
-
     font-family: karatulaN;
     position: relative;
 }
@@ -228,7 +223,6 @@ h1#theTitle.creditsEnd{
     margin: 1em auto;
     cursor: pointer;
     display: inline;
-
     font-family: karatulaN;
     position: relative;
 }
@@ -239,18 +233,15 @@ h1#theTitle.creditsEnd{
     position: absolute;
     display: none;
 }
-#labyMenu ul li:hover #imgMenu
-{
+#labyMenu ul li:hover #imgMenu{
     display: inline;
 }
 #labyMenu ul li#patchNote{
     right: 3%;
     position: absolute;
     bottom: 16%;
-
 }
 #patchNote a{
-
     color: gold;
     font-size: 0.7em;
 }
@@ -345,7 +336,6 @@ h1#theTitle.creditsEnd{
     font-size: 2.7em;
 }
 #reload{
-
     position: absolute;
     left: 41px;
     top: 286px;
@@ -364,9 +354,6 @@ h1#theTitle.creditsEnd{
     position: relative;
     color: gold;
     font-size: 2em;
-/*    top: -28px;
-
-    transition: all 0.5s linear;*/
 }
 #metalTop{
     position: absolute;
@@ -379,9 +366,7 @@ h1#theTitle.creditsEnd{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 130%;
-
     overflow: hidden;
-
     animation-duration: 2s;
 }
 #metalBottom{
@@ -391,12 +376,10 @@ h1#theTitle.creditsEnd{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 130%;
-
     position: absolute;
     bottom: 0;
     z-index: 120;
     overflow: hidden;
-    
     animation-duration: 2s;
 }
 #bandeDanger{
@@ -414,7 +397,6 @@ h1#theTitle.creditsEnd{
     width: 100%;
     height: 20px;
     background-image: url(textures/ligneDanger.png);
-
     position: absolute;
     top: 0px;
     background-size: 110%;
@@ -483,7 +465,6 @@ h1#theTitle.creditsEnd{
     left: -15%;
     z-index: 1;
     opacity: 1;
-
     animation-duration: 4s;
 }
 #infoScreen{
@@ -506,7 +487,6 @@ h1#theTitle.creditsEnd{
     flex-direction: column;
     transition: all 1s ease;
 }
-
 #infoScreen h2{
     color: violet;
     top: 10%;
@@ -543,7 +523,6 @@ h1#theTitle.creditsEnd{
     color: darkgoldenrod;
     width: 100%;
     text-align: center;
-
     border: 3px inset darkkhaki;
     box-sizing: border-box;
     font-family: "raleRegular";
@@ -567,7 +546,6 @@ h1#theTitle.creditsEnd{
     font-family: "raleLight";
     margin-bottom: 4px;
 }
-
 #infoScreen #score > span, #infoScreen #player > span{
     font-size: 1em;
     color: lightyellow; 
@@ -642,7 +620,6 @@ h1#theTitle.creditsEnd{
     left: 30%;
     z-index: 10;
     opacity: 1;
-
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
@@ -665,7 +642,6 @@ h1#theTitle.creditsEnd{
     box-shadow: 0px 0px 243px 47px rgba(255,0,0,0.73);
     background: radial-gradient(circle farthest-corner 
         at center center, #cd5c5c 62%, #000000 80%);
-
 }
 #game label{
     transform: rotate(270deg);
@@ -840,7 +816,6 @@ h1#theTitle.creditsEnd{
     justify-content: center;
     align-items: center;
 }
-
 /*#fin:hover ~ #chemin_fin,*/
 #chemin_fin/*:hover*/{
 	grid-column-start: 8;
@@ -858,7 +833,6 @@ h1#theTitle.creditsEnd{
 #chemin_fin:hover{
     width: 100%;
 }
-
 #chemin_fin:hover ~ #valide,
  #valide:hover{
     width: 75px;
@@ -983,7 +957,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     background-position: 0px 54px;
     background-repeat: no-repeat;
 }
-
 #bordGauche{
 	transform: skew(45deg, 0deg);
     position: absolute;
@@ -1098,14 +1071,10 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     opacity: 1;
     position: absolute;
     z-index: 110;
-
-
 /*    display: flex;
 */    flex-direction: column;
     align-items: center;
-
     overflow: hidden;
-    
     transition: opacity 3s linear;
 }
 #welcome.Hide{
@@ -1120,9 +1089,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 
     padding: 25% 15%;
     transform: perspective(80px) rotateX(20deg) translateY(-360px);
-
     transition: all 5s linear;
-
 }#welcomeMessage.endMessage{
 
     font-size: 5em;
@@ -1141,7 +1108,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     top: 50vh;
     left: 25vw;
     font-size: 2.5em;
-    
 }
 #formPlayerID.Hide2,
 #welcome.Hide.Hide2{
@@ -1149,19 +1115,14 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     opacity: 0;
 }
 #playerID{
-
     color: lightblue;
-
 }
 input[name="playerID"]{
     width: 100px;
     color: goldenrod;
 }
-
 #welcomeMessage.animeStarWars{
-    
     transform: perspective(80px) rotateX(20deg) translateY(190px);
-
     text-align: center;
 }
 #credits {
@@ -1181,24 +1142,19 @@ input[name="playerID"]{
     transition: all 20s linear;
 }
 #credits .creditsTitre{
-
     color: goldenrod; 
     font-size: 3.2em;
     display: inline-block;
     margin: 30px auto;
-
 }
 #credits .creditsNom{
-
     margin-left: 10px;
     font-size: 3em;
     margin: 5px auto;
     margin-left: 35px;
 }
 #credits p.animationCredits{
-
      margin-top: -210%;
-
 }
 #bonus{
     position: absolute;
@@ -1209,19 +1165,14 @@ input[name="playerID"]{
     opacity: 0;
     z-index: 100;
     transform: rotate(-15deg);
-
     transition: opacity 0.5s linear;
-
 }
 #bonus.animationBonus{
-
      opacity: 1;
 }
-
 #noMobile{
     display: none;
 }
-
 
 
 @media screen and (max-width: 855px){
@@ -1240,7 +1191,6 @@ input[name="playerID"]{
         padding-top: 42%;
         font-size: 3em;
 	}
-
 
 	
 }
@@ -1261,16 +1211,14 @@ input[name="playerID"]{
         width: 60px;
         height: 22px;
     }
-
     h1#theTitle{
         font-size: 4.1em;
         color: #58e0d3;
-        position: absolute;
+        position: fixed;
         transform: rotate(-12deg);
         top: 34.9px;
         left: 6.7px;
-        display: inline;
-*/        
+        display: inline;        
         background-size: 250px;
         padding-left: 0.5px;
         padding-top: 0.5em;
@@ -1292,13 +1240,11 @@ input[name="playerID"]{
     h1#labyMenuH1{
         top: 18%;
         font-size: 15em;
-
     }
     #titreLabyMenu{
         font-size: 7em;
         margin-bottom: 0.9em;
     }
-
     #saucerMenuOption{
         width: 150px;
         height: 143px;
@@ -1354,7 +1300,6 @@ input[name="playerID"]{
 */        background-position-x: 12px;
         background-position-y: 120px;
     }
-
     #infoScreen div{
         position: absolute;
         top: 34px;
@@ -1362,7 +1307,6 @@ input[name="playerID"]{
         margin-top: 0;
         height: 84px;
         width: 400px;
-
     }
     #infoScreen #score > span, #infoScreen #player > span{
         font-weight: bold;
@@ -1442,3 +1386,10 @@ input[name="playerID"]{
         margin-top: 125%;
     }
 }
+
+/*@media all and ( display-mode: standalone ){
+    body{
+        margin: 0;
+        border: 5px solid black;
+    }
+}*/
