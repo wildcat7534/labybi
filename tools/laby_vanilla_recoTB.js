@@ -58,6 +58,7 @@ function askPlayerName(){
 		console.log('Pseudo mis en Majuscule : ', normalizedFullName(newPlayer));
 
 		displayPlayer();
+		hideGifRule();
 
 		console.log(regex_PlayerName2.test(newPlayer));
 
@@ -65,23 +66,28 @@ function askPlayerName(){
 			console.log('regex OK ' +newPlayer);
 
 			helloYou(newPlayer);
+			formPlayerID.classList.add('Hide');
 			formPlayerID.classList.add('Hide2');
 
 			setTimeout(function(){
 				
 				welcome.classList.add('Hide');
 
-			}, 5000);
+			}, 6000);
 			setTimeout(function(){
 				
 				welcome.classList.add('Hide2');
 
-			}, 5500);
+			}, 6500);
 
 		}
 	
 };
 
+function hideGifRule(){
+	gifExo.classList.add('Hide');
+	rules.classList.add('Hide');
+}
 
 boutonSkipWelcome.addEventListener('click', function(){
 	

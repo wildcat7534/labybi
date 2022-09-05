@@ -18,11 +18,17 @@ _j'espère que vous vous amuserez !_
 ![Alt text](tools/labyMenuFin.png)
 
 
+-v 2.0-
+
+erreur v1.9 version de production envoyé par erreur....
+
+ajout effacement image et règle écran accueil
+
+longueur défilement titre Star Wars
+
 -v 1.9-
 
 passage titre Labybi en Fixed en grand ecran (à tester)
-
-
 
 
 -v 1.8-

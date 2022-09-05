@@ -1002,9 +1002,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     display: block;
     margin: 4px;
 }
-.hide{
-    display: none;
-}
 #outOfOrder{
     position: relative;
     top: 63%;
@@ -1077,9 +1074,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     overflow: hidden;
     transition: opacity 3s linear;
 }
-#welcome.Hide{
-    opacity: 0;
-}
 #welcomeMessage{
     font-size: 5em;
     color: darkgoldenrod;
@@ -1109,11 +1103,21 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     left: 25vw;
     font-size: 2.5em;
 }
-#formPlayerID.Hide2,
-#welcome.Hide.Hide2{
-    height: 0;
+#welcome.Hide{
     opacity: 0;
 }
+#welcome.Hide2{
+    height: 0;
+}
+.Hide{
+    opacity: 0;
+}
+.hide2{
+    height: 0;
+}
+/*.hide{
+    display: none;
+}*/
 #playerID{
     color: lightblue;
 }
@@ -1122,7 +1126,7 @@ input[name="playerID"]{
     color: goldenrod;
 }
 #welcomeMessage.animeStarWars{
-    transform: perspective(80px) rotateX(20deg) translateY(190px);
+    transform: perspective(80px) rotateX(20deg) translateY(240px);
     text-align: center;
 }
 #credits {

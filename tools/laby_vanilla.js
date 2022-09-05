@@ -1376,17 +1376,16 @@ var app1 = new Vue({
 
 
 
-var myWindow = window.open('Readme.md','Readme','height=800,width=600');
+/*var myWindow = window.open('Readme.md','Readme','height=800,width=600');
 
-/*var file_to_read = document.getElementById("test_json").files[0];
-*/var file_to_read = document.getElementById("test_json").files[0];
+var file_to_read = document.getElementById("test_json").files[0];
 var fileread = new FileReader();
 fileread.readAsText(file_to_read);
 fileread.onload = function (e) {
 
 	var content = e.target.result;
 	console.log(content)
-}
+}*/
 
 
 /*var blob = new Blob;*/
