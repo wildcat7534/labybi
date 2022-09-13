@@ -18,6 +18,13 @@ _j'espère que vous vous amuserez !_
 ![Alt text](tools/labyMenuFin.png)
 
 
+-v 2.1-
+
+correction hauteur gif accueille
+
+correction placement étiquette 'out of order' (SECRET)
+
+
 -v 2.0-
 
 erreur v1.9 version de production envoyé par erreur....

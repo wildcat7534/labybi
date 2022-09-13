@@ -74,6 +74,7 @@ img{
     top: 40px;
     left: 12%;
     width: 70%;
+    height: 330px;
 }
 #boutonSkipWelcome{
     position: absolute;
@@ -1004,7 +1005,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 }
 #outOfOrder{
     position: relative;
-    top: 63%;
+    top: 42%;
     left: 35%;
     width: 200px;
     background: #edf1d5;
