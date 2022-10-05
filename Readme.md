@@ -17,6 +17,10 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
+-v 2.2-
+
+ajout de bordurs pour bouton RELOAD et Menu car avec la balise button ça n'apparraissait pas forcément
+
 
 -v 2.1-
 

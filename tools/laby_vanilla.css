@@ -335,6 +335,9 @@ h1#theTitle.creditsEnd{
     font-family: "CodystarR";
     color: gold;
     font-size: 2.7em;
+    border: 2px ridge darkslategrey;
+    border-top: 2px ridge aliceblue;
+    border-left: 2px ridge aliceblue;
 }
 #reload{
     position: absolute;
@@ -346,6 +349,7 @@ h1#theTitle.creditsEnd{
     overflow: hidden;
     z-index: 1;
     transition: all 0.5s linear;
+    border: 2px solid;
 }#reload.reloadOpen{
     height: 40px;
     z-index: 11;
