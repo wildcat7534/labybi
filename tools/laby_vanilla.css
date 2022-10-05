@@ -80,6 +80,7 @@ img{
     position: absolute;
     bottom: 10px;
     right: 10px;
+    z-index: 100;
 }
 #labyMenu{
     width: 100vw;
@@ -335,7 +336,7 @@ h1#theTitle.creditsEnd{
     font-family: "CodystarR";
     color: gold;
     font-size: 2.7em;
-    border: 2px ridge darkslategrey;
+    border: 3px ridge darkslategrey;
     border-top: 2px ridge aliceblue;
     border-left: 2px ridge aliceblue;
 }
@@ -669,21 +670,23 @@ h1#theTitle.creditsEnd{
 #game label.labelRond{
     top: 90px;
 }
-.perdu{
+.perdu,
+.perdu2{
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
     background: black;
-    opacity: 0.6;
+    opacity: 0.9;
     justify-content: center;
     align-items: center;
     color: white;
 	display: none;
 	z-index: 10;
     color: #9154ff;
-    font-size: 2em;
+    font-size: 3em;
 }
+
 .perduRond{
     border-radius: 100%;
 }

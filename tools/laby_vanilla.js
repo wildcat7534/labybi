@@ -1,5 +1,6 @@
 var chrono = document.querySelector('#chrono');
 var perdus = document.querySelectorAll(".perdu");
+var perdus2 = document.querySelectorAll(".perdu2");
 var level = document.querySelector('#level');
 var check = document.querySelector("#check");
 var checks = document.querySelectorAll('#game input[name="check"]');
@@ -289,6 +290,9 @@ function reloadGame(){  // reload tous pour rejouer !
 	for( var perdu of perdus ){
 		perdu.style.display = '';
 	}
+	for( var perdu2 of perdus2 ){
+		perdu2.style.display = '';
+	}
 }
 
 //pour le meilleur temps
@@ -323,8 +327,8 @@ function gameEnCour(){
 
 		reloadGo();
 
-		for( var perdu of perdus){
-			perdu.style.display = "flex";
+		for( var perdu2 of perdus2){
+			perdu2.style.display = "flex";
 		}
 
 	}else if( win == true ){ // Victory
@@ -1214,12 +1218,22 @@ function debug(){
 			perdu.classList.remove('perdu');
 
 		};
+		for( var perdu2 of perdus2){
+
+			perdu2.classList.remove('perdu2');
+
+		};
 	}else if( !inputDebug.checked ){
 		boite.removeAttribute("DEV",0);
 
 		for(perdu of perdus){
 
 			perdu.classList.add('perdu');
+
+		};
+		for(perdu2 of perdus2){
+
+			perdu2.classList.add('perdu2');
 
 		};
 	}

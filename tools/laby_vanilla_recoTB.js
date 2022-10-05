@@ -61,8 +61,14 @@ function askPlayerName(){
 		hideGifRule();
 
 		console.log(regex_PlayerName2.test(newPlayer));
+		hide();
+	
+};
 
-		if(regex_PlayerName2.test(newPlayer)){
+function hide(){
+	
+		hideGifRule();
+/*		if(regex_PlayerName2.test(newPlayer)){*/
 			console.log('regex OK ' +newPlayer);
 
 			helloYou(newPlayer);
@@ -79,10 +85,14 @@ function askPlayerName(){
 				welcome.classList.add('Hide2');
 
 			}, 6500);
-
-		}
-	
-};
+/*		}else{
+			formPlayerID.classList.add('Hide');
+			formPlayerID.classList.add('Hide2');
+			welcome.classList.add('Hide');
+			welcome.classList.add('Hide2');
+			hideGifRule();
+		}*/
+}
 
 function hideGifRule(){
 	gifExo.classList.add('Hide');
@@ -90,10 +100,11 @@ function hideGifRule(){
 }
 
 boutonSkipWelcome.addEventListener('click', function(){
-	
+	formPlayerID.classList.add('Hide');
 	formPlayerID.classList.add('Hide2');
 	welcome.classList.add('Hide');
 	welcome.classList.add('Hide2');
+	hideGifRule();
 });
 
 function displayPlayer(){

@@ -17,6 +17,16 @@ _j'espère que vous vous amuserez !_
 
 ![Alt text](tools/labyMenuFin.png)
 
+
+-v 2.3-
+
+ajout 'perdu' différent si on touche les bords ou si le temps est écoulé, agrandissement du texte: pour meilleur 
+compréhension des règles pas si évidente quand 'perdu' apparaissait sur l'écran sans que l'utilisateur pense à
+bouger sa souris...
+
+correction bug si pas de pseudo: écran de fin gardait le gif etc de l'accueil
+
+
 -v 2.2-
 
 ajout de bordurs pour bouton RELOAD et Menu car avec la balise button ça n'apparraissait pas forcément
