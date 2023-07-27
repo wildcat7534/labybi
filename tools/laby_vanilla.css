@@ -133,6 +133,31 @@ h1#labyMenuH1{
     left: 1%;
     font-weight: initial;
 }
+#starGold{
+    display: none;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+    position: absolute;
+    left: 1.5em;
+    top: 0em;
+    z-index: -1;
+    transform: scale(0);
+    transform: rotate(0deg);
+}
+#starGoldMouse{
+    display: none;
+    position: relative;
+    animation-duration: 0.75s;
+}
+@keyframes starAnime{
+    0%{top: -0.05em; transform: scale(0.3); transform: rotate(0deg); left: 1.5em;}
+    25%{top: -0.25em; transform: scale(0.6); transform: rotate(30deg); left: 1.3em;}
+
+    50%{top: -0.45em; transform: scale(1); transform: rotate(90deg); left: 1em;}
+    75%{top: -0.65em; transform: scale(0.5); transform: rotate(1200deg); left: 0.5em;}
+
+    100%{top: -0.80em; transform: scale(0); transform: rotate(0deg); left: -5em;}
+}
 h1#theTitle{
     font-family: "3Dumb";
     font-size: 10em;
