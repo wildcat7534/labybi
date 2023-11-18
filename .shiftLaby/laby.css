@@ -1,0 +1,78 @@
+*{
+	margin:0;
+	padding: 0;
+	}
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+@font-face{
+	font-family:"";
+	src: url('fonts/');
+}
+html{
+	font-size: 62.5%;
+}
+body{
+	background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+img{
+	max-width: 100%;
+}
+span, h3, p{
+	font-family: "";
+}
+
+#plateau{
+	background-color: indianred;
+	box-shadow: -22px -19px 0px -1px rgba(95,0,0,0.73) inset;
+	transform: rotate(45deg);
+	width: 500px;
+	height: 300px;
+	overflow: hidden;
+}
+#chemin{
+	width: 50px;
+    height: 50px;
+    background: antiquewhite;
+    position: absolute;
+    left: 0;
+    top: 40%;
+}
+#chemin2{
+	background: antiquewhite;
+	width: 50px;
+    height: 50px;
+
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 768px){
+	/* CSS pour les tablettes */
+	body{
+		
+	}
+
+
+	
+}
+@media screen and (min-width: 1024px){
+	/* CSS poour les ordianteurs */
+	body{
+		
+		}
+
+}

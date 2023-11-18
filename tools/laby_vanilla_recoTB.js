@@ -23,6 +23,7 @@ var regex_fred = /(fred)|(frederique)|(craspouille)/gi;
 var regex_marc = /(marc)|(sophie)/gi;
 var regex_chris = /(chris)/gi;
 var regex_mrd = /(bob)|(bob34)/gi;
+var regex_rocket = /(rocket)/gi;
 
 var formPlayerID = document.querySelector('#formPlayerID');
 var welcome = document.querySelector('#welcome');
@@ -141,6 +142,7 @@ console.log('lettre : ' +lettre[0]);
 	regex_marc.lastIndex = 0;
 	regex_chris.lastIndex = 0;
 	regex_mrd.lastIndex = 0;
+	regex_rocket.lastIndex = 0;
 
 	if(regex_mehdi.test(newPlayer)){
 
@@ -214,6 +216,12 @@ console.log('lettre : ' +lettre[0]);
 
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Trouveras-tu les secrets comme à l'époque où on jouait à Roger Wilco ?";
+		animeStarWars();
+
+	}else if(regex_rocket.test(newPlayer)){
+
+		console.log('message perso pour : ' +newPlayer);
+		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Hey Groot ! Fais pas cette tête ! ";
 		animeStarWars();
 
 	}
