@@ -6,36 +6,35 @@
 //------------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------------//
-var regex_lettre = /^([a-z]{7})([0-9]{3})/;
-var regex_codepostal = /^([0-9]{5})$/;
-var regex_nom_composé = /^([a-z]+)(-)([a-z]+)$/;
-var regex_PlayerName = /^([a-z]{3,7})$|^([a-z]{3,7})([0-9]{0,3})$/;
-var regex_PlayerName2 = /^([a-z_?]{3,15})$|^([a-z]{3,12})([0-9]{0,3})$|^(([a-z_?]){1,12})([0-9]{0,3})$/i;
-var regex_mehdi = /(mehdi)|(elmehdi)|(yousssef)|(youyou)/gi;
-var regex_sylvain = /(sylvain)|(maitre)|(Brakebein)/gi;
-var regex_volo = /(volo)/gi;
-var regex_christophe = /(christophe)|(tof)|(tophe)/gi;
-var regex_michel = /(michel)|(magny)/gi;
-var regex_christopher = /(christopher)/gi;
-var regex_teddy = /(teddy)|(ted)|(shooter)/gi;
-var regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
-var regex_fred = /(fred)|(frederique)|(craspouille)/gi;
-var regex_marc = /(marc)|(sophie)/gi;
-var regex_chris = /(chris)/gi;
-var regex_mrd = /(bob)|(bob34)/gi;
-var regex_rocket = /(rocket)/gi;
+const regex_lettre = /^([a-z]{7})([0-9]{3})/;
+const regex_codepostal = /^([0-9]{5})$/;
+const regex_nom_composé = /^([a-z]+)(-)([a-z]+)$/;
+const regex_PlayerName = /^([a-z]{3,7})$|^([a-z]{3,7})([0-9]{0,3})$/;
+const regex_PlayerName2 = /^([a-z_?]{3,15})$|^([a-z]{3,12})([0-9]{0,3})$|^(([a-z_?]){1,12})([0-9]{0,3})$/i;
+const regex_mehdi = /(mehdi)|(elmehdi)|(yousssef)|(youyou)/gi;
+const regex_sylvain = /(sylvain)|(maitre)|(Brakebein)/gi;
+const regex_volo = /(volo)/gi;
+const regex_christophe = /(christophe)|(tof)|(tophe)/gi;
+const regex_michel = /(michel)|(magny)/gi;
+const regex_christopher = /(christopher)/gi;
+const regex_teddy = /(teddy)|(ted)|(shooter)/gi;
+const regex_ff7 = /(aeris)|(cloud)|(tifa)/gi;
+const regex_fred = /(fred)|(frederique)|(craspouille)/gi;
+const regex_marc = /(marc)|(sophie)/gi;
+const regex_chris = /(chris)/gi;
+const regex_mrd = /(bob)|(bob34)/gi;
 
-var formPlayerID = document.querySelector('#formPlayerID');
-var welcome = document.querySelector('#welcome');
-var boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
+const formPlayerID = document.querySelector('#formPlayerID');
+const welcome = document.querySelector('#welcome');
+const boutonSkipWelcome = document.querySelector('#boutonSkipWelcome');
 
-var welcomeMessage = document.querySelector('#welcomeMessage');
+const welcomeMessage = document.querySelector('#welcomeMessage');
 
-var newPlayerInput = document.querySelector('input[name="playerID"]');
+const newPlayerInput = document.querySelector('input[name="playerID"]');
 
-newPlayerInput.addEventListener('keypress', function(){
+newPlayerInput.addEventListener('keypress', ()=> {
 	
-	if(event.keyCode == 13){
+	if(event.keyCode === 13){
 		event.preventDefault();
 		askPlayerName();
 	}
@@ -142,7 +141,6 @@ console.log('lettre : ' +lettre[0]);
 	regex_marc.lastIndex = 0;
 	regex_chris.lastIndex = 0;
 	regex_mrd.lastIndex = 0;
-	regex_rocket.lastIndex = 0;
 
 	if(regex_mehdi.test(newPlayer)){
 
@@ -156,7 +154,7 @@ console.log('lettre : ' +lettre[0]);
 	else if(regex_volo.test(newPlayer)){
 
 		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour maître " +newPlayer +". Comment allez vous ?";
+		welcomeMessage.innerHTML = " Bonjour maître " +newPlayer +" Comment allez vous ? ";
 		animeStarWars();
 	}
 	else if(regex_sylvain.test(newPlayer)){
@@ -216,12 +214,6 @@ console.log('lettre : ' +lettre[0]);
 
 		console.log('message perso pour : ' +newPlayer);
 		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Trouveras-tu les secrets comme à l'époque où on jouait à Roger Wilco ?";
-		animeStarWars();
-
-	}else if(regex_rocket.test(newPlayer)){
-
-		console.log('message perso pour : ' +newPlayer);
-		welcomeMessage.innerHTML = "Bonjour " +newPlayer +" ! Hey Groot ! Fais pas cette tête ! ";
 		animeStarWars();
 
 	}

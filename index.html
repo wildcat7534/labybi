@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<head>
+	
+<!-- Mirrored from codephenix.fr/labyby/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Dec 2022 17:24:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
 		<meta charset="utf-8">
 		<title>Laby</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui, shrink-to-fit=no' />
@@ -12,7 +15,7 @@
 	</head>
 
 	<body>
-		<div id="noMobile">/\ Pas encore compatible mobile - j'y travaille ;) - /\</div>
+		<div id="noMobile">/\ Pas compatible mobile - ce joue à la souris ;)/\</div>
 		<div id="metalTop">
 			<img src="tools/cursor/ufo3.png" id="saucerMetal">
 			<div id="bandeDanger"></div>
@@ -22,13 +25,26 @@
 			<img id="gifExo" src="exercice-mini-jeu.gif">
 			<p id="welcomeMessage">
 				<form id="formPlayerID">
-					<label id="playerID" >Entrez votre pseudo !</label>
+					<label id="playerID" >Entrez vôtre pseudo !</label>
 					<input type="name" name="playerID" for="playerID">
 				</form>
 			</p>
-			<p id="rules">Le but de ce jeu est d'utiliser le curseur comme “vaisseau” et parcourir un chemin, sans
-			toucher les murs. Lorsque l’un des murs est touché nous revenons au point de départ. À la fin du parcours, on valide le niveau en cliquant pour passer au niveau supérieur avec un labyrinthe plus
-			complexe à parcourir.</p>
+			<div id="rules">
+				<p>
+					_c'est parti d'un exercice où je devais exclusivement utiliser de la CSS et HTML sans 
+					JavaScript pour faire changer les niveaux avec, quand même, l'utilisation du clic. 
+					A partir de là je suis allé beaucoup plus loin, avec du JavaScript, et fait un jeu complet 
+					pour mon rendu de diplôme. Fan des Easter Eggs d'époque, où les programmeurs cachaient des 
+					messages pour les utilisateurs/joueurs. 
+					J'aimais beaucoup ce lien que cela créait._
+				</p>
+				<p>
+						Le but de ce jeu est d'utiliser le curseur comme “vaisseau” et parcourir un chemin, sans
+					toucher les murs. Lorsque l’un des murs est touché nous revenons au point de départ. À la fin du parcours, on valide le niveau en cliquant 
+					pour passer au niveau supérieur avec un labyrinthe plus
+					complexe à parcourir.
+				</p>
+			</div>
 			<button id="boutonSkipWelcome">SKIP</button>
 		</section>
 		<section id="credits">
@@ -73,10 +89,7 @@
 
 		<section id="labyMenu">
 			<div>
-				<h1 id="labyMenuH1">Labybi
-					<img id="starGold" src="tools/pictures/starGold.png">
-				</h1>
-				<img id="starGoldMouse" src="tools/pictures/starGold.png">
+				<h1 id="labyMenuH1">Labybi</h1>
 				<img src="tools/cursor/ufo2.png" id="saucerMenuOption">
 				<ul id="menuLabyMenu">
 					<h2 id="titreLabyMenu">Menu</h2>
@@ -86,8 +99,10 @@
 					<li id="optionVSmontre"><img id="imgMenu" src="tools/cursor/ufo2.png"><span>Difficile : </span>Vite avant l'invasion !</li>
 					<li id="optionOptions"><img id="imgMenu" src="tools/cursor/ufo2.png">configurations avancées</li>
 					<li id="optionRetourPartie"><img id="imgMenu" src="tools/cursor/ufo2.png">>> Retour partie ! <<</li>
-					<li id="optionRetourCartoucheDeJeux"><img id="imgMenu" src="tools/cursor/ufo2.png"><a href="../menu.html"><<< Changer de cartouche.</a></li>
-					<li id="patchNote"><div id="readme"><a href="Readme.md">Patch Notes</a></li>
+					<li id="linkPortefolio"><img id="imgMenu" src="tools/cursor/ufo2.png">
+						<a href="https://clément-portefolio.fr"><<< Mon portefolio !</a>
+					</li>
+					<li id="patchNote"><div id="readme"><img id="imgMenu" src="tools/cursor/ufo2.png"><a href="Readme.html">Patch Notes</a></li>
 				</ul>
 
 				<ul id="optionLabyMenu">
@@ -102,7 +117,11 @@
 				</ul>
 				<span id="pasFin">(Fin non disponible à ce niveau de difficulté)</span>
 				<div id="credits_menu_div">
-					<p id="credits_menu_span">-- Association: <strong class='marioKartColorAnimeCss'>CodePhénix</strong> -- Réalisateur: Volo -- 2022 -- version: 2.3 (05/10/2022) -- <span id="dateAnnee"></span></p>
+					<p id="credits_menu_span">-- Association: 
+						<strong class='marioKartColorAnimeCss'>CodePhenix</strong>
+						 -- Réalisateur: Volo -- 2022 -- version: 2.4 (14/01/2024) -- 
+						 <span id="dateAnnee"></span>
+						</p>
 					
 				</div>
 			</div>
@@ -172,7 +191,7 @@
 				</div>
 				
 				<input type="checkbox" name="check" id="check2">
-				<div class="plateau plateauNormal" style="background-image: url(tools/fond/fondSpace8.jpeg); background-size: cover;">
+				<div class="plateau plateauNormal" style="background-image: url(tools/fond/fondSpace8.jpg); background-size: cover;">
 
 					<div id="chemin2" class="chemin chemin2 originPath"></div>
 					<div id="chemin2d" class="chemin chemin2 originPath"></div>
@@ -245,4 +264,6 @@
 		<script type="text/javascript" src="tools/laby_vanilla_recoTB.js"></script>
 		<script type="text/javascript" src="tools/laby_vanilla.js"></script>
 	</body>
+
+<!-- Mirrored from codephenix.fr/labyby/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Dec 2022 17:24:11 GMT -->
 </html>

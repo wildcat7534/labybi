@@ -58,22 +58,25 @@ img{
 
 #rules{
     color: darkgoldenrod;
-    font-size: 2.6em;
+    font-size: 2em;
     letter-spacing: 0.1em;
     line-height: 1.4em;
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     left: 5%;
     width: 90vw;
     height: 270px;
     text-align: center;
+}
+#rules p:nth-of-type(2){
+    color: cadetblue;
 }
 #gifExo{
     max-width: 100%;
     position: absolute;
     top: 40px;
     left: 12%;
-    width: 70%;
+    width: 75%;
     height: 330px;
 }
 #boutonSkipWelcome{
@@ -85,7 +88,7 @@ img{
 #labyMenu{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgba(0,0,0, 0.95);
     position: absolute;
     top: 0;
     left: 0;
@@ -133,31 +136,6 @@ h1#labyMenuH1{
     left: 1%;
     font-weight: initial;
 }
-#starGold{
-    display: none;
-    animation-duration: 0.75s;
-    animation-timing-function: ease-in-out;
-    position: absolute;
-    left: 1.5em;
-    top: 0em;
-    z-index: -1;
-    transform: scale(0);
-    transform: rotate(0deg);
-}
-#starGoldMouse{
-    display: none;
-    position: relative;
-    animation-duration: 0.75s;
-}
-@keyframes starAnime{
-    0%{top: -0.05em; transform: scale(0.3); transform: rotate(0deg); left: 1.5em;}
-    25%{top: -0.25em; transform: scale(0.6); transform: rotate(30deg); left: 1.3em;}
-
-    50%{top: -0.45em; transform: scale(1); transform: rotate(90deg); left: 1em;}
-    75%{top: -0.65em; transform: scale(0.5); transform: rotate(1200deg); left: 0.5em;}
-
-    100%{top: -0.80em; transform: scale(0); transform: rotate(0deg); left: -5em;}
-}
 h1#theTitle{
     font-family: "3Dumb";
     font-size: 10em;
@@ -197,7 +175,7 @@ h1#theTitle.creditsEnd{
     width: 54.5em;
     height: 2em;
     position: absolute;
-    bottom: 1.5%;
+    bottom: 15px;
 }
 #credits_menu_span{
     font-size: 1.8em;
@@ -243,7 +221,7 @@ h1#theTitle.creditsEnd{
 #labyMenu ul li#optionRetourPartie{
     color: aliceblue;
     margin-top: 50px;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.3em;
 }
 #labyMenu ul#optionLabyMenu li{
     color: darkgoldenrod;
@@ -254,9 +232,9 @@ h1#theTitle.creditsEnd{
     position: relative;
 }
 #labyMenu #imgMenu{
-    width: 15px;
+    width: 23px;
     left: -29px;
-    top: 0;
+    top: 2px;
     position: absolute;
     display: none;
 }
@@ -291,81 +269,81 @@ h1#theTitle.creditsEnd{
     color: #2041da;
     width: 150px;
 }
-#optionRetourCartoucheDeJeux a{
-    text-decoration: none;
-    color: #53c7f7;
-    font-size: 0.6em;
-}
-#optionRetourCartoucheDeJeux a:hover{
-    color: antiquewhite;
-}
 .plateau{
     background-size: 100%;
 }
 #labyMenu li:first-child{
-/*    margin: 0 300px;
-*/}
-#labyMenu #boutonChangeWorld{
-    background-color: cornflowerblue;
-    color: gold;
-    width: 100px;
-    height: 100px;
-    border: 3px solid;
-    border-radius: 50%;
-    box-shadow: -1px 1px 84px 19px rgba(250,255,106,0.75);
-
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    font-size: 0.7em;
-}
-#labyMenu #boutonChangeWorld:hover{
-    color: gold;
-}
-#pasFin{
-    font-size: 2em;
-    color: goldenrod;
-    position: absolute;
-    color: red;
-    display: none;
-}
-#labyMenu ul li:hover,
-#labyMenu #optionLabyMenu li:hover{
-    color: gold;
-}
-#labyMenu ul li span{
-    color: darkkhaki;
-    font-size: 1.3em;
-    width: 125px;
-}
-#labyMenu div ul #optionVSmontre{
-    margin-bottom: 6%;
-}
-#labyMenu #optionMelangerEtMonde{
-    margin-top: 4em;
-    color: aliceblue;
-}
-#labyMenu ul li#optionRetourCartoucheDeJeux{
-    position: absolute;
-    bottom: 3%;
-    left: 3%;
-    color: aliceblue;
-}
-#retourMenu{
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    width: 135px;
-    height: 40px;
-    z-index: 5;
-    background: black;
-    font-family: "CodystarR";
-    color: gold;
-    font-size: 2.7em;
-    border: 3px ridge darkslategrey;
-    border-top: 2px ridge aliceblue;
-    border-left: 2px ridge aliceblue;
-}
-#reload{
+    /*    margin: 0 300px;
+    */}
+    #labyMenu #boutonChangeWorld{
+        background-color: cornflowerblue;
+        color: gold;
+        width: 100px;
+        height: 100px;
+        border: 3px solid;
+        border-radius: 50%;
+        box-shadow: -1px 1px 84px 19px rgba(250,255,106,0.75);
+        
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        font-size: 0.7em;
+    }
+    #labyMenu #boutonChangeWorld:hover{
+        color: gold;
+    }
+    #pasFin{
+        font-size: 2em;
+        color: goldenrod;
+        position: absolute;
+        color: red;
+        display: none;
+    }
+    #labyMenu ul li:hover,
+    #labyMenu #optionLabyMenu li:hover{
+        color: gold;
+    }
+    #labyMenu ul li span{
+        color: darkkhaki;
+        font-size: 1.3em;
+        width: 125px;
+    }
+    #labyMenu div ul #optionVSmontre{
+        margin-bottom: 6%;
+    }
+    #labyMenu #optionMelangerEtMonde{
+        margin-top: 4em;
+        color: aliceblue;
+    }
+    #labyMenu ul li#linkPortefolio{
+        position: absolute;
+        bottom: 3%;
+        left: 3%;
+        color: aliceblue;
+    }
+    #linkPortefolio a{
+        text-decoration: none;
+        color: #c27cff;
+        font-size: 1em;
+    }
+    #linkPortefolio a:hover{
+        color: rgb(229, 43, 235);
+    }
+    #retourMenu{
+        position: absolute;
+        top: 1%;
+        right: 1%;
+        width: 135px;
+        height: 40px;
+        z-index: 5;
+        background: black;
+        font-family: "CodystarR";
+        color: gold;
+        font-size: 2.7em;
+        border: 3px ridge darkslategrey;
+        border-top: 2px ridge aliceblue;
+        border-left: 2px ridge aliceblue;
+    }
+    #reload{
     position: absolute;
     left: 41px;
     top: 286px;
@@ -388,27 +366,27 @@ h1#theTitle.creditsEnd{
 }
 #metalTop{
     position: absolute;
-    top: 0;
+    top: -10%;
     left: 0;
     width: 100%;
-    height: 0vh;
+    height: 0%;
     z-index: 120;
     background-image: url(textures/metal5.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 130%;
+    background-size: 150%;
     overflow: hidden;
     animation-duration: 2s;
 }
 #metalBottom{
     width: 100%;
-    height: 0vh;
+    height:0%;
     background-image: url(textures/metal5.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 130%;
+    background-size: 150%;
     position: absolute;
-    bottom: 0;
+    bottom: -10%;
     z-index: 120;
     overflow: hidden;
     animation-duration: 2s;
@@ -622,7 +600,7 @@ h1#theTitle.creditsEnd{
 }
 #boite{
     background-color: cadetblue;
-    background-image: url(outils/laby_space.png);
+    background-image: url(outils/laby_space.html);
     background-image: url(fond/fondSpace5.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -639,7 +617,7 @@ h1#theTitle.creditsEnd{
     border: 9px ridge gold;
     background-image: none;
     box-sizing: border-box;
-    background-image: url(outils/laby_space.png);
+    background-image: url(outils/laby_space.html);
     background-image: url(textures/ligneDanger.png);
     background-size: 100%;
     background-repeat: repeat;
@@ -751,30 +729,30 @@ h1#theTitle.creditsEnd{
     50%{transform: rotate(360deg);}
 }*/
 @keyframes topDown{
-    0%{height: 0vh;}
-    50%{height: 50.5vh;}
-    100%{height: 0vh;}
+    0%{height: 0%;}
+    50%{height: 61%;}
+    100%{height: 0%;}
 }
 @keyframes bottomTop{
-    0%{height: 0vh;}
-    50%{height: 50.5vh;}
-    100%{height: 0vh;}
+    0%{height: 0%;}
+    50%{height: 61%;}
+    100%{height: 0%;}
 }
 @keyframes topDownCLOSE{
-    0%{height: 0vh;}
-    100%{height: 50vh;}
+    0%{height: 0%;}
+    100%{height: 60%;}
 }
 @keyframes bottomTopCLOSE{
-    0%{height: 0vh;}
-    100%{height: 50vh;}
+    0%{height: 0%;}
+    100%{height: 60%;}
 }
 @keyframes topDownCLOSEopen{
-    0%{height: 50vh;}
-    100%{height: 0vh;}
+    0%{height: 60%;}
+    100%{height: 0%;}
 }
 @keyframes bottomTopCLOSEopen{
-    0%{height: 50vh;}
-    100%{height: 0vh;}
+    0%{height: 60%;}
+    100%{height: 0%;}
 }
 @keyframes vite{
 	0%{color: gold; opacity: 1;}
@@ -1046,7 +1024,6 @@ input:checked + .plateau + input:not(:checked) + .plateau{
     padding: 3%;
     border-radius: 13%;
     transform: rotate(-32deg);
-    z-index: 1469;
     font-size: 2.7em;
     color: teal;
     box-shadow: 1px 1px 1px black;
@@ -1133,7 +1110,7 @@ input:checked + .plateau + input:not(:checked) + .plateau{
 #formPlayerID{
     position: absolute;
     top: 50vh;
-    left: 25vw;
+    left: 30vw;
     font-size: 2.5em;
 }
 #welcome.Hide{
@@ -1215,14 +1192,14 @@ input[name="playerID"]{
 @media screen and (max-width: 855px){
 
 	#noMobile{
-        display: unset;
+        display: inline-block;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1000;
         width: 100%;
         height: 100%;
-        background-color: blue;
+        background-color: rgb(9, 70, 110);
         color: goldenrod;
         text-align: center;
         padding-top: 42%;
@@ -1231,7 +1208,7 @@ input[name="playerID"]{
 
 	
 }
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1400px){
 	/* CSS poour les ordianteurs */
 
     #gifExo {

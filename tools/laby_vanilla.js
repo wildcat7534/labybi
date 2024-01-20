@@ -50,8 +50,6 @@ var goMarioKartColor;
 var colorDivBestScore = document.querySelector('#infoScreen #score div:nth-child(2)');
 colorDivBestScore.classList.add('marioKartColorDivs');
 
-
-
 transiMetal();
 displayPlayer();
 
@@ -179,8 +177,7 @@ function changeWorld(){ //le monde rond ou pas !
 	for(var plateau of plateaux ){
 		if( plateau.classList.contains('plateauRond') ){
 
-			plateau.classList.replace('plateauNormal', 'plateauRond');
-
+			plateau.classList.replace('plateauRond', 'plateauNormal');
 			mondeRond = false;
 
 			for( var perdu of perdus ){
@@ -233,8 +230,8 @@ function tourneTourne(){
 	letsGo = setTimeout(tourneTourne, 1000);
 	tour += 2;
 	gameTourne.style.transform = 'rotate(' +tour +'deg)';
-};
 
+};
 function reloadGame(){  // reload tous pour rejouer !
 	
 	regex_mehdi.lastIndex = 0;
@@ -243,6 +240,7 @@ function reloadGame(){  // reload tous pour rejouer !
 
 		timesUP = 10;
 		console.log('bonus temps pour Mehdi : ', timesUP)
+
 
 	}else if(regex_volo.test(newPlayer)){
 
@@ -256,6 +254,7 @@ function reloadGame(){  // reload tous pour rejouer !
 
 		if(plateau.classList.contains('plateauRond')){
 			timesUP = 20;
+
 	}};
 
 	reload.classList.remove('reloadOpen');
@@ -445,6 +444,8 @@ function saucer(){  //animation end game !
 
 function totalFin(){
 
+
+
 	var labyMenu = document.querySelector('#labyMenu');
 	var rules = document.querySelector('#rules');
 	var gifExo = document.querySelector('#gifExo');
@@ -535,6 +536,11 @@ function totalFin(){
 //----------------------------------------------------------------------------------------------//
 //----------------------------------------------------------------------------------------------//
 
+
+
+
+
+
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------//
@@ -592,6 +598,7 @@ var baladesRondes = [
 			sentiere : [5,6,5,9],
 		}
 ];
+
 
 var divFin = document.querySelectorAll('.divFin');
 var plateaux = document.querySelectorAll('.plateau');
@@ -734,7 +741,6 @@ function randomLevel(){ //Cache les anciens niveaux  et construit les niveaux au
 		numPlateau++;
 		
 	}
-
 	while( numPlateau <= 4 && mondeRond == true ){
 
 
@@ -925,7 +931,7 @@ optionChrono.addEventListener('mousemove', function(e){
 
 
 
-//-------------BONUS "+5" --------------------------------//
+//-------------BONUS "+5" A FAIRE --------------------------------//
 
 var gameLabels = document.querySelectorAll('#game label'); // BONUS "+5 SEC" suit le curseur !
 var bonus = document.querySelector('#bonus');
@@ -956,7 +962,6 @@ for(var label of gameLabels){
 		}, 2000);
 		
 	});
-
 };
 
 function cursorPosition(){
@@ -972,12 +977,12 @@ function cursorPosition(){
 			pos.x += 17;
 			bonus.style.top = pos.y + "px";
 			bonus.style.left = pos.x + "px";
-			starGold.style.top = pos.y;
-			starGold.style.left = pos.x;
+
 			console.log(pos.x, pos.y);
 		}
 	});
 
+	
 };
 //-------------BONUS "+5" A FAIRE -------------END-------------------//
 
@@ -993,6 +998,7 @@ function cursorPosition(){
 
 
 //---------------------------------DISPLAY SCORE------------------------------------------------//
+
 
 		
 var scoreBefore = 10;
@@ -1029,6 +1035,7 @@ function displayScoreScreen(tempsReceived){
 		oldPlayer2.innerHTML = "Mehdi";
 
 }
+
 
 var iDeg = 0;
 
@@ -1067,15 +1074,15 @@ function marioKartColor_menuChangeWorld(){
 //------------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------------//
 //------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-// ------------------------------------- Dev MODE ----------------------------------------------------- //
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
-//------------------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------------//
+// ------------------------------------- Dev MODE ------------------------------------------------------ //
+//---------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------------------//
 
 
 var divDebug = document.createElement('div');
@@ -1138,6 +1145,7 @@ divDebug.appendChild(labelPhilipsHUE);
 divDebug.appendChild(inputPhilipsHUE);
 
 labelDebug.style.width = "50%";
+
 
 labelDebug.innerHTML = 'GodMod    -->';
 labelClose.innerHTML = 'closeDoor -->';
@@ -1271,37 +1279,9 @@ saucerMenuOption.addEventListener('click', function(){
 		}
 });
 var labymenuH1 = document.querySelector('#labyMenu h1');
-var starGold = document.querySelector('#starGold');
-var starGoldMouse = document.querySelector('#starGoldMouse');
 var labymenuH1Click = 0;
 var countLabymenuH1 = 0;
-labymenuH1.addEventListener('click', function(e){
-
-			starGoldMouse.style.display = 'block';
-			pos = {"x": e.clientX, "y": e.clientY};
-			pos.y -= 25;
-			pos.x -= 500;
-			starGoldMouse.style.top = pos.y +"px";
-			starGoldMouse.style.left = pos.x +"px";
-			starGoldMouse.style.animationName = 'starAnime';
-			
-			setTimeout(function(){
-		
-				starGold.style.display = 'none';
-				starGoldMouse.style.display = 'none';
-				starGold.style.top = '0em';
-			starGoldMouse.style.animationName = '';
-			}, 750);
-
-	starGold.style.display = 'block';
-	starGold.style.animationName = 'starAnime';
-	//starGold.style.top = '-0.5em';
-	setTimeout(function(){
-		
-		starGold.style.display = 'none';
-		starGoldMouse.style.display = 'none';
-		starGold.style.top = '0em';
-	}, 750);
+labymenuH1.addEventListener('click', function(){
 
 	labymenuH1Click++;
 
