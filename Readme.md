@@ -15,7 +15,7 @@ et surtout arriver à voir la FIN du jeu ;D__
 
 _j'espère que vous vous amuserez !_
 
-![Alt text](tools/labyMenuFin.png)
+![Alt text](tools/labybiMenu.ico)
 
 
 -v 1.9-
